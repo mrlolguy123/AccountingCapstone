@@ -17,3 +17,6 @@ pertains to the application’s use of economic documents. We will also potentia
 Python in some of the backend modules
 
 As of 12/15/2023, an email was sent to Kabir requesting him to be an advisor. We do not currently have an advisor.
+
+Functional Requirements Quick Link:
+**https://github.com/mrlolguy123/AccountingCapstone/blob/f8fb57a4e432e10a7a7bfeecd0e1c602932c2675/Functional%20Requirements/Functional_Requirments_Capstone%20Draft%201.pdf**
