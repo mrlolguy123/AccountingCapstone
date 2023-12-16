@@ -1,7 +1,0 @@
-Home
-Accounting
-Invoicing
-Treasury
-Payroll
-Audit Check
-Logout
