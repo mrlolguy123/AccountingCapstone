@@ -1,0 +1,1 @@
+The GUI Prototype Draft functions as the storyboard as well. We didn't know how the storyboard would be drawn if you can already make interactive prototypes in Adobe XD.
