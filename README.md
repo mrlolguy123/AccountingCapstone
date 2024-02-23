@@ -11,7 +11,7 @@ matters such as Profit/Loss statements. We will be working with an external data
 to store files (PDF statements) and other confidential information like login information
 and user information.
 
-We will use JavaFX as our base application integrated with Firebase as the database
+We will use JavaFX as our base application integrated with MySQL as the database
 platform that can not only store key-value information, but in addition to media, which
 pertains to the application’s use of economic documents. We will also potentially use
 Python in some of the backend modules
