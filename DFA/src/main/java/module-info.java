@@ -11,6 +11,5 @@ module com.team7.dfa {
     exports com.team7.dfa.controller;
     exports com.team7.dfa.model;
     opens com.team7.dfa.controller to javafx.fxml;
-    exports com.team7.dfa.model;
     opens com.team7.dfa.model to javafx.fxml;
 }

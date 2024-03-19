@@ -10,13 +10,6 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import java.io.IOException;
 public class TemplateTestApplication extends Application {
-    public static SQLConnect connect;
-    @FXML
-    public static Label label;
-
-    @FXML
-    public static TableView<cardRecord> cardTable = new TableView<>();
-
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(TemplateTestApplication.class.getResource("invoicing.fxml"));
@@ -29,12 +22,6 @@ public class TemplateTestApplication extends Application {
     }
 
     public static void main(String[] args) throws Exception {
-        connect = new SQLConnect();
-        connect.startConnection(args);
         launch();
-
-
-
-
     }
 }

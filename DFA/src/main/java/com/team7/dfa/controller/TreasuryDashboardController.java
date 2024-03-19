@@ -1,6 +1,7 @@
 package com.team7.dfa.controller;
 
 import com.team7.dfa.TemplateTestApplication;
+import com.team7.dfa.db.DatabaseConnector;
 import com.team7.dfa.model.cardRecord;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,9 +19,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static com.team7.dfa.TemplateTestApplication.connect;
-
 public class TreasuryDashboardController {
+    DatabaseConnector db = new DatabaseConnector();
+    Connection con = db.connect();
 
     @FXML
     public TableColumn cardNameCol;
@@ -74,7 +75,7 @@ public class TreasuryDashboardController {
     @FXML
     protected void mousePressed() throws IOException, SQLException {
 
-        ObservableList<cardRecord> records = getRecords(connect.getConnection());
+        ObservableList<cardRecord> records = getRecords(con);
 
 
         cardNameCol.setCellValueFactory(new PropertyValueFactory<cardRecord,String>("cardName"));
