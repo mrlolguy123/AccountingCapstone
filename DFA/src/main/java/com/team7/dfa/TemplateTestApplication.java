@@ -6,13 +6,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
 public class TemplateTestApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TemplateTestApplication.class.getResource("template.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Template");
+        FXMLLoader fxmlLoader = new FXMLLoader(TemplateTestApplication.class.getResource("invoicing.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        stage.setTitle("Invoicing");
         stage.setMinHeight(400);
         stage.setMinWidth(600);
         stage.setScene(scene);
