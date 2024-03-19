@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Toggle;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.io.File;
@@ -49,20 +48,6 @@ public class HomePageController {
             }
         });
     }
-//    private void generate_graphs() {
-//        generateGraphsButton.setOnAction(event -> {
-//            try {
-//                String command = "python C:\\Users\\Aman Sahu\\Desktop\\Capstone 2024\\AccountingCapstone\\DFA\\src\\main\\python\\scripts\\generate_graphs.py";
-//                Process process= Runtime.getRuntime().exec(command);
-//                process.waitFor();
-//                updateGraphImages();
-//                System.out.println("Successfully Executed");
-//
-//            } catch (IOException | InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//    }
 
     private void updateGraphImages() {
         //graph1.setImage(new Image("file:///C:/Users/Aman%20Sahu/Desktop/Capstone%202024/AccountingCapstone/DFA/src/main/python/generated_graphs/sample_BoxPlot.png"));
