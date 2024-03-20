@@ -44,12 +44,12 @@ public class ParentController {
 
     @FXML
     protected void payrollClicked(ActionEvent event) throws IOException {
-        //not implemented
+        // not implemented
     }
 
-    // load fxml function
     public void loadFXML(String link, ActionEvent event) throws IOException {
         db.disconnect();
+
         Node source = (Node) event.getSource();
         Stage previousStage = (Stage) source.getScene().getWindow();
 
