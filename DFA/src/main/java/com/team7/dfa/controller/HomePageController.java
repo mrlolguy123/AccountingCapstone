@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 public class HomePageController extends ParentController {
     @FXML
@@ -33,12 +34,17 @@ public class HomePageController extends ParentController {
     @FXML
     private Button generateGraphsButton;
 
+    public String currentDir = Paths.get("").toAbsolutePath().toString();
+    public String graphWorkingDirectory = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "generated_graphs";
+
     @FXML
-    private void generate_graphs() {
+    private void generateGraphs() {
         generateGraphsButton.setOnAction(event -> {
+            String pythonScriptPath = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "scripts" + File.separator + "generate_graphs.py";
+
             try {
-                ProcessBuilder processBuilder = new ProcessBuilder("python", "C:\\Users\\Aman Sahu\\Desktop\\Capstone 2024\\AccountingCapstone\\DFA\\src\\main\\python\\scripts\\generate_graphs.py");
-                processBuilder.directory(new File("C:\\Users\\Aman Sahu\\Desktop\\Capstone 2024\\AccountingCapstone\\DFA\\src\\main\\python\\scripts"));
+                ProcessBuilder processBuilder = new ProcessBuilder("python", pythonScriptPath);
+                //processBuilder.directory(new File(pythonWorkingDirectory)); //this is unused??
                 Process process = processBuilder.start();
                 process.waitFor();
                 updateGraphImages();

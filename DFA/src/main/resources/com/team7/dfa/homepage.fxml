@@ -44,7 +44,7 @@
                         <Font name="Leelawadee" size="30.0" />
                     </font>
                 </Label>
-                <Button fx:id="generateGraphsButton" layoutX="704.0" layoutY="20.0" mnemonicParsing="false" onAction="#generate_graphs" text="Generate Graphs" textAlignment="CENTER" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="20.0" />
+                <Button fx:id="generateGraphsButton" layoutX="704.0" layoutY="20.0" mnemonicParsing="false" onAction="#generateGraphs" text="Generate Graphs" textAlignment="CENTER" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="20.0" />
             <GridPane alignment="CENTER" hgap="5.0" layoutX="13.0" layoutY="54.0" nodeOrientation="LEFT_TO_RIGHT" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
                <children>
                   <Label alignment="CENTER" text="Total Profit" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
