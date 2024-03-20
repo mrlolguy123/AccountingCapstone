@@ -3,6 +3,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import pypyodbc as odbc
 import os
+import sys
+
+# sql_statement = sys.argv[1]
+# graph_name = sys.argv[2]
+# graph_choice = sys.argv[3]
 
 def getDataFrame(query):
     # will leave creds in python file for now, implement security later

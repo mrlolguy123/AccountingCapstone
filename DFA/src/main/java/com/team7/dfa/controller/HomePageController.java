@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class HomePageController extends ParentController {
     @FXML
@@ -32,12 +33,18 @@ public class HomePageController extends ParentController {
     public String currentDir = Paths.get("").toAbsolutePath().toString();
     public String graphWorkingDirectory = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "generated_graphs";
 
+    public String pythonScriptPath = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "scripts" + File.separator + "generate_graphs.py";
 
-    private void runScript(){
+    private String myGraphPlaceholder = "";
+
+    public void runScript(){
         try{
-            String pythonScriptPath = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "scripts" + File.separator + "generate_graphs.py";
+//            String sql_statement = "SELECT * FROM Students";
+//            String graph_choice  = "3";
+//            ArrayList<String> test = new ArrayList<String>();
+//            test.add(sql_statement);
+//            test.add
             ProcessBuilder processBuilder = new ProcessBuilder("python", pythonScriptPath);
-            //processBuilder.directory(new File(pythonWorkingDirectory)); //this is unused??
             Process process = processBuilder.start();
             process.waitFor();
 
@@ -46,6 +53,7 @@ public class HomePageController extends ParentController {
         }
     }
 
+    @FXML
     private void updateGraphImages() {
         //graph1.setImage(new Image("file:///C:/Users/Aman%20Sahu/Desktop/Capstone%202024/AccountingCapstone/DFA/src/main/python/generated_graphs/sample_BoxPlot.png"));
         graph2.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + "testingbar.png"));
