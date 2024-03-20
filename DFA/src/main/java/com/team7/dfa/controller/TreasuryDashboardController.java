@@ -19,10 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TreasuryDashboardController {
-    DatabaseConnector db = new DatabaseConnector();
-    Connection con = db.connect();
-
+public class TreasuryDashboardController extends ParentController {
     @FXML
     public TableColumn cardNameCol;
     @FXML

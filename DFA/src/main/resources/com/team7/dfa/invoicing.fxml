@@ -14,16 +14,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.InvoicingController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.InvoicingController">
    <left>
       <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="126.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="homeButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Home" />
-            <Button fx:id="accountingButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Accounting" />
-            <Button fx:id="invoiceButton" mnemonicParsing="false" onAction="#invoiceButtonClick" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Invoicing" />
-            <Button fx:id="treasuryButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Treasury" />
-            <Button fx:id="payrollButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Payroll" />
-            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Logout" />
+             <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Home" />
+             <Button fx:id="accountingButton" mnemonicParsing="false" onAction="#accountClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Accounting" />
+             <Button fx:id="invoiceButton" mnemonicParsing="false" onAction="#invoiceClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Invoicing" />
+             <Button fx:id="treasuryButton" mnemonicParsing="false" onAction="#treasuryClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Treasury" />
+             <Button fx:id="payrollButton" mnemonicParsing="false" onAction="#payrollClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Payroll" />
+             <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Logout" />
          </children>
       </VBox>
    </left>
@@ -41,7 +41,7 @@
    <center>
       <AnchorPane fx:id="contentPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <BorderPane fx:id="invoicingDashPane" layoutX="125.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <BorderPane fx:id="invoicingDashPane" layoutX="125.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
                   <Label text="Invoicing Dashboard" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
@@ -183,7 +183,7 @@
                   </GridPane>
                </center>
             </BorderPane>
-            <BorderPane fx:id="invoicingTablePane" layoutX="304.0" layoutY="206.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <BorderPane fx:id="invoicingTablePane" layoutX="304.0" layoutY="206.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
                   <Label fx:id="invoicesTableTitle" text="Invoices" BorderPane.alignment="CENTER">
                      <font>

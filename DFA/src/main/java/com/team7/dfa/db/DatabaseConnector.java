@@ -33,10 +33,10 @@ public class DatabaseConnector {
     public void disconnect() {
         try{
             conn.close();
-            System.out.println("Database is now disconnected.");
+            log.info("Database is now disconnected.");
         }
         catch (SQLException e){
-            System.out.println("Database was not connected.");
+            log.info("Database was not connected.");
         }
     }
 

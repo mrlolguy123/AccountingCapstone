@@ -19,9 +19,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class InvoicingController {
-    DatabaseConnector db = new DatabaseConnector();
-    Connection con = db.connect();
+public class InvoicingController extends ParentController {
+    @FXML
+    private Button invoiceButton;
 
     /*
     * 0 - Receivable Invoice
@@ -53,8 +53,6 @@ public class InvoicingController {
     private BorderPane invoicingTablePane;
     @FXML
     private Label invoicesTableTitle;
-    @FXML
-    private Button invoiceButton;
     @FXML
     private Button recInvButton;
     @FXML
@@ -152,12 +150,6 @@ public class InvoicingController {
     {
         invoicingDashPane.setVisible(true);
         invoicingTablePane.setVisible(false);
-    }
-
-    @FXML
-    protected void logoutClicked()
-    {
-        System.exit(0);
     }
 
     protected void refreshInvoiceTable()

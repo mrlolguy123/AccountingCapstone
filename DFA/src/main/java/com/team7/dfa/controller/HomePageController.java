@@ -1,17 +1,22 @@
 package com.team7.dfa.controller;
 
+import com.team7.dfa.TemplateTestApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 
-public class HomePageController {
+public class HomePageController extends ParentController {
     @FXML
-    private Button logoutButton;
+    private Button homeButton;
 
     @FXML
     private ScrollPane vbox_container;
@@ -27,11 +32,6 @@ public class HomePageController {
 
     @FXML
     private Button generateGraphsButton;
-
-    @FXML
-    protected void logoutClicked(ActionEvent event) {
-        System.exit(0);
-    }
 
     @FXML
     private void generate_graphs() {
