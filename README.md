@@ -11,12 +11,9 @@ matters such as Profit/Loss statements. We will be working with an external data
 to store files (PDF statements) and other confidential information like login information
 and user information.
 
-We will use JavaFX as our base application integrated with MySQL as the database
+We will use JavaFX as our base application integrated with Azure SQL Database as the database
 platform that can not only store key-value information, but in addition to media, which
 pertains to the application’s use of economic documents. We will also potentially use
-Python in some of the backend modules
+Python in some of the backend modules.
 
 Advisor: Kabir
-
-Functional Requirements Quick Link:
-**https://github.com/mrlolguy123/AccountingCapstone/blob/f8fb57a4e432e10a7a7bfeecd0e1c602932c2675/Functional%20Requirements/Functional_Requirments_Capstone%20Draft%201.pdf**
