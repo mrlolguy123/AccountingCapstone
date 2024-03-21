@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!--                          <ImageView fx:id="graph1" layoutX="10.0" layoutY="10.0" preserveRatio="true" smooth="false">-->
+<!--                              <image>-->
+<!--                                  <Image url="file:///C:/Users/Aman%20Sahu/Desktop/Capstone%202024/AccountingCapstone/DFA/src/main/python/generated_graphs/sample_BoxPlot.png" />-->
+<!--                              </image>-->
+<!--                          </ImageView>-->
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.HomePageController">
+    <left>
+        <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="126.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Home" />
+                <Button fx:id="accountingButton" mnemonicParsing="false" onAction="#accountClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Accounting" />
+                <Button fx:id="invoiceButton" mnemonicParsing="false" onAction="#invoiceClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Invoicing" />
+                <Button fx:id="treasuryButton" mnemonicParsing="false" onAction="#treasuryClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Treasury" />
+                <Button fx:id="payrollButton" mnemonicParsing="false" onAction="#payrollClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Payroll" />
+                <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Logout" />
+            </children>
+        </VBox>
+    </left>
+    <top>
+        <AnchorPane fx:id="titleBar" prefHeight="49.0" prefWidth="1034.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="companyName" layoutX="14.0" layoutY="9.0" text="Placeholder Company Name" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="9.0">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <AnchorPane id="homePagePane" fx:id="contentPane" prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="37.0" prefWidth="889.0" text="Home Page" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                    <font>
+                        <Font name="Leelawadee" size="30.0" />
+                    </font>
+                </Label>
+            <GridPane alignment="CENTER" hgap="5.0" layoutX="13.0" layoutY="54.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
+               <children>
+                  <Label alignment="CENTER" text="Total Profit" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="449.0" text="Total Loss" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <content>
+                         <StackPane alignment="CENTER">
+                            <children>
+                                <ImageView fx:id="graph1" layoutX="10.0" layoutY="10.0" nodeOrientation="INHERIT" preserveRatio="true" smooth="false">
+                                    <image>
+                                    </image>
+                                </ImageView>
+                            </children>
+                           <rotationAxis>
+                              <Point3D />
+                           </rotationAxis>
+                         </StackPane>
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <content>
+                         <StackPane alignment="CENTER">
+                            <children>
+                                <ImageView fx:id="graph2" layoutX="10.0" layoutY="10.0" preserveRatio="true" smooth="false">
+                                    <image>
+                                    </image>
+                                </ImageView>
+                            </children>
+                         </StackPane>
+                     </content>
+                  </ScrollPane>
+                      <Button fx:id="generateGraphsButton" mnemonicParsing="false" onAction="#generateGraphButton" text="Generate Graphs" textAlignment="CENTER" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="394.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="519.0" minHeight="0.0" prefHeight="444.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="391.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </GridPane>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
