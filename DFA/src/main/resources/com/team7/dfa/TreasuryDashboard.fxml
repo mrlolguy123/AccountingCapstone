@@ -41,11 +41,15 @@
             <Accordion layoutX="126.0" layoutY="182.0" />
             <VBox layoutX="67.0" layoutY="100.0" prefHeight="486.0" prefWidth="773.0">
                <children>
-                  <TitledPane animated="false" text="All Accounts">
-                    <content>
-                    </content>
+                  <TitledPane fx:id="bankPane" animated="false" expanded="false" onMousePressed="#bankMousePressed" text="Bank Accounts">
+                     <TableView fx:id="bankTable">
+                        <columns>
+                           <TableColumn fx:id="bankNameCol" prefWidth="178.0" text="Bank Name" />
+                           <TableColumn fx:id="accountNumCol" prefWidth="250.0" text="Account Number" />
+                           <TableColumn fx:id="routingNumCol" prefWidth="182.0" text="Routing Number" />
+                        </columns></TableView>
                   </TitledPane>
-                  <TitledPane fx:id="cardPane" animated="false" expanded="false" onMousePressed="#mousePressed" text="Credit Cards">
+                  <TitledPane fx:id="cardPane" animated="false" expanded="false" onMousePressed="#cardMousePressed" text="Credit Cards">
                      <TableView fx:id="cardTable">
                         <columns>
                            <TableColumn fx:id="cardNameCol" prefWidth="178.0" text="Card Name" />

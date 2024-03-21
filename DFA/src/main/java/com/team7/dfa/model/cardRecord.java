@@ -13,12 +13,6 @@ public class cardRecord {
     public cardRecord() {
     }
 
-    public cardRecord(String cardNum, String cardExpiry, String cardSec){
-        this.cardName= null;
-        cardNumProperty().set(cardNum);
-        cardExpiryProperty().set(cardExpiry);
-        cardSecProperty().set(cardSec);
-    }
     public cardRecord(String cardName, String cardNum, String cardExpiry, String cardSec) {
         cardNameProperty().set(cardName);
         cardNumProperty().set(cardNum);
