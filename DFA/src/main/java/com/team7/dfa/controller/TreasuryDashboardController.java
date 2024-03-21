@@ -1,7 +1,7 @@
 package com.team7.dfa.controller;
 
 import com.team7.dfa.TemplateTestApplication;
-import com.team7.dfa.db.DatabaseConnector;
+import com.team7.dfa.model.bankAccount;
 import com.team7.dfa.model.cardRecord;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,20 +18,28 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
+
 
 public class TreasuryDashboardController extends ParentController {
     @FXML
-    public TableColumn cardNameCol;
+    private TableColumn cardNameCol;
     @FXML
-    public TableColumn cardNumCol;
+    private TableColumn cardNumCol;
     @FXML
-    public TableColumn cardExpiryCol;
+    private TableColumn cardExpiryCol;
     @FXML
-    public TableColumn cardSecCol;
-    @FXML
-    private TitledPane cardPane;
+    private TableColumn cardSecCol;
     @FXML
     private TableView cardTable;
+    @FXML
+    private TableView bankTable;
+    @FXML
+    private TableColumn bankNameCol;
+    @FXML
+    private TableColumn accountNumCol;
+    @FXML
+    private TableColumn routingNumCol;
     @FXML
     private javafx.scene.control.Button closeButton;
     @FXML
@@ -42,6 +50,13 @@ public class TreasuryDashboardController extends ParentController {
     private Button addCreditCardButton;
     @FXML
     private Button importStatementButton;
+
+    static Logger log = null;
+
+    static {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+        log = Logger.getLogger(TreasuryDashboardController.class.getName());
+    }
 
     @FXML
     protected void logoutClicked(ActionEvent event)
@@ -70,25 +85,41 @@ public class TreasuryDashboardController extends ParentController {
     }
 
     @FXML
-    protected void mousePressed() throws IOException, SQLException {
-
+    protected void cardMousePressed() throws IOException, SQLException {
         ObservableList<cardRecord> records = getRecords(con);
+        try {
+            cardNameCol.setCellValueFactory(new PropertyValueFactory<cardRecord, String>("cardName"));
+            cardNumCol.setCellValueFactory(new PropertyValueFactory<cardRecord, String>("cardNum"));
+            cardExpiryCol.setCellValueFactory(new PropertyValueFactory<cardRecord, String>("cardExpiry"));
+            cardSecCol.setCellValueFactory(new PropertyValueFactory<cardRecord, String>("cardSec"));
 
+            cardTable.getColumns().setAll(cardNameCol, cardNumCol, cardExpiryCol, cardSecCol);
 
-        cardNameCol.setCellValueFactory(new PropertyValueFactory<cardRecord,String>("cardName"));
-        cardNumCol.setCellValueFactory(new PropertyValueFactory<cardRecord,String>("cardNum"));
-        cardExpiryCol.setCellValueFactory(new PropertyValueFactory<cardRecord,String>("cardExpiry"));
-        cardSecCol.setCellValueFactory(new PropertyValueFactory<cardRecord,String>("cardSec"));
-
-        cardTable.getColumns().setAll(cardNameCol,cardNumCol,cardExpiryCol,cardSecCol);
-
-        cardTable.setItems(records);
-
-
+            cardTable.setItems(records);
+        } catch (Exception e) {
+            log.info("Could not fill Card Table");
+        }
     }
 
-    protected ObservableList<cardRecord> getRecords(Connection connection) throws SQLException,IOException{
-        ResultSet rs = readData(connection);
+    @FXML
+    protected void bankMousePressed() throws SQLException{
+        ObservableList<bankAccount> accounts = getAccounts(con);
+
+        try {
+            bankNameCol.setCellValueFactory(new PropertyValueFactory<bankAccount, String>("bankName"));
+            accountNumCol.setCellValueFactory(new PropertyValueFactory<bankAccount, String>("accountNum"));
+            routingNumCol.setCellValueFactory(new PropertyValueFactory<bankAccount, String>("routingNum"));
+
+            bankTable.getColumns().setAll(bankNameCol, accountNumCol, routingNumCol);
+
+            bankTable.setItems(accounts);
+        } catch(Exception e){
+            log.info("Could not fill Bank Table");
+        }
+    }
+
+    protected ObservableList<cardRecord> getRecords(Connection connection) throws SQLException{
+        ResultSet rs = readDataRecords(connection);
         ObservableList<cardRecord> oL = FXCollections.observableArrayList();
         while (rs.next()){
             cardRecord temp = new cardRecord(rs.getString("CardName"),
@@ -100,11 +131,29 @@ public class TreasuryDashboardController extends ParentController {
         return oL;
     }
 
-    protected ResultSet readData(Connection connection) throws SQLException,IOException{
+    protected ResultSet readDataRecords(Connection connection) throws SQLException{
         Statement stmt = connection.createStatement();
         String SQL = "SELECT * FROM dbo.andrewCardRecord;";
         ResultSet rs = stmt.executeQuery(SQL);
         return rs;
     }
 
+    protected ObservableList<bankAccount> getAccounts(Connection connection) throws SQLException{
+        ResultSet rs = readDataAccounts(connection);
+        ObservableList<bankAccount> oL = FXCollections.observableArrayList();
+        while(rs.next()){
+            bankAccount temp = new bankAccount(rs.getString("bankName"),
+                    rs.getString("accountNum"),
+                    rs.getString("routeNum"));
+            oL.addAll(temp);
+        }
+        return oL;
+    }
+
+    protected ResultSet readDataAccounts(Connection connection) throws SQLException{
+        Statement stmt = connection.createStatement();
+        String SQL = "Select * FROM dbo.andrewBankAccounts;";
+        ResultSet rs = stmt.executeQuery(SQL);
+        return rs;
+    }
 }
