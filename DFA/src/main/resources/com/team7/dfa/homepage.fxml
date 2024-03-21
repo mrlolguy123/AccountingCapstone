@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
@@ -39,13 +40,12 @@
     <center>
         <AnchorPane id="homePagePane" fx:id="contentPane" prefHeight="200.0" prefWidth="200.0">
             <children>
-                <Label layoutX="375.0" layoutY="14.0" prefHeight="37.0" prefWidth="159.0" text="Home Page" textAlignment="CENTER" AnchorPane.leftAnchor="375.0" AnchorPane.rightAnchor="374.0">
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="37.0" prefWidth="889.0" text="Home Page" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                     <font>
                         <Font name="Leelawadee" size="30.0" />
                     </font>
                 </Label>
-                <Button fx:id="generateGraphsButton" layoutX="704.0" layoutY="20.0" mnemonicParsing="false" onAction="#generateGraphs" text="Generate Graphs" textAlignment="CENTER" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="20.0" />
-            <GridPane alignment="CENTER" hgap="5.0" layoutX="13.0" layoutY="54.0" nodeOrientation="LEFT_TO_RIGHT" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
+            <GridPane alignment="CENTER" hgap="5.0" layoutX="13.0" layoutY="54.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
                <children>
                   <Label alignment="CENTER" text="Total Profit" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
@@ -61,7 +61,7 @@
                      <content>
                          <StackPane alignment="CENTER">
                             <children>
-                                <ImageView fx:id="graph2" layoutX="10.0" layoutY="10.0" nodeOrientation="INHERIT" preserveRatio="true" smooth="false">
+                                <ImageView fx:id="graph1" layoutX="10.0" layoutY="10.0" nodeOrientation="INHERIT" preserveRatio="true" smooth="false">
                                     <image>
                                     </image>
                                 </ImageView>
@@ -76,7 +76,7 @@
                      <content>
                          <StackPane alignment="CENTER">
                             <children>
-                                <ImageView fx:id="graph3" layoutX="10.0" layoutY="10.0" preserveRatio="true" smooth="false">
+                                <ImageView fx:id="graph2" layoutX="10.0" layoutY="10.0" preserveRatio="true" smooth="false">
                                     <image>
                                     </image>
                                 </ImageView>
@@ -84,15 +84,16 @@
                          </StackPane>
                      </content>
                   </ScrollPane>
+                      <Button fx:id="generateGraphsButton" mnemonicParsing="false" onAction="#generateGraphButton" text="Generate Graphs" textAlignment="CENTER" GridPane.rowIndex="2" />
                </children>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints maxHeight="394.0" minHeight="0.0" prefHeight="29.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="519.0" minHeight="0.0" prefHeight="312.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="391.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="394.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="519.0" minHeight="0.0" prefHeight="444.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="391.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <padding>
                   <Insets top="10.0" />
