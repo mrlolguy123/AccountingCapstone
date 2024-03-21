@@ -1,5 +1,6 @@
 package com.team7.dfa.controller;
 
+import com.team7.dfa.TemplateTestApplication;
 import com.team7.dfa.db.DatabaseConnector;
 import com.team7.dfa.model.InvoiceModel;
 import javafx.collections.FXCollections;
@@ -7,19 +8,27 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class InvoicingController extends ParentController {
+    public Button invoiceAddButton;
     @FXML
     private Button invoiceButton;
 
@@ -156,15 +165,15 @@ public class InvoicingController extends ParentController {
     {
         try
         {
-            String queryString = switch (invoiceState)
+            String queryString = "select * from [dbo].[dannyInvoiceRecords] where inv_id like " + switch (invoiceState)
             {
-                case 0 -> "select * from [dbo].[dannyInvoiceRecords] where inv_id like 'S%'";
-                case 1 -> "select * from [dbo].[dannyInvoiceRecords] where inv_id like 'D%'";
-                case 2 -> "select * from [dbo].[dannyInvoiceRecords] where inv_id like 'R%'";
-                case 3 -> "select * from [dbo].[dannyInvoiceRecords] where inv_id like 'PS%'";
-                case 4 -> "select * from [dbo].[dannyInvoiceRecords] where inv_id like 'PD%'";
-                case 5 -> "select * from [dbo].[dannyInvoiceRecords] where inv_id like 'PR%'";
-                default -> "select * from [dbo].[dannyInvoiceRecords]";
+                case 0 -> "'S%'";
+                case 1 -> "'D%'";
+                case 2 -> "'R%'";
+                case 3 -> "'PS%'";
+                case 4 -> "'PD%'";
+                case 5 -> "'PR%'";
+                default -> "'%'";
             };
 
             ObservableList<InvoiceModel> invoiceList = FXCollections.observableArrayList();
@@ -203,9 +212,19 @@ public class InvoicingController extends ParentController {
             if(((javafx.scene.input.MouseEvent) event).getClickCount() == 2)
             {
                 InvoiceModel selectedInvoice = invoiceTable.getSelectionModel().getSelectedItem();
-                System.out.println(selectedInvoice.getInv_id());
+                System.out.println(selectedInvoice.getInv_id()); // replace with new window
             }
         }
     }
 
+    @FXML
+    public void invoiceAddCLicked(MouseEvent mouseEvent) throws IOException {
+        // load new window
+        FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addEditInvoice.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Invoice");
+        stage.show();
+    }
 }

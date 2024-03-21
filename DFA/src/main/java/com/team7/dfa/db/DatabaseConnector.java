@@ -9,9 +9,11 @@ public class DatabaseConnector {
     Connection conn = null;
     static Logger log = null;
 
+    public boolean connected = false;
+
     static {
         System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
-        log =Logger.getLogger(DatabaseConnector.class.getName());
+        log = Logger.getLogger(DatabaseConnector.class.getName());
     }
 
     public Connection connect() {
@@ -22,6 +24,7 @@ public class DatabaseConnector {
             log.info("Connecting to the database");
             conn = DriverManager.getConnection(properties.getProperty("url"), properties);
             log.info("Database connection test: " + conn.getCatalog());
+            connected = true;
             return conn;
         } catch (SQLException | IOException e) {
             System.out.println(e.getMessage());
@@ -31,19 +34,17 @@ public class DatabaseConnector {
     }
 
     public void disconnect() {
-        try{
-            conn.close();
-            log.info("Database is now disconnected.");
-        }
-        catch (SQLException e){
+        if (connected)
+            try {
+                conn.close();
+                log.info("Database is now disconnected.");
+            } catch (SQLException e) {
+                log.info("Database was not connected.");
+            }
+        else
             log.info("Database was not connected.");
-        }
-    }
 
-    public static void main(String[] args) { // test connection
-        DatabaseConnector db = new DatabaseConnector();
-        db.connect();
-        db.disconnect();
+        connected = false;
     }
 }
 
