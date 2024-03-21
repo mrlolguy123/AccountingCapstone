@@ -218,8 +218,7 @@ public class InvoicingController extends ParentController {
     }
 
     @FXML
-    public void invoiceAddCLicked(MouseEvent mouseEvent) throws IOException {
-        // load new window
+    public void invoiceAddCLicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addEditInvoice.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
