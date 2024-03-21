@@ -1,5 +1,6 @@
 package com.team7.dfa.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -10,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomePageController extends ParentController {
     @FXML
@@ -25,9 +27,6 @@ public class HomePageController extends ParentController {
     private ImageView graph2;
 
     @FXML
-    private ImageView graph3;
-
-    @FXML
     private Button generateGraphsButton;
 
     public String currentDir = Paths.get("").toAbsolutePath().toString();
@@ -35,16 +34,28 @@ public class HomePageController extends ParentController {
 
     public String pythonScriptPath = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "scripts" + File.separator + "generate_graphs.py";
 
-    private String myGraphPlaceholder = "";
+    @FXML
+    private void generateGraphOnClick() {
+        generateGraphsButton.setOnAction(event -> {
+            String sqlCommand = "SELECT * FROM amanFinancialRecords ORDER BY totalprofit ASC";
+            String graphName = "home_profit_graph";
+            String graphChoice = "2";
+            generateGraph(sqlCommand, graphName, graphChoice);
+            updateGraphImages(graphName);
+            System.out.println("Successfully Executed");
+        });
+    }
 
-    public void runScript(){
+    public void generateGraph(String sqlCommand, String graphName, String graphChoice){
         try{
-//            String sql_statement = "SELECT * FROM Students";
-//            String graph_choice  = "3";
-//            ArrayList<String> test = new ArrayList<String>();
-//            test.add(sql_statement);
-//            test.add
-            ProcessBuilder processBuilder = new ProcessBuilder("python", pythonScriptPath);
+            List<String> commands = new ArrayList<>();
+            commands.add("python");
+            commands.add(pythonScriptPath);
+            commands.add(sqlCommand);
+            commands.add(graphName);
+            commands.add(graphChoice);
+
+            ProcessBuilder processBuilder = new ProcessBuilder(commands);
             Process process = processBuilder.start();
             process.waitFor();
 
@@ -54,19 +65,9 @@ public class HomePageController extends ParentController {
     }
 
     @FXML
-    private void updateGraphImages() {
-        //graph1.setImage(new Image("file:///C:/Users/Aman%20Sahu/Desktop/Capstone%202024/AccountingCapstone/DFA/src/main/python/generated_graphs/sample_BoxPlot.png"));
-        graph2.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + "testingbar.png"));
-        graph3.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + "testingscatter.png"));
+    private void updateGraphImages(String graphName) {
+        graph1.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + graphName + ".png"));
+        //graph2.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + "testingscatter.png"));
     }
 
-    @FXML
-    private void generateGraphs() {
-        generateGraphsButton.setOnAction(event -> {
-            System.out.println(graphWorkingDirectory);
-            runScript();
-            updateGraphImages();
-            System.out.println("Successfully Executed");
-        });
-    }
 }

@@ -61,7 +61,7 @@
                      <content>
                          <StackPane alignment="CENTER">
                             <children>
-                                <ImageView fx:id="graph2" layoutX="10.0" layoutY="10.0" nodeOrientation="INHERIT" preserveRatio="true" smooth="false">
+                                <ImageView fx:id="graph1" layoutX="10.0" layoutY="10.0" nodeOrientation="INHERIT" preserveRatio="true" smooth="false">
                                     <image>
                                     </image>
                                 </ImageView>
@@ -76,7 +76,7 @@
                      <content>
                          <StackPane alignment="CENTER">
                             <children>
-                                <ImageView fx:id="graph3" layoutX="10.0" layoutY="10.0" preserveRatio="true" smooth="false">
+                                <ImageView fx:id="graph2" layoutX="10.0" layoutY="10.0" preserveRatio="true" smooth="false">
                                     <image>
                                     </image>
                                 </ImageView>
@@ -84,7 +84,7 @@
                          </StackPane>
                      </content>
                   </ScrollPane>
-                      <Button fx:id="generateGraphsButton" mnemonicParsing="false" onAction="#generateGraphs" text="Generate Graphs" textAlignment="CENTER" GridPane.rowIndex="2" />
+                      <Button fx:id="generateGraphsButton" mnemonicParsing="false" onAction="#generateGraphOnClick" text="Generate Graphs" textAlignment="CENTER" GridPane.rowIndex="2" />
                </children>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

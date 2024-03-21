@@ -5,9 +5,12 @@ import pypyodbc as odbc
 import os
 import sys
 
-# sql_statement = sys.argv[1]
-# graph_name = sys.argv[2]
-# graph_choice = sys.argv[3]
+sql_statement = sys.argv[1]
+graph_name = sys.argv[2]
+graph_choice = int(sys.argv[3])
+# need to decide how to implement dynamic sizing of the graph
+# do i need to return the path for the image? no, there will be naming conventions for all of them
+# 1 - scatterplot, 2 - barplot, 3 - lineplot , do this in if statements
 
 def getDataFrame(query):
     # will leave creds in python file for now, implement security later
@@ -57,7 +60,22 @@ def make_scatter(df, name, height, width, x_name, y_name):
     plt.savefig(graphPathDirectory() + name + ".png", dpi = 100)
 
 
+def make_line(df, name, height, width, x_name, y_name):
+    plt.figure(figsize=(width, height))
+    sns.set_style("white")
+    sns.lineplot(x=x_name, y=y_name, data=df)
+    plt.xlabel(x_name)
+    plt.ylabel(y_name)
+    plt.title(name)
+    plt.savefig(graphPathDirectory() + name + ".png", dpi = 100)
+
 
 if __name__ == '__main__':
-    make_bar(getDataFrame("SELECT * FROM amanFinancialRecords ORDER BY totalprofit ASC"), "testingbar", 20, 7, 'year', 'totalprofit')
-    make_scatter(getDataFrame("SELECT * FROM amanFinancialRecords ORDER BY totalprofit ASC"), "testingscatter", 10, 5, 'year', 'totalprofit')
+    if graph_choice == 1:
+        make_scatter(getDataFrame(str(sql_statement)), str(graph_name), 10, 5, 'year', 'totalprofit')
+
+    if graph_choice == 2:
+        make_bar(getDataFrame(str(sql_statement)), str(graph_name), 20, 7, 'year', 'totalprofit')
+
+    if graph_choice == 3:
+        make_line(getDataFrame(str(sql_statement)), str(graph_name), 10, 15, 'year', 'totalprofit')
