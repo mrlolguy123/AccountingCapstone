@@ -28,22 +28,22 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <TextField layoutX="67.0" layoutY="127.0" prefHeight="40.0" prefWidth="260.0">
+      <TextField fx:id="cardNameText" layoutX="67.0" layoutY="127.0" prefHeight="40.0" prefWidth="260.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="67.0" layoutY="187.0" prefHeight="40.0" prefWidth="260.0">
+      <TextField fx:id="cardNumText" layoutX="67.0" layoutY="187.0" prefHeight="40.0" prefWidth="260.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="67.0" layoutY="246.0" prefHeight="40.0" prefWidth="260.0">
+      <TextField fx:id="cardExpiryText" layoutX="67.0" layoutY="246.0" prefHeight="40.0" prefWidth="260.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="67.0" layoutY="306.0" prefHeight="40.0" prefWidth="260.0">
+      <TextField fx:id="cardSecText" layoutX="67.0" layoutY="306.0" prefHeight="40.0" prefWidth="260.0">
          <font>
             <Font size="14.0" />
          </font>

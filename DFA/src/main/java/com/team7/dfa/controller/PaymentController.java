@@ -176,7 +176,7 @@ public class PaymentController implements Initializable {
         }
         catch (SQLException ex)
         {
-            Logger.getLogger(TemplateTestController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -217,7 +217,7 @@ public class PaymentController implements Initializable {
 
         catch (SQLException ex)
         {
-            Logger.getLogger(TemplateTestController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         table.setRowFactory( tv -> {
             TableRow<Payment> myRow = new TableRow<>();
@@ -269,7 +269,7 @@ public class PaymentController implements Initializable {
 
         catch (SQLException ex)
         {
-            Logger.getLogger(TemplateTestController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         PayStatustable.setRowFactory( tv -> {
             TableRow<Payment> myRow = new TableRow<>();
@@ -320,7 +320,7 @@ public class PaymentController implements Initializable {
 
         catch (SQLException ex)
         {
-            Logger.getLogger(TemplateTestController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         PayStatustable.setRowFactory( tv -> {
             TableRow<Payment> myRow = new TableRow<>();
@@ -370,7 +370,7 @@ public class PaymentController implements Initializable {
         }
         catch (SQLException ex)
         {
-            Logger.getLogger(TemplateTestController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

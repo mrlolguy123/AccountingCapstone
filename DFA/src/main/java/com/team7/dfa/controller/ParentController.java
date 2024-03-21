@@ -44,7 +44,7 @@ public class ParentController {
 
     @FXML
     protected void payrollClicked(ActionEvent event) throws IOException {
-        // not implemented
+        loadFXML("Payroll.fxml", event);
     }
 
     public void loadFXML(String link, ActionEvent event) throws IOException {

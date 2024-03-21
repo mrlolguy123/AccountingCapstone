@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/TreasuryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/TreasuryDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/addBankPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/addBankPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/addCreditCardPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/addCreditCardPopup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/InvoicingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/InvoicingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/ParentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/ParentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/TreasuryDashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/TreasuryDashboardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addBankPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addBankPopupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addCreditCardPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addCreditCardPopupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/db/DatabaseConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/db/DatabaseConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/invoicing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/invoicing.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/model/InvoiceModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/model/InvoiceModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/model/cardRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/model/cardRecord.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +31,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="2e0rQRUFRSlp5zZ3FzcT1WQMj91" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,6 +49,9 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
     "vue.rearranger.settings.migration": "true"
   }
