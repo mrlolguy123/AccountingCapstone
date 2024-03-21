@@ -2,35 +2,42 @@ package com.team7.dfa.model;
 
 public class InvoiceModel {
     private String inv_date;
+    private String inv_due_date;
+
     private String inv_id;
     private String inv_order_id;
     private String inv_cust_name;
+    private String inv_shipping;
+    private String inv_billing;
     private String inv_group;
     private String inv_state;
     private double inv_subtotal;
     private double inv_discount;
     private double inv_tax_rate;
     private double inv_total;
+    private double inv_balance;
     private int inv_repeat;
     private String inv_cust_notes;
     private String inv_terms;
-    private boolean inv_published;
 
-    public InvoiceModel(String inv_date, String inv_id, String inv_order_id, String inv_cust_name, String inv_group, String inv_state, double inv_subtotal, double inv_discount, double inv_tax_rate, double inv_total, int inv_repeat, String inv_cust_notes, String inv_terms, boolean inv_published) {
+    public InvoiceModel(String inv_date, String inv_due_date, String inv_id, String inv_order_id, String inv_cust_name, String inv_shipping, String inv_billing, String inv_group, String inv_state, double inv_subtotal, double inv_discount, double inv_tax_rate, double inv_total, double inv_balance, int inv_repeat, String inv_cust_notes, String inv_terms) {
         this.inv_date = inv_date;
+        this.inv_due_date = inv_due_date;
         this.inv_id = inv_id;
         this.inv_order_id = inv_order_id;
         this.inv_cust_name = inv_cust_name;
+        this.inv_shipping = inv_shipping;
+        this.inv_billing = inv_billing;
         this.inv_group = inv_group;
         this.inv_state = inv_state;
         this.inv_subtotal = inv_subtotal;
         this.inv_discount = inv_discount;
         this.inv_tax_rate = inv_tax_rate;
         this.inv_total = inv_total;
+        this.inv_balance = inv_balance;
         this.inv_repeat = inv_repeat;
         this.inv_cust_notes = inv_cust_notes;
         this.inv_terms = inv_terms;
-        this.inv_published = inv_published;
     }
 
     public InvoiceModel() {
@@ -45,13 +52,20 @@ public class InvoiceModel {
         this.inv_total = invTotal;
     }
 
-
     public String getInv_date() {
         return inv_date;
     }
 
     public void setInv_date(String inv_date) {
         this.inv_date = inv_date;
+    }
+
+    public String getInv_due_date() {
+        return inv_due_date;
+    }
+
+    public void setInv_due_date(String inv_due_date) {
+        this.inv_due_date = inv_due_date;
     }
 
     public String getInv_id() {
@@ -76,6 +90,22 @@ public class InvoiceModel {
 
     public void setInv_cust_name(String inv_cust_name) {
         this.inv_cust_name = inv_cust_name;
+    }
+
+    public String getInv_shipping() {
+        return inv_shipping;
+    }
+
+    public void setInv_shipping(String inv_shipping) {
+        this.inv_shipping = inv_shipping;
+    }
+
+    public String getInv_billing() {
+        return inv_billing;
+    }
+
+    public void setInv_billing(String inv_billing) {
+        this.inv_billing = inv_billing;
     }
 
     public String getInv_group() {
@@ -126,6 +156,14 @@ public class InvoiceModel {
         this.inv_total = inv_total;
     }
 
+    public double getInv_balance() {
+        return inv_balance;
+    }
+
+    public void setInv_balance(double inv_balance) {
+        this.inv_balance = inv_balance;
+    }
+
     public int getInv_repeat() {
         return inv_repeat;
     }
@@ -148,13 +186,5 @@ public class InvoiceModel {
 
     public void setInv_terms(String inv_terms) {
         this.inv_terms = inv_terms;
-    }
-
-    public boolean isInv_published() {
-        return inv_published;
-    }
-
-    public void setInv_published(boolean inv_published) {
-        this.inv_published = inv_published;
     }
 }
