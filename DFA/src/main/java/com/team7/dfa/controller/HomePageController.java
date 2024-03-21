@@ -14,11 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomePageController extends ParentController {
-    @FXML
-    private Button homeButton;
-
-    @FXML
-    private ScrollPane vbox_container;
 
     @FXML
     private ImageView graph1;
@@ -35,25 +30,35 @@ public class HomePageController extends ParentController {
     public String pythonScriptPath = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "scripts" + File.separator + "generate_graphs.py";
 
     @FXML
-    private void generateGraphOnClick() {
+    private void generateGraphButton() {
         generateGraphsButton.setOnAction(event -> {
             String sqlCommand = "SELECT * FROM amanFinancialRecords ORDER BY totalprofit ASC";
-            String graphName = "home_profit_graph";
             String graphChoice = "2";
-            generateGraph(sqlCommand, graphName, graphChoice);
-            updateGraphImages(graphName);
+            String x_name = "year";
+            String y_name = "totalprofit";
+            String graphName = "home_profit_graph";
+            generateGraph(sqlCommand, graphChoice, x_name, y_name, graphName);
+            updateGraphImage(graphName);
             System.out.println("Successfully Executed");
         });
     }
 
-    public void generateGraph(String sqlCommand, String graphName, String graphChoice){
+    @FXML
+    private void updateGraphImage(String graphName) {
+        graph1.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + graphName + ".png"));
+    }
+
+
+    public void generateGraph(String sqlCommand, String graphChoice, String x_name, String y_name, String graphName){
         try{
             List<String> commands = new ArrayList<>();
             commands.add("python");
             commands.add(pythonScriptPath);
             commands.add(sqlCommand);
-            commands.add(graphName);
             commands.add(graphChoice);
+            commands.add(x_name);
+            commands.add(y_name);
+            commands.add(graphName);
 
             ProcessBuilder processBuilder = new ProcessBuilder(commands);
             Process process = processBuilder.start();
@@ -63,11 +68,4 @@ public class HomePageController extends ParentController {
             e.printStackTrace();
         }
     }
-
-    @FXML
-    private void updateGraphImages(String graphName) {
-        graph1.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + graphName + ".png"));
-        //graph2.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + "testingscatter.png"));
-    }
-
 }
