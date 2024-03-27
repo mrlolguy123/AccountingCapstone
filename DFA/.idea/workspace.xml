@@ -7,29 +7,28 @@
     <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/HomePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/home_profit_graph.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/TreasuryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/TreasuryDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/addBankPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/addBankPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/addCreditCardPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/addCreditCardPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/InvoicingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/InvoicingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/ParentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/ParentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/TreasuryDashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/TreasuryDashboardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addBankPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addBankPopupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addCreditCardPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addCreditCardPopupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/db/DatabaseConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/db/DatabaseConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/invoicing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/invoicing.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/model/InvoiceModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/model/InvoiceModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/model/cardRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/model/cardRecord.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2e0rQRUFRSlp5zZ3FzcT1WQMj91" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -38,29 +37,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TemplateTestApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;graphing-update&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Rohan_nu3d8wo\OneDrive\Desktop\488-PROTOTYPE\AccountingCapstone\DFA\src\main\java\com\team7\dfa\controller" />
       <recent name="C:\Users\Rohan_nu3d8wo\OneDrive\Desktop\488-PROTOTYPE\AccountingCapstone\DFA\src\main\resources\com\team7\dfa" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -72,6 +82,8 @@
       <updated>1711052335924</updated>
       <workItem from="1711052342531" duration="672000" />
       <workItem from="1711053051742" duration="358000" />
+      <workItem from="1711344490316" duration="710000" />
+      <workItem from="1711487705289" duration="3712000" />
     </task>
     <servers />
   </component>
