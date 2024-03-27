@@ -39,12 +39,12 @@ public class ParentController {
 
     @FXML
     protected void treasuryClicked(ActionEvent event) throws IOException {
-        loadFXML("treasuryDashboard.fxml", event);
+        loadFXML("TreasuryDashboard.fxml", event);
     }
 
     @FXML
     protected void payrollClicked(ActionEvent event) throws IOException {
-        // not implemented
+        loadFXML("Payroll.fxml", event);
     }
 
     public void loadFXML(String link, ActionEvent event) throws IOException {
