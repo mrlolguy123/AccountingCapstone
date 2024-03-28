@@ -33,7 +33,8 @@ public class Graph {
     public Graph(String sqlCommand, String graphChoice, String col_name, String graphName){
         this.sqlCommand = sqlCommand;
         this.graphChoice = graphChoice;
-        this.col_name = col_name;
+        this.x_name = col_name;
+        this.y_name = "";
         this.graphName = graphName;
         generateGraph();
     }

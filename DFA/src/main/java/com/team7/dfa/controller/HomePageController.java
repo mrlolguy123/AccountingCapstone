@@ -24,7 +24,7 @@ public class HomePageController extends ParentController {
             String x_name = "inv_state";
             String y_name = "";
             String graphName = "Invoice State Pie Chart";
-            Graph sample_graph = new Graph(sqlCommand, graphChoice, x_name, y_name, graphName);
+            Graph sample_graph = new Graph(sqlCommand, graphChoice, x_name, graphName);
             sample_graph.updateGraphImage(graph1);
             System.out.println("Successfully Executed");
         });
