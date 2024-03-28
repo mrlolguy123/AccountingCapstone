@@ -52,9 +52,13 @@
                                     <Label text="Total Profit" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                              <AnchorPane GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <ImageView fx:id="graph1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="-171.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <ImageView fx:id="graph1" pickOnBounds="true" />
+                                       </content>
+                                    </ScrollPane>
                                  </children>
                               </AnchorPane>
                            </children>
@@ -63,7 +67,7 @@
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints fillHeight="false" maxHeight="137.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
-                              <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="251.0" valignment="CENTER" vgrow="ALWAYS" />
+                              <RowConstraints minHeight="10.0" prefHeight="251.0" valignment="CENTER" vgrow="ALWAYS" />
                            </rowConstraints>
                         </GridPane>
                      </children>
@@ -79,10 +83,9 @@
                               </AnchorPane>
                               <AnchorPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <ImageView pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <ListView prefHeight="387.0" prefWidth="427.0" />
                                  </children>
                               </AnchorPane>
-                              <ListView prefHeight="251.0" prefWidth="427.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                            </children>
                            <columnConstraints>
                               <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -139,7 +142,7 @@
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints fillHeight="false" maxHeight="137.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
-                              <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="251.0" valignment="CENTER" vgrow="ALWAYS" />
+                              <RowConstraints minHeight="10.0" prefHeight="251.0" valignment="CENTER" vgrow="ALWAYS" />
                            </rowConstraints>
                         </GridPane>
                      </children>
