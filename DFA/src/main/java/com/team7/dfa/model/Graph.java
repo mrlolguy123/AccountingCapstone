@@ -15,6 +15,7 @@ public class Graph {
     private String graphChoice;
     private String x_name;
     private String y_name;
+    private String col_name;
     private String graphName;
     public String currentDir = Paths.get("").toAbsolutePath().toString();
     public String pythonScriptPath = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "scripts" + File.separator + "generate_graphs.py";
@@ -25,6 +26,14 @@ public class Graph {
         this.graphChoice = graphChoice;
         this.x_name = x_name;
         this.y_name = y_name;
+        this.graphName = graphName;
+        generateGraph();
+    }
+
+    public Graph(String sqlCommand, String graphChoice, String col_name, String graphName){
+        this.sqlCommand = sqlCommand;
+        this.graphChoice = graphChoice;
+        this.col_name = col_name;
         this.graphName = graphName;
         generateGraph();
     }

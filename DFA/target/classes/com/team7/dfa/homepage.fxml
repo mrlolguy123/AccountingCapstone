@@ -53,12 +53,19 @@
                                     <Label prefHeight="17.0" prefWidth="64.0" text="Total Profit" />
                                  </children>
                               </AnchorPane>
-                              <StackPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                              <AnchorPane prefHeight="251.0" prefWidth="444.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <children>
-                                    <ImageView fx:id="graph1" pickOnBounds="true" />
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="graph1" pickOnBounds="true" />
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </ScrollPane>
                                  </children>
-                              </StackPane>
-                              <AnchorPane minHeight="100.0" minWidth="100.0" prefWidth="401.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              </AnchorPane>
                            </children>
                            <columnConstraints>
                               <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
