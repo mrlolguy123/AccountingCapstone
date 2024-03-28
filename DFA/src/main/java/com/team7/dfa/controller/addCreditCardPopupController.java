@@ -1,18 +1,17 @@
 package com.team7.dfa.controller;
 
-import com.team7.dfa.controller.ParentController;
-import com.team7.dfa.controller.addBankPopupController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
-public class addCreditCardPopupController extends ParentController {
+public class addCreditCardPopupController extends ParentController{
 
     @FXML
     private Button confirmButton;
@@ -34,7 +33,6 @@ public class addCreditCardPopupController extends ParentController {
         log = Logger.getLogger(addBankPopupController.class.getName());
     }
 
-    // adds a new Credit Card upon being pressed
     @FXML
     protected void confirmClicked(ActionEvent Event) throws SQLException {
 
@@ -50,8 +48,6 @@ public class addCreditCardPopupController extends ParentController {
         Stage stage = (Stage) confirmButton.getScene().getWindow();
         stage.close();
     }
-
-    // closes the frame
     @FXML
     protected void cancelClicked(ActionEvent Event) {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
