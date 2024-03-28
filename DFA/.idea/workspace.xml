@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="Converted Models from Property Factories to normalized String, ints&#10;Edited Dashboard Controller for streamlined/fixed tableView&#10;Added CardTransactions Controller/FXML">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/bankAccountTransactionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/bankAccountTransactionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/cardTransactionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/cardTransactionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/bankAccountTransactions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/bankAccountTransactions.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="Fixed Error with adding transactions to db" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +93,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711621090204</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed Error with adding transactions to db">
+      <option name="closed" value="true" />
+      <created>1711661156622</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711661156622</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +110,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added EmployeeID to bankAccount and cardRecord&#10;Added Transactions model for transactions table" />
     <MESSAGE value="Converted Models from Property Factories to normalized String, ints&#10;Edited Dashboard Controller for streamlined/fixed tableView&#10;Added CardTransactions Controller/FXML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Converted Models from Property Factories to normalized String, ints&#10;Edited Dashboard Controller for streamlined/fixed tableView&#10;Added CardTransactions Controller/FXML" />
+    <MESSAGE value="Fixed Error with adding transactions to db" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Error with adding transactions to db" />
   </component>
 </project>
