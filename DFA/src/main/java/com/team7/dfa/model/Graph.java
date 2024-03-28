@@ -13,8 +13,11 @@ import java.util.List;
 public class Graph {
     public String currentDir = Paths.get("").toAbsolutePath().toString();
     public String pythonScriptPath = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "scripts" + File.separator + "generate_graphs.py";
-
     public String graphWorkingDirectory = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "generated_graphs";
+
+    Graph(){
+        
+    }
 
     public void generateGraph(String sqlCommand, String graphChoice, String x_name, String y_name, String graphName){
         try{
