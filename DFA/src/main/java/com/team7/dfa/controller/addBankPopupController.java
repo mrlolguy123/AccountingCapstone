@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
-public class addBankPopupController extends ParentController{
+public class addBankPopupController extends ParentController {
 
     @FXML
     private Button confirmButton;
