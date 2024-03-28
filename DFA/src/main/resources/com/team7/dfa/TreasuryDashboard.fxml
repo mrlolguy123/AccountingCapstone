@@ -42,7 +42,7 @@
             <VBox layoutX="67.0" layoutY="100.0" prefHeight="486.0" prefWidth="773.0">
                <children>
                   <TitledPane fx:id="bankPane" animated="false" expanded="false" onMousePressed="#bankMousePressed" text="Bank Accounts">
-                     <TableView fx:id="bankTable">
+                     <TableView fx:id="bankTable" onMouseClicked="#itemClickedBank">
                         <columns>
                            <TableColumn fx:id="bankNameCol" prefWidth="178.0" text="Bank Name" />
                            <TableColumn fx:id="accountNumCol" prefWidth="250.0" text="Account Number" />
@@ -50,7 +50,7 @@
                         </columns></TableView>
                   </TitledPane>
                   <TitledPane fx:id="cardPane" animated="false" expanded="false" onMousePressed="#cardMousePressed" text="Credit Cards">
-                     <TableView fx:id="cardTable">
+                     <TableView fx:id="cardTable" onMouseClicked="#itemClickedCard">
                         <columns>
                            <TableColumn fx:id="cardNameCol" prefWidth="178.0" text="Card Name" />
                            <TableColumn fx:id="cardNumCol" prefWidth="250.0" text="Card Number" />
