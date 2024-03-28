@@ -94,7 +94,7 @@ def make_pie_chart(df, name, height, width, x_name):
 
     # Adjust the position of percentage labels
     for autotext in autotexts:
-        autotext.set_size(4)  # Adjust the font size as needed
+        autotext.set_size(10)  # Adjust the font size as needed
     plt.title(name)
     plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
 

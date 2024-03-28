@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
@@ -45,28 +46,25 @@
                <children>
                   <AnchorPane GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <children>
-                        <GridPane alignment="CENTER" gridLinesVisible="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane alignment="CENTER" gridLinesVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <Label text="Total Profit" />
+                                    <Label prefHeight="17.0" prefWidth="64.0" text="Total Profit" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                              <StackPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="-171.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <content>
-                                          <ImageView fx:id="graph1" pickOnBounds="true" />
-                                       </content>
-                                    </ScrollPane>
+                                    <ImageView fx:id="graph1" pickOnBounds="true" />
                                  </children>
-                              </AnchorPane>
+                              </StackPane>
+                              <AnchorPane minHeight="100.0" minWidth="100.0" prefWidth="401.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                            </children>
                            <columnConstraints>
                               <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints fillHeight="false" maxHeight="137.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
+                              <RowConstraints fillHeight="false" maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" prefHeight="251.0" valignment="CENTER" vgrow="ALWAYS" />
                            </rowConstraints>
                         </GridPane>
@@ -74,7 +72,7 @@
                   </AnchorPane>
                   <AnchorPane GridPane.columnIndex="1">
                      <children>
-                        <GridPane alignment="CENTER" gridLinesVisible="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane alignment="CENTER" gridLinesVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
@@ -83,7 +81,7 @@
                               </AnchorPane>
                               <AnchorPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <ListView prefHeight="387.0" prefWidth="427.0" />
+                                    <ListView prefHeight="233.0" prefWidth="427.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -91,7 +89,7 @@
                               <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints fillHeight="false" maxHeight="137.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
+                              <RowConstraints fillHeight="false" maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" prefHeight="251.0" valignment="CENTER" vgrow="ALWAYS" />
                            </rowConstraints>
                         </GridPane>
@@ -99,7 +97,7 @@
                   </AnchorPane>
                   <AnchorPane GridPane.rowIndex="1">
                      <children>
-                        <GridPane alignment="CENTER" gridLinesVisible="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane alignment="CENTER" gridLinesVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
@@ -116,7 +114,7 @@
                               <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints fillHeight="false" maxHeight="137.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
+                              <RowConstraints fillHeight="false" maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" prefHeight="251.0" valignment="CENTER" vgrow="ALWAYS" />
                            </rowConstraints>
                         </GridPane>
@@ -124,7 +122,7 @@
                   </AnchorPane>
                   <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <GridPane alignment="CENTER" gridLinesVisible="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane alignment="CENTER" gridLinesVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
@@ -141,7 +139,7 @@
                               <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints fillHeight="false" maxHeight="137.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
+                              <RowConstraints fillHeight="false" maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
                               <RowConstraints minHeight="10.0" prefHeight="251.0" valignment="CENTER" vgrow="ALWAYS" />
                            </rowConstraints>
                         </GridPane>

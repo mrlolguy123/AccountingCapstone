@@ -11,8 +11,8 @@ public class TemplateTestApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(TemplateTestApplication.class.getResource("homepage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("DFA");
-        stage.setMinHeight(400);
-        stage.setMinWidth(600);
+        stage.setMinHeight(800);
+        stage.setMinWidth(1200);
         stage.setScene(scene);
         stage.show();
     }

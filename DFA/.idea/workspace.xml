@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/logFile.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/TemplateTestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/TemplateTestApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/homepage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/HomePageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/HomePageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/homepage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +77,7 @@
       <workItem from="1711344490316" duration="710000" />
       <workItem from="1711487705289" duration="3712000" />
       <workItem from="1711576791117" duration="1501000" />
-      <workItem from="1711638917932" duration="5902000" />
+      <workItem from="1711638917932" duration="10629000" />
     </task>
     <servers />
   </component>
