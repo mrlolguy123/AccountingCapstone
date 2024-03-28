@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="Converted Models from Property Factories to normalized String, ints&#10;Edited Dashboard Controller for streamlined/fixed tableView&#10;Added CardTransactions Controller/FXML">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/TreasuryDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/TreasuryDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/addBankPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/addBankPopupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/addCreditCardPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/addCreditCardPopupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/bankAccountTransactionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/bankAccountTransactionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/cardTransactionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/cardTransactionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/cardRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/cardRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/transactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/transactions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/TreasuryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/TreasuryDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/cardTransactions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/cardTransactions.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/TreasuryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/TreasuryDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/TreasuryDashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/TreasuryDashboardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addCreditCardPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addCreditCardPopupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/homepage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/model/cardRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/model/cardRecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/bankAccountTransactions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/bankAccountTransactions.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +45,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "git-widget-placeholder": "Treasury",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/there/IdeaProjects/AccountingCapstone/DFA/src/main/resources/com/team7/dfa",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

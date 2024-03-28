@@ -61,6 +61,7 @@ public class bankAccountTransactionsController extends ParentController {
     @FXML
     protected void refreshTableBank() throws SQLException {
         account = TreasuryDashboardController.selectedAccount.getAccountNum();
+        System.out.println(account);
         ResultSet rs = readTransactions(con);
 
         ObservableList<transactions> oL = FXCollections.observableArrayList();
@@ -99,12 +100,13 @@ public class bankAccountTransactionsController extends ParentController {
     }
 
     public void addTransaction() throws SQLException {
+        refreshTableBank();
         log.info("Reading entry");
         PreparedStatement insertStatement = con.prepareStatement("INSERT INTO dbo.andrewTransactions VALUES (?,?,?,?);");
         insertStatement.setDate(1, java.sql.Date.valueOf(dateText.getText()));
         insertStatement.setInt(2, Integer.parseInt(amountText.getText()));
-        insertStatement.setString(3,null);
-        insertStatement.setString(4,account);
+        insertStatement.setString(3,account);
+        insertStatement.setString(4,null);
         insertStatement.executeUpdate();
         log.info("Updating database");
         refreshTableBank();

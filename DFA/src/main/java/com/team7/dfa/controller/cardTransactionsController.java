@@ -100,6 +100,7 @@ public class cardTransactionsController extends ParentController {
     // adds a new transaction linked to the card
     @FXML
     protected void addTransaction() throws SQLException {
+        refreshTableCard();
         log.info("Reading entry");
         PreparedStatement insertStatement = con.prepareStatement("INSERT INTO dbo.andrewTransactions VALUES (?,?,?,?);");
         insertStatement.setDate(1, java.sql.Date.valueOf(dateText.getText()));
