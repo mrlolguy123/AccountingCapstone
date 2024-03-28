@@ -1,5 +1,7 @@
 package com.team7.dfa.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -7,6 +9,8 @@ public class bankAccount {
     private StringProperty bankName;
     private StringProperty accountNum;
     private StringProperty routingNum;
+    private IntegerProperty EmployeeID;
+
 
     public bankAccount(){
     }
@@ -15,6 +19,13 @@ public class bankAccount {
         bankNameProperty().set(bankName);
         accountNumProperty().set(accountName);
         routeNumProperty().set(routingNum);
+        EmployeeIDProperty().set(0);
+    }
+    public bankAccount(String bankName, String accountName, String routingNum, int EmployeeID){
+        bankNameProperty().set(bankName);
+        accountNumProperty().set(accountName);
+        routeNumProperty().set(routingNum);
+        EmployeeIDProperty().set(EmployeeID);
     }
     public StringProperty bankNameProperty(){
         if (bankName == null) bankName = new SimpleStringProperty(this, "bankName");
@@ -28,6 +39,12 @@ public class bankAccount {
         if(routingNum==null) routingNum = new SimpleStringProperty(this,"routingNum");
         return routingNum;
     }
+
+    public IntegerProperty EmployeeIDProperty(){
+        if (EmployeeID == null) EmployeeID = new SimpleIntegerProperty(this, "EmployeeID");
+        return EmployeeID;
+    }
+
 
     public String getBankName() {
         return bankNameProperty().get();
@@ -51,6 +68,12 @@ public class bankAccount {
 
     public void setRoutingNum(String routingNum) {
         this.routeNumProperty().set(routingNum);
+    }
+    public int getEmployeeID() {
+        return EmployeeIDProperty().get();
+    }
+    public void setEmployeeID(int EmployeeID){
+        this.EmployeeIDProperty().set(EmployeeID);
     }
 }
 

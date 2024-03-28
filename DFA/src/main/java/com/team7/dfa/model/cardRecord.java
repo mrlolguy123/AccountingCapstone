@@ -1,5 +1,7 @@
 package com.team7.dfa.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -9,6 +11,7 @@ public class cardRecord {
     private StringProperty cardNum;
     private StringProperty cardExpiry;
     private StringProperty cardSec;
+    private IntegerProperty EmployeeID;
 
     public cardRecord() {
     }
@@ -18,6 +21,15 @@ public class cardRecord {
         cardNumProperty().set(cardNum);
         cardExpiryProperty().set(cardExpiry);
         cardSecProperty().set(cardSec);
+        EmployeeIDProperty().set(0);
+    }
+
+    public cardRecord(String cardName, String cardNum, String cardExpiry, String cardSec, int EmployeeID) {
+        cardNameProperty().set(cardName);
+        cardNumProperty().set(cardNum);
+        cardExpiryProperty().set(cardExpiry);
+        cardSecProperty().set(cardSec);
+        EmployeeIDProperty().set(EmployeeID);
     }
     public StringProperty cardNameProperty(){
         if (cardName == null) cardName = new SimpleStringProperty(this, "cardName");
@@ -39,6 +51,11 @@ public class cardRecord {
         return cardSec;
     }
 
+    public IntegerProperty EmployeeIDProperty(){
+        if (EmployeeID == null) EmployeeID = new SimpleIntegerProperty(this, "EmployeeID");
+        return EmployeeID;
+    }
+
 
     public String getCardName() {
         return cardNameProperty().get();
@@ -56,20 +73,28 @@ public class cardRecord {
         return cardSecProperty().get();
     }
 
+    public int getEmployeeID() {
+        return EmployeeIDProperty().get();
+    }
+
     public void setCardName(String cardName) {
-        cardNameProperty().set(cardName);
+        this.cardNameProperty().set(cardName);
     }
 
     public void setCardNum(String cardNum) {
-        cardNumProperty().set(cardNum);
+        this.cardNumProperty().set(cardNum);
     }
 
     public void setCardExpiry(String cardExpiry) {
-        cardExpiryProperty().set(cardExpiry);
+        this.cardExpiryProperty().set(cardExpiry);
     }
 
     public void setCardSec(String cardSec) {
-        cardSecProperty().set(cardSec);
+        this.cardSecProperty().set(cardSec);
+    }
+
+    public void setEmployeeID(int EmployeeID){
+        this.EmployeeIDProperty().set(EmployeeID);
     }
 
     /*
