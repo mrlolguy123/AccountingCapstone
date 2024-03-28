@@ -1,18 +1,18 @@
 package com.team7.dfa.controller;
 
+import com.team7.dfa.controller.ParentController;
+import com.team7.dfa.controller.addBankPopupController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
-public class addCreditCardPopupController extends ParentController{
+public class addCreditCardPopupController extends ParentController {
 
     @FXML
     private Button confirmButton;

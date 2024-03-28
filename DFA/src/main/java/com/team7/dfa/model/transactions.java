@@ -1,70 +1,61 @@
 package com.team7.dfa.model;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 import java.util.Date;
 
 public class transactions {
     private Date date;
-    private IntegerProperty amount;
-    private StringProperty accountNum;
-    private StringProperty cardNum;
-    private StringProperty transID;
+    private int amount;
+    private String accountNum;
+    private String cardNum;
+    private int transID;
 
     public transactions(){}
 
-    public transactions(Date date, int amount, String accountNum, String cardNum, String transID){
+    public transactions(Date date, int amount, String accountNum, String cardNum,int transID){
         this.date = date;
-        amountProperty().set(amount);
-        accountNumProperty().set(accountNum);
-        cardNumProperty().set(cardNum);
-        transIDProperty().set(transID);
+        this.amount = amount;
+        this.accountNum = accountNum;
+        this.cardNum = cardNum;
+        this.transID = transID;
     }
 
-    public IntegerProperty amountProperty(){
-        if(amount == null) amount = new SimpleIntegerProperty(this, "amount");
-        return amount;
-    }
-    public StringProperty accountNumProperty(){
-        if(accountNum==null) accountNum = new SimpleStringProperty(this, "accountNum");
-        return accountNum;
-    }
-    public StringProperty cardNumProperty(){
-        if(cardNum == null) cardNum = new SimpleStringProperty(this,"cardNum");
-        return cardNum;
-    }
-    public StringProperty transIDProperty(){
-        if(transID==null) transID = new SimpleStringProperty(this,"transID");
-        return transID;
-    }
-    public Date getDate(){
+    public Date getDate() {
         return date;
     }
-    public int getAmount(){
-        return amountProperty().get();
-    }
-    public String getAccountNum() {
-        return accountNumProperty().get();
-    }
-    public String getCardNum(){return cardNumProperty().get();}
-    public String getTransID(){return transIDProperty().get();}
-    public void setDate(Date date){
+
+    public void setDate(Date date) {
         this.date = date;
     }
-    public void setAmount(int amount){
-        this.amountProperty().set(amount);
-    }
-    public void setAccountNum(String accountNum){
-        this.accountNumProperty().set(accountNum);
-    }
-    public void setCardNum(String cardNum){
-        this.cardNumProperty().set(cardNum);
-    }
-    public void setTransID(String transID){
-        this.transIDProperty().set(transID);
+
+    public int getAmount() {
+        return amount;
     }
 
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getAccountNum() {
+        return accountNum;
+    }
+
+    public void setAccountNum(String accountNum) {
+        this.accountNum = accountNum;
+    }
+
+    public String getCardNum() {
+        return cardNum;
+    }
+
+    public void setCardNum(String cardNum) {
+        this.cardNum = cardNum;
+    }
+
+    public int getTransID() {
+        return transID;
+    }
+
+    public void setTransID(int transID) {
+        this.transID = transID;
+    }
 }

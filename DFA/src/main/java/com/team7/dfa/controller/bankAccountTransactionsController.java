@@ -1,5 +1,6 @@
 package com.team7.dfa.controller;
 
+import com.team7.dfa.controller.ParentController;
 import com.team7.dfa.model.transactions;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,17 +10,18 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.BreakIterator;
 import java.util.Date;
-import java.util.Locale;
 import java.util.logging.Logger;
 
-public class cardTransactionsController extends ParentController {
-
+public class bankAccountTransactionsController extends ParentController {
     static Logger log = null;
 
     static {
@@ -27,13 +29,13 @@ public class cardTransactionsController extends ParentController {
         log = Logger.getLogger(cardTransactionsController.class.getName());
     }
 
-    String card;
+    String account;
     @FXML
     private Button refreshButton;
     @FXML
     private TableColumn<transactions, String> transIDCol;
     @FXML
-    private TableColumn<transactions, String> cardNumCol;
+    private TableColumn<transactions, String> accountNumCol;
     @FXML
     private TableColumn<transactions, Date> dateCol;
     @FXML
@@ -43,13 +45,12 @@ public class cardTransactionsController extends ParentController {
     @FXML
     private Button closeButton;
     @FXML
-    private TableView<transactions> cardTransTable;
+    private TableView<transactions> bankTransTable;
     @FXML
     private TextField amountText;
     @FXML
     private TextField dateText;
 
-    // closes the frame
     @FXML
     protected void closeWindow() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
@@ -58,18 +59,18 @@ public class cardTransactionsController extends ParentController {
 
     // refreshes the table with current data
     @FXML
-    protected void refreshTableCard() throws SQLException {
-        card = TreasuryDashboardController.selectedCard.getCardNum();
+    protected void refreshTableBank() throws SQLException {
+        account = TreasuryDashboardController.selectedAccount.getAccountNum();
         ResultSet rs = readTransactions(con);
 
         ObservableList<transactions> oL = FXCollections.observableArrayList();
         while (rs.next()){
             try {
-              transactions temp = new transactions(rs.getDate("date"),
-                      rs.getInt("amount"),
-                      rs.getString("accountNum"),
-                      rs.getString("cardNum"),
-                rs.getInt("transID"));
+                transactions temp = new transactions(rs.getDate("date"),
+                        rs.getInt("amount"),
+                        rs.getString("accountNum"),
+                        rs.getString("cardNum"),
+                        rs.getInt("transID"));
                 oL.add(temp);
             }catch(Exception e){
                 log.info("Error reading query: ");
@@ -80,10 +81,10 @@ public class cardTransactionsController extends ParentController {
         try {
             dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
             amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
-            cardNumCol.setCellValueFactory(new PropertyValueFactory<>("cardNum"));
+            accountNumCol.setCellValueFactory(new PropertyValueFactory<>("accountNum"));
             transIDCol.setCellValueFactory(new PropertyValueFactory<>("transID"));
 
-            cardTransTable.setItems(oL);
+            bankTransTable.setItems(oL);
         } catch(Exception e){
             log.info("Could not fill Transaction Table");
         }
@@ -91,25 +92,21 @@ public class cardTransactionsController extends ParentController {
     }
 
     protected ResultSet readTransactions(Connection connection) throws SQLException {
-        PreparedStatement ps = connection.prepareStatement("SELECT * FROM dbo.andrewTransactions WHERE cardNum = ?");
-        ps.setString(1,card);
+        PreparedStatement ps = connection.prepareStatement("SELECT * FROM dbo.andrewTransactions WHERE accountNum = ?");
+        ps.setString(1,account);
         return ps.executeQuery();
 
     }
 
-    // adds a new transaction linked to the card
-    @FXML
-    protected void addTransaction() throws SQLException {
+    public void addTransaction() throws SQLException {
         log.info("Reading entry");
         PreparedStatement insertStatement = con.prepareStatement("INSERT INTO dbo.andrewTransactions VALUES (?,?,?,?);");
         insertStatement.setDate(1, java.sql.Date.valueOf(dateText.getText()));
         insertStatement.setInt(2, Integer.parseInt(amountText.getText()));
         insertStatement.setString(3,null);
-        insertStatement.setString(4,card);
+        insertStatement.setString(4,account);
         insertStatement.executeUpdate();
         log.info("Updating database");
-        refreshTableCard();
+        refreshTableBank();
     }
-
-
 }

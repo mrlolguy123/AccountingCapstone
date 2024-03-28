@@ -1,7 +1,6 @@
 package com.team7.dfa.controller;
 
 import com.team7.dfa.TemplateTestApplication;
-import com.team7.dfa.model.InvoiceModel;
 import com.team7.dfa.model.bankAccount;
 import com.team7.dfa.model.cardRecord;
 import javafx.collections.FXCollections;
@@ -16,15 +15,13 @@ import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.logging.Logger;
 
 
 public class TreasuryDashboardController extends ParentController {
     public static bankAccount selectedAccount;
+    public static cardRecord selectedCard;
     @FXML
     private TableColumn<cardRecord, String> cardNameCol;
     @FXML
@@ -33,6 +30,8 @@ public class TreasuryDashboardController extends ParentController {
     private TableColumn<cardRecord, String> cardExpiryCol;
     @FXML
     private TableColumn<cardRecord, String> cardSecCol;
+    @FXML
+    private TableColumn<cardRecord, Integer> cardEmployeeIDCol;
     @FXML
     private TableView<cardRecord> cardTable;
     @FXML
@@ -43,6 +42,8 @@ public class TreasuryDashboardController extends ParentController {
     private TableColumn<bankAccount, String> accountNumCol;
     @FXML
     private TableColumn<bankAccount, String> routingNumCol;
+    @FXML
+    private TableColumn<bankAccount, Integer> bankEmployeeIDCol;
     @FXML
     private javafx.scene.control.Button closeButton;
     @FXML
@@ -59,12 +60,6 @@ public class TreasuryDashboardController extends ParentController {
     static {
         System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
         log = Logger.getLogger(TreasuryDashboardController.class.getName());
-    }
-
-    @FXML
-    protected void logoutClicked(ActionEvent event)
-    {
-        System.exit(0);
     }
 
     // opens a popup that allows the suer to enter a new Credit Card into the database
@@ -100,10 +95,11 @@ public class TreasuryDashboardController extends ParentController {
     protected void cardMousePressed() throws IOException, SQLException {
         ObservableList<cardRecord> records = getRecords(con);
         try {
-            cardNameCol.setCellValueFactory(new PropertyValueFactory<cardRecord, String>("cardName"));
-            cardNumCol.setCellValueFactory(new PropertyValueFactory<cardRecord, String>("cardNum"));
-            cardExpiryCol.setCellValueFactory(new PropertyValueFactory<cardRecord, String>("cardExpiry"));
-            cardSecCol.setCellValueFactory(new PropertyValueFactory<cardRecord, String>("cardSec"));
+            cardNameCol.setCellValueFactory(new PropertyValueFactory<>("cardName"));
+            cardNumCol.setCellValueFactory(new PropertyValueFactory<>("cardNum"));
+            cardExpiryCol.setCellValueFactory(new PropertyValueFactory<>("cardExpiry"));
+            cardSecCol.setCellValueFactory(new PropertyValueFactory<>("cardSec"));
+            cardEmployeeIDCol.setCellValueFactory(new PropertyValueFactory<>("EmployeeID"));
 
             cardTable.setItems(records);
         } catch (Exception e) {
@@ -120,6 +116,7 @@ public class TreasuryDashboardController extends ParentController {
             bankNameCol.setCellValueFactory(new PropertyValueFactory<>("bankName"));
             accountNumCol.setCellValueFactory(new PropertyValueFactory<>("accountNum"));
             routingNumCol.setCellValueFactory(new PropertyValueFactory<>("routingNum"));
+            bankEmployeeIDCol.setCellValueFactory(new PropertyValueFactory<>("EmployeeID"));
 
             bankTable.setItems(accounts);
         } catch(Exception e){
@@ -158,7 +155,7 @@ public class TreasuryDashboardController extends ParentController {
                 FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("cardTransactions.fxml"));
                 creditCardWindow.setScene(new Scene(loader.load()));
 
-                Object item = cardTable.getSelectionModel().selectedItemProperty().get();
+                selectedCard = cardTable.getSelectionModel().getSelectedItem();
                 creditCardWindow.show();
             }
         }
@@ -178,10 +175,8 @@ public class TreasuryDashboardController extends ParentController {
     }
 
     protected ResultSet readDataRecords(Connection connection) throws SQLException{
-        Statement stmt = connection.createStatement();
-        String SQL = "SELECT * FROM dbo.andrewCardRecord;";
-        ResultSet rs = stmt.executeQuery(SQL);
-        return rs;
+        PreparedStatement ps = connection.prepareStatement("SELECT * FROM dbo.andrewCardRecord");
+        return ps.executeQuery();
     }
 
     protected ObservableList<bankAccount> getAccounts(Connection connection) throws SQLException{
@@ -197,9 +192,7 @@ public class TreasuryDashboardController extends ParentController {
     }
 
     protected ResultSet readDataAccounts(Connection connection) throws SQLException{
-        Statement stmt = connection.createStatement();
-        String SQL = "Select * FROM dbo.andrewBankAccounts;";
-        ResultSet rs = stmt.executeQuery(SQL);
-        return rs;
+        PreparedStatement ps = connection.prepareStatement("SELECT * FROM dbo.andrewBankAccounts");
+        return ps.executeQuery();
     }
 }
