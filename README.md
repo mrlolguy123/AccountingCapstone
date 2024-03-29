@@ -19,5 +19,5 @@ Python in some of the backend modules.
 Advisor: Kabir
 
 In order to generate the graphs, make sure to install the latest version of Python first.
-Next, you need to install the required dependencies. To install the Python packages run the command: <br> 
+Next, you need to install the required dependencies. To install the Python packages run the command in you command prompt window: <br> 
 <code>pip install seaborn matplotlib pandas pypyodbc</code>
