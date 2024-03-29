@@ -1,0 +1,55 @@
+#sidebar {
+    -fx-background-color: #34495e;
+    /*-fx-padding: 20px;*/
+}
+
+
+#sidebar .button {
+    -fx-background-color: transparent;
+    /*!*-fx-background-image: url('');*! can use for custom images we want*/
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+
+#sidebar .button:hover {
+    -fx-opacity: 0.8;
+}
+
+
+#sidebar .button:pressed {
+    -fx-opacity: 0.6;
+}
+
+
+#sidebar .button {
+    -fx-transition: opacity 0.3s;
+}
+
+
+#titleBar {
+    -fx-background-color: #34495e;
+    -fx-padding: 10px;
+}
+
+
+#companyName {
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 22px;
+}
+
+
+#homePagePane {
+    -fx-background-color: #ecf0f1;
+}
+
+
+.border-pane {
+    -fx-background-color: #bdc3c7;
+}
