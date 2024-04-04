@@ -233,7 +233,7 @@
                                           <Insets left="5.0" right="5.0" />
                                        </GridPane.margin>
                                     </Button>
-                                    <Button fx:id="invoiceAddButton" maxWidth="1.7976931348623157E308" onMouseClicked="#invoiceAddCLicked" mnemonicParsing="false" text="Add Invoice" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+                                    <Button fx:id="invoiceAddButton" maxWidth="1.7976931348623157E308" onMouseClicked="#invoiceAddClicked" mnemonicParsing="false" text="Add Invoice" GridPane.columnIndex="4" GridPane.halignment="CENTER">
                                        <GridPane.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </GridPane.margin>
