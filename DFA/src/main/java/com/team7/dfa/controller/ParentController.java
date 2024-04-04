@@ -16,7 +16,7 @@ import java.sql.Connection;
 public class ParentController {
     DatabaseConnector db = new DatabaseConnector();
     Connection con = db.connect();
-    @FXML
+    @FXML   
     protected void logoutClicked(ActionEvent event) {
         System.exit(0);
     }
@@ -43,7 +43,7 @@ public class ParentController {
     }
 
     @FXML
-    protected void payrollClicked(ActionEvent event) throws IOException {
+    protected void payrollClicked(ActionEvent event)    throws IOException {
         loadFXML("Payroll.fxml", event);
     }
 

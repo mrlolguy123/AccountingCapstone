@@ -161,12 +161,9 @@ public class InvoicingController extends ParentController {
         invoicingTablePane.setVisible(false);
     }
 
-    protected void refreshInvoiceTable()
-    {
-        try
-        {
-            String queryString = "select * from [dbo].[dannyInvoiceRecords] where inv_id like " + switch (invoiceState)
-            {
+    protected void refreshInvoiceTable() {
+        try {
+            String queryString = "select * from [dbo].[dannyInvoiceRecords] where inv_id like " + switch (invoiceState) {
                 case 0 -> "'S%'";
                 case 1 -> "'D%'";
                 case 2 -> "'R%'";
@@ -197,33 +194,32 @@ public class InvoicingController extends ParentController {
 
             invoiceTable.setItems(invoiceList);
 
-        } catch (SQLException e)
-            {
-                e.printStackTrace();
-            }
-
-    }
-
-    @FXML
-    protected void handleRowSelect(Event event)
-    {
-        if(event.getEventType().getName().equals("MOUSE_CLICKED"))
-        {
-            if(((javafx.scene.input.MouseEvent) event).getClickCount() == 2)
-            {
-                InvoiceModel selectedInvoice = invoiceTable.getSelectionModel().getSelectedItem();
-                System.out.println(selectedInvoice.getInv_id()); // replace with new window
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
     }
 
     @FXML
-    public void invoiceAddCLicked(MouseEvent event) throws IOException {
+    public void invoiceAddClicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addEditInvoice.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setTitle("Invoice");
         stage.show();
+    }
+
+    @FXML
+    protected void handleRowSelect(Event event) throws IOException {
+        if(event.getEventType().getName().equals("MOUSE_CLICKED"))
+        {
+            if(((javafx.scene.input.MouseEvent) event).getClickCount() == 2)
+            {
+                InvoiceModel selectedInvoice = invoiceTable.getSelectionModel().getSelectedItem();
+                System.out.println(selectedInvoice.getInv_id());
+                invoiceAddClicked(null);
+            }
+        }
     }
 }
