@@ -7,3 +7,4 @@ DFA/.idea/sqldialects.xml
 DFA/target
 *.xml
 *.xml
+/DFA/.idea
