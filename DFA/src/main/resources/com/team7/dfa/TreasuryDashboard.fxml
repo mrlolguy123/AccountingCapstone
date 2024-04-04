@@ -64,7 +64,6 @@
                </children>
             </VBox>
             <Button fx:id="addBankButton" layoutX="690.0" layoutY="41.0" mnemonicParsing="false" onAction="#addBankClicked" prefHeight="25.0" prefWidth="150.0" text="Add Bank" />
-            <Button fx:id="importStatementButton" layoutX="304.0" layoutY="41.0" mnemonicParsing="false" onAction="#importStatementClicked" prefHeight="25.0" prefWidth="150.0" text="Import Statement" />
             <Button fx:id="addCreditCardButton" layoutX="502.0" layoutY="41.0" mnemonicParsing="false" onAction="#addCreditCardClicked" prefHeight="24.0" prefWidth="150.0" text="Add Credit Card" />
          </children></AnchorPane>
    </center>

@@ -15,7 +15,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <TableView fx:id="bankTransTable" layoutX="65.0" layoutY="101.0" prefHeight="278.0" prefWidth="478.0">
+      <TableView fx:id="bankTransTable" layoutX="65.0" layoutY="101.0" onMouseClicked="#itemClickedBank" prefHeight="278.0" prefWidth="478.0">
         <columns>
           <TableColumn fx:id="transIDCol" prefWidth="98.0" text="Transaction ID" />
           <TableColumn fx:id="accountNumCol" prefWidth="139.0" text="Back Account Number" />
@@ -25,10 +25,11 @@
       </TableView>
       <Button fx:id="closeButton" layoutX="65.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#closeWindow" text="Close" />
       <Button fx:id="addButton" layoutX="565.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#addTransaction" prefHeight="25.0" prefWidth="52.0" text="Add" />
-      <Button fx:id="refreshButton" layoutX="478.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#refreshTableBank" prefHeight="25.0" prefWidth="65.0" text="Refresh" />
+      <Button fx:id="refreshButton" layoutX="478.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#refreshBankTable" prefHeight="25.0" prefWidth="65.0" text="Refresh" />
       <Text layoutX="565.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="169.13671875" />
       <TextField fx:id="amountText" layoutX="565.0" layoutY="117.0" />
       <Text layoutX="565.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="149.0" />
       <TextField fx:id="dateText" layoutX="565.0" layoutY="165.0" />
+      <Button fx:id="editButton" layoutX="662.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#editTransaction" prefHeight="25.0" prefWidth="52.0" text="Edit" />
    </children>
 </AnchorPane>

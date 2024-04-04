@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82acd049-9aee-4ad5-8b1c-b93bd0744441" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/TreasuryDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/TreasuryDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/addBankPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/addBankPopupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/addCreditCardPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/addCreditCardPopupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/bankAccountTransactionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/bankAccountTransactionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/cardTransactionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/cardTransactionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/TreasuryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/TreasuryDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/bankAccountTransactions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/bankAccountTransactions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/cardTransactions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/cardTransactions.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/homepage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +50,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "Treasury",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "last_opened_file_path": "C:/Users/there/IdeaProjects/AccountingCapstone/DFA/src/main/resources/com/team7/dfa",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -65,7 +79,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="" />
+      <changelist id="82acd049-9aee-4ad5-8b1c-b93bd0744441" name="Changes" comment="" />
       <created>1711052335924</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -76,6 +90,9 @@
       <workItem from="1711487705289" duration="3712000" />
       <workItem from="1711576791117" duration="1501000" />
       <workItem from="1711638917932" duration="10629000" />
+      <workItem from="1711696166501" duration="5000" />
+      <workItem from="1711696173294" duration="2000" />
+      <workItem from="1712220590631" duration="18350000" />
     </task>
     <task id="LOCAL-00001" summary="Added EmployeeID to bankAccount and cardRecord&#10;Added Transactions model for transactions table">
       <option name="closed" value="true" />
@@ -106,5 +123,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

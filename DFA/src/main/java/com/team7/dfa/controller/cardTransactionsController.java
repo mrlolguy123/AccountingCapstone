@@ -3,21 +3,26 @@ package com.team7.dfa.controller;
 import com.team7.dfa.model.transactions;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
-import java.util.Locale;
 import java.util.logging.Logger;
 
+import static com.team7.dfa.controller.TreasuryDashboardController.selectedCard;
+
+/**
+ * Controls the methods and click events for cardTransactions.fxml
+ */
 public class cardTransactionsController extends ParentController {
 
     static Logger log = null;
@@ -27,9 +32,8 @@ public class cardTransactionsController extends ParentController {
         log = Logger.getLogger(cardTransactionsController.class.getName());
     }
 
-    String card;
-    @FXML
-    private Button refreshButton;
+    private String card;
+    private transactions selectedTransaction = null;
     @FXML
     private TableColumn<transactions, String> transIDCol;
     @FXML
@@ -39,8 +43,6 @@ public class cardTransactionsController extends ParentController {
     @FXML
     private TableColumn<transactions, Integer> amountCol;
     @FXML
-    private Button addButton;
-    @FXML
     private Button closeButton;
     @FXML
     private TableView<transactions> cardTransTable;
@@ -48,69 +50,176 @@ public class cardTransactionsController extends ParentController {
     private TextField amountText;
     @FXML
     private TextField dateText;
+    @FXML
+    private ContextMenu cardContext;
 
-    // closes the frame
+    /**
+     * Closes the window for cardTransactions.fxml
+     */
     @FXML
     protected void closeWindow() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
+        log.info("cardTransactions.fxml window closed.");
     }
 
-    // refreshes the table with current data
+    /**
+     * a callable method to refresh the transaction tableView from a call of getTransactions(con)
+     * fills each column using CellValueFactories
+     */
     @FXML
-    protected void refreshTableCard() throws SQLException {
-        card = TreasuryDashboardController.selectedCard.getCardNum();
-        ResultSet rs = readTransactions(con);
+    private void refreshCardTable(){
+        ObservableList<transactions> transactions = getTransactions(con);
+
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+        amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        cardNumCol.setCellValueFactory(new PropertyValueFactory<>("cardNum"));
+        transIDCol.setCellValueFactory(new PropertyValueFactory<>("transID"));
+
+        cardTransTable.setItems(transactions);
+
+        log.info("Card Record tableView columns filled in refreshCardTable.");
+    }
+
+    /**
+     * Handles click events for the rows in bankTransTable
+     * left click fills a variable that acts as the currently selected row
+     * right click opens a context menu for a row
+     * @param event the captured click event
+     */
+    @FXML
+    protected void itemClickedCard(MouseEvent event){
+        if(event.getButton()== MouseButton.SECONDARY){
+            cardContext.show(cardTransTable, event.getScreenX(),event.getScreenY());
+            log.info("Card Record Transaction ContextMenu shown.");
+        }
+        else if(event.getButton()==MouseButton.PRIMARY){
+            selectedTransaction = cardTransTable.getSelectionModel().getSelectedItem();
+            log.info("Card Record Transaction selected.");
+        }
+    }
+
+    /**
+     * queries dbo.andrewTransactions for a ResultSet of all transactions in the table
+     * iterates through the result in order to place them in an Observable List
+     * @param connection the database connection from ParentController
+     * @return an ObservableList filled with all transactions in the table
+     */
+    protected ObservableList<transactions> getTransactions(Connection connection){
+        ResultSet rs = null;
+        try {
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM dbo.andrewTransactions WHERE cardNum = ?");
+            ps.setString(1, card);
+            rs = ps.executeQuery();
+        }
+        catch(SQLException e){
+            log.info("Select query from dbo.andrewTransactions in getTransactions failed.");
+        }
+        log.info("Select query from dbo.andrewTransactions in getTransactions succeeded.");
 
         ObservableList<transactions> oL = FXCollections.observableArrayList();
-        while (rs.next()){
-            try {
-              transactions temp = new transactions(rs.getDate("date"),
-                      rs.getInt("amount"),
-                      rs.getString("accountNum"),
-                      rs.getString("cardNum"),
-                rs.getInt("transID"));
+        try {
+            while (rs.next()) {
+                transactions temp = new transactions(rs.getDate("date"),
+                        rs.getInt("amount"),
+                        rs.getString("accountNum"),
+                        rs.getString("cardNum"),
+                        rs.getInt("transID"));
                 oL.add(temp);
-            }catch(Exception e){
-                log.info("Error reading query: ");
-                e.printStackTrace();
             }
         }
+        catch(NullPointerException e){
+            log.info("ResultSet rs was never filled in getTransactions.");
+        }
+        catch(SQLException e){
+            log.info("A column label was not valid for rs in getTransactions.");
+        }
+        log.info("ObservableList successfully created in getTransactions.");
+
+        return oL;
+    }
+
+    /**
+     * When add is clicked, creates a transaction from values in textFields
+     */
+    @FXML
+    protected void addTransaction(){
+        refreshCardTable();
 
         try {
-            dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
-            amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
-            cardNumCol.setCellValueFactory(new PropertyValueFactory<>("cardNum"));
-            transIDCol.setCellValueFactory(new PropertyValueFactory<>("transID"));
-
-            cardTransTable.setItems(oL);
-        } catch(Exception e){
-            log.info("Could not fill Transaction Table");
+            PreparedStatement insertStatement = con.prepareStatement("INSERT INTO dbo.andrewTransactions VALUES (?,?,?,?);");
+            insertStatement.setDate(1, java.sql.Date.valueOf(dateText.getText()));
+            insertStatement.setInt(2, Integer.parseInt(amountText.getText()));
+            insertStatement.setString(3, null);
+            insertStatement.setString(4, card);
+            insertStatement.executeUpdate();
+        }
+        catch(SQLException e){
+            log.info("Insert into dbo.andrewTransactions in addTransaction failed.");
         }
 
+        log.info("Insert into dbo.andrewTransaction in addTransaction succeeded.");
+
+        refreshCardTable();
     }
 
-    protected ResultSet readTransactions(Connection connection) throws SQLException {
-        PreparedStatement ps = connection.prepareStatement("SELECT * FROM dbo.andrewTransactions WHERE cardNum = ?");
-        ps.setString(1,card);
-        return ps.executeQuery();
-
-    }
-
-    // adds a new transaction linked to the card
+    /**
+     * this method runs after all other methods/initializations, at the start of the window being created
+     * initializes bankContext ContextMenu
+     * adds click event for MenuItem in bankContext
+     */
     @FXML
-    protected void addTransaction() throws SQLException {
-        refreshTableCard();
-        log.info("Reading entry");
-        PreparedStatement insertStatement = con.prepareStatement("INSERT INTO dbo.andrewTransactions VALUES (?,?,?,?);");
-        insertStatement.setDate(1, java.sql.Date.valueOf(dateText.getText()));
-        insertStatement.setInt(2, Integer.parseInt(amountText.getText()));
-        insertStatement.setString(3,null);
-        insertStatement.setString(4,card);
-        insertStatement.executeUpdate();
-        log.info("Updating database");
-        refreshTableCard();
+    public void initialize(){
+        refreshCardTable();
+        cardContext = new ContextMenu();
+        MenuItem cardItem = new MenuItem("Delete");
+        cardContext.getItems().add(cardItem);
+        cardItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                PreparedStatement ps;
+                card = selectedCard.getCardNum();
+
+                try{
+                    ps = con.prepareStatement("Delete FROM dbo.andrewTransactions WHERE cardNum = ?");
+                    ps.setString(1, selectedCard.getCardNum());
+                    ps.execute();
+                }
+                catch(SQLException e){
+                    cardContext.hide();
+                    log.info("Entry deletion in dbo.andrewTransactions in initialize/cardItem failed.");
+                }
+
+                log.info("Entry deletion in dbo.andrewTransactions in initialize/cardItem succeeded.");
+                cardContext.hide();
+                refreshCardTable();
+                log.info("All deletions performed successfully in initialize/cardItem.");
+
+            }
+        });
     }
 
+    /**
+     * method to edit a selected transactoin row, replaces entry's values with filled textFields
+     * @param mouseEvent the captured mouse click
+     */
+    @FXML
+    public void editTransaction(MouseEvent mouseEvent){
+        if(selectedTransaction!=null){
+            try {
+                PreparedStatement ps = con.prepareStatement("UPDATE dbo.andrewTransactions SET amount = ?, date = ? WHERE transID = ?");
+                ps.setInt(1, Integer.parseInt(amountText.getText()));
+                ps.setDate(2, java.sql.Date.valueOf(dateText.getText()));
+                ps.setInt(3, selectedTransaction.getTransID());
+                ps.execute();
+            }
+            catch(SQLException e){
+                log.info("Update in dbo.andrewTransactions in editTransaction failed.");
+            }
 
+            log.info("Update in dbo.andrewTransactions in editTransaction succeeded.");
+
+            refreshCardTable();
+        }
+    }
 }
