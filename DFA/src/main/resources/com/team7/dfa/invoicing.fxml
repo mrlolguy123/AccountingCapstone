@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,9 +20,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.InvoicingController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" stylesheets="@stylesheets/template.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.InvoicingController">
    <left>
-      <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="126.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+      <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="126.0" BorderPane.alignment="CENTER">
          <children>
              <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Home" />
              <Button fx:id="accountingButton" mnemonicParsing="false" onAction="#accountClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Accounting" />
@@ -28,7 +34,7 @@
       </VBox>
    </left>
    <top>
-      <AnchorPane fx:id="titleBar" prefHeight="49.0" prefWidth="1034.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="titleBar" prefHeight="49.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="companyName" layoutX="14.0" layoutY="9.0" text="Placeholder Company Name" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="9.0">
                <font>

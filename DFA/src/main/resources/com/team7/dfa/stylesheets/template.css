@@ -1,0 +1,75 @@
+#sidebar {
+    -fx-background-color: #34495e;
+}
+
+#sidebar .button {
+    -fx-background-color: transparent;
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+#sidebar .button:hover {
+    -fx-background-color: #fcfcfc;
+    -fx-text-fill: black;
+}
+
+#sidebar .button:pressed {
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+    -fx-border-color: #626262;
+    -fx-border-radius: 10px;
+}
+
+#sidebar .button {
+    -fx-transition: background-color 0.3s, border-color 0.3s;
+}
+
+#logoutButton {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-alignment: bottom_center;
+    -fx-margin-bottom: 20px;
+}
+
+#logoutButton:hover {
+    -fx-background-color: #fcfcfc;
+    -fx-text-fill: black;
+}
+
+#logoutButton:pressed {
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+    -fx-border-color: #626262;
+    -fx-border-radius: 10px;
+}
+
+#titleBar {
+    -fx-background-color: #34495e;
+    -fx-padding: 10px;
+}
+
+#companyName {
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 22px;
+}
+
+#homePagePane {
+    -fx-background-color: #ecf0f1;
+}
+
+.border-pane {
+    -fx-background-color: #bdc3c7;
+}
