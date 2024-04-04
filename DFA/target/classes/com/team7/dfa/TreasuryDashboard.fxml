@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.TreasuryDashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" stylesheets="@stylesheets/template.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.TreasuryDashboardController">
    <left>
-      <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="126.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+      <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="126.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Home" />
             <Button fx:id="accountingButton" mnemonicParsing="false" onAction="#accountClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Accounting" />
@@ -25,7 +29,7 @@
       </VBox>
    </left>
    <top>
-      <AnchorPane fx:id="titleBar" prefHeight="49.0" prefWidth="1034.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="titleBar" prefHeight="49.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="companyName" layoutX="14.0" layoutY="9.0" text="Placeholder Company Name" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="9.0">
                <font>
@@ -42,23 +46,27 @@
             <VBox layoutX="67.0" layoutY="100.0" prefHeight="486.0" prefWidth="773.0">
                <children>
                   <TitledPane fx:id="bankPane" animated="false" expanded="false" onMousePressed="#bankMousePressed" text="Bank Accounts">
-                     <TableView fx:id="bankTable" onMouseClicked="#itemClickedBank">
-                        <columns>
-                           <TableColumn fx:id="bankNameCol" prefWidth="178.0" text="Bank Name" />
-                           <TableColumn fx:id="accountNumCol" prefWidth="250.0" text="Account Number" />
-                           <TableColumn fx:id="routingNumCol" prefWidth="182.0" text="Routing Number" />
-                           <TableColumn fx:id="bankEmployeeIDCol" prefWidth="75.0" text="Employee ID" />
-                        </columns></TableView>
+                     <content>
+                        <TableView fx:id="bankTable">
+                           <columns>
+                              <TableColumn fx:id="bankNameCol" prefWidth="178.0" text="Bank Name" />
+                              <TableColumn fx:id="accountNumCol" prefWidth="250.0" text="Account Number" />
+                              <TableColumn fx:id="routingNumCol" prefWidth="182.0" text="Routing Number" />
+                           </columns>
+                        </TableView>
+                     </content>
                   </TitledPane>
                   <TitledPane fx:id="cardPane" animated="false" expanded="false" onMousePressed="#cardMousePressed" text="Credit Cards">
-                     <TableView fx:id="cardTable" onMouseClicked="#itemClickedCard">
-                        <columns>
-                           <TableColumn fx:id="cardNameCol" prefWidth="178.0" text="Card Name" />
-                           <TableColumn fx:id="cardNumCol" prefWidth="250.0" text="Card Number" />
-                           <TableColumn fx:id="cardExpiryCol" prefWidth="182.0" text="Card Expiration Date" />
-                           <TableColumn fx:id="cardSecCol" prefWidth="161.0" text="Card Security Code" />
-                           <TableColumn fx:id="cardEmployeeIDCol" prefWidth="75.0" text="Employee ID" />
-                        </columns></TableView>
+                     <content>
+                        <TableView fx:id="cardTable">
+                           <columns>
+                              <TableColumn fx:id="cardNameCol" prefWidth="178.0" text="Card Name" />
+                              <TableColumn fx:id="cardNumCol" prefWidth="250.0" text="Card Number" />
+                              <TableColumn fx:id="cardExpiryCol" prefWidth="182.0" text="Card Expiration Date" />
+                              <TableColumn fx:id="cardSecCol" prefWidth="161.0" text="Card Security Code" />
+                           </columns>
+                        </TableView>
+                     </content>
                   </TitledPane>
 
                </children>

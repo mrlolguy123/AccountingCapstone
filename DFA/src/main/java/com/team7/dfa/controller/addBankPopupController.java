@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 /**
  * the controller for addBankPopup.fxml
  */
-public class addBankPopupController extends ParentController {
+public class addBankPopupController extends ParentController{
 
     @FXML
     private Button confirmButton;

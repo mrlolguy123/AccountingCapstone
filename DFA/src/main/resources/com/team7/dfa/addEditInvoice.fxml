@@ -2,10 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
@@ -15,7 +14,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="645.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.InvoiceViewController">
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="645.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.InvoiceViewController">
    <children>
       <GridPane layoutX="144.0" layoutY="125.0" prefHeight="514.0" prefWidth="635.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
         <columnConstraints>
@@ -36,12 +37,12 @@
                   <RowConstraints maxHeight="209.0" minHeight="0.0" prefHeight="47.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <TableView fx:id="inv_item_table" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn prefWidth="319.0" text="Description" />
-                      <TableColumn minWidth="0.0" prefWidth="111.0" text="Quantity" />
-                        <TableColumn prefWidth="116.0" text="Unit Price" />
-                        <TableColumn prefWidth="109.0" text="Total" />
+                      <TableColumn fx:id="item_desc_col" prefWidth="319.0" text="Description" />
+                      <TableColumn fx:id="item_num_col" minWidth="0.0" prefWidth="111.0" text="Quantity" />
+                        <TableColumn fx:id="item_price_col" prefWidth="116.0" text="Unit Price" />
+                        <TableColumn fx:id="item_total_col" prefWidth="109.0" text="Total" />
                     </columns>
                   </TableView>
                   <GridPane>
@@ -70,16 +71,18 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </Label>
-                              <MenuButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="196.0" text="Standard" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-                                <items>
-                                  <MenuItem mnemonicParsing="false" text="Standard" />
-                                  <MenuItem mnemonicParsing="false" text="Retainer" />
-                                    <MenuItem mnemonicParsing="false" text="Recurring" />
-                                </items>
+                              <ComboBox fx:id="type_field" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1">
+                                  <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                      <String fx:value="Standard" />
+                                      <String fx:value="Retainer" />
+                                      <String fx:value="Recurring" />
+                                    </FXCollections>
+                                  </items>
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
-                              </MenuButton>
+                              </ComboBox>
                            </children>
                         </GridPane>
                         <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -102,7 +105,7 @@
                                     <Insets bottom="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </Label>
-                              <TextField GridPane.columnIndex="1">
+                              <TextField fx:id="recur_field" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
@@ -123,7 +126,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </Label>
-                              <DatePicker maxWidth="1.7976931348623157E308" GridPane.columnIndex="1">
+                              <DatePicker fx:id="date_field" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
@@ -140,7 +143,7 @@
                           </rowConstraints>
                            <children>
                               <Label text="Invoice ID:" GridPane.halignment="RIGHT" />
-                              <TextField GridPane.columnIndex="1">
+                              <TextField fx:id="id_field" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
@@ -156,7 +159,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TextField GridPane.columnIndex="1">
+                              <TextField fx:id="customer_field" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
@@ -166,7 +169,7 @@
                         </GridPane>
                      </children>
                   </GridPane>
-                  <Button mnemonicParsing="false" text="Add Item" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                  <Button fx:id="item_add_button" mnemonicParsing="false" text="Add Item" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -230,52 +233,52 @@
                         <Insets right="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <Button mnemonicParsing="false" text="Save as Draft" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="8">
+                  <Button fx:id="draft_button" mnemonicParsing="false" text="Save as Draft" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="8">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Publish" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+                  <Button fx:id="publish_button" mnemonicParsing="false" text="Publish" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Delete" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+                  <Button fx:id="delete_button" mnemonicParsing="false" text="Delete" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <TextField GridPane.columnIndex="1">
+                  <TextField fx:id="order_field" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="subtotal_field" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <TextField fx:id="discount_field" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <TextField fx:id="tax_rate_field" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <TextField fx:id="total_tax_field" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <TextField fx:id="total_field" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextArea fx:id="notes_field" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -294,7 +297,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField maxWidth="60.0" GridPane.columnIndex="1">
+                        <TextField fx:id="term_field" maxWidth="60.0" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>

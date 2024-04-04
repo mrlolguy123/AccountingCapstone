@@ -1,59 +1,56 @@
 package com.team7.dfa.model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class bankAccount {
-    private String bankName;
-    private String accountNum;
-    private String routingNum;
-    private int EmployeeID;
-
+    private StringProperty bankName;
+    private StringProperty accountNum;
+    private StringProperty routingNum;
 
     public bankAccount(){
     }
 
     public bankAccount(String bankName, String accountName, String routingNum){
-        this.bankName=bankName;
-        this.accountNum=accountName;
-        this.routingNum=routingNum;
-        this.EmployeeID=0;
+        bankNameProperty().set(bankName);
+        accountNumProperty().set(accountName);
+        routeNumProperty().set(routingNum);
     }
-    public bankAccount(String bankName, String accountName, String routingNum, int EmployeeID){
-        this.bankName=bankName;
-        this.accountNum=accountName;
-        this.routingNum=routingNum;
-        this.EmployeeID=EmployeeID;
-    }
-
-    public String getBankName() {
+    public StringProperty bankNameProperty(){
+        if (bankName == null) bankName = new SimpleStringProperty(this, "bankName");
         return bankName;
     }
-
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
-    }
-
-    public String getAccountNum() {
+    public StringProperty accountNumProperty(){
+        if(accountNum == null) accountNum = new SimpleStringProperty(this, "accountNum");
         return accountNum;
     }
-
-    public void setAccountNum(String accountNum) {
-        this.accountNum = accountNum;
-    }
-
-    public String getRoutingNum() {
+    public StringProperty routeNumProperty(){
+        if(routingNum==null) routingNum = new SimpleStringProperty(this,"routingNum");
         return routingNum;
     }
 
+    public String getBankName() {
+        return bankNameProperty().get();
+    }
+
+    public void setBankName(String bankName) {
+        this.bankNameProperty().set(bankName);
+    }
+
+    public String getAccountNum() {
+        return accountNumProperty().get();
+    }
+
+    public void setAccountNum(String accountNum) {
+        this.accountNumProperty().set(accountNum);
+    }
+
+    public String getRoutingNum() {
+        return routeNumProperty().get();
+    }
+
     public void setRoutingNum(String routingNum) {
-        this.routingNum = routingNum;
-    }
-
-    public int getEmployeeID() {
-        return EmployeeID;
-    }
-
-    public void setEmployeeID(int employeeID) {
-        EmployeeID = employeeID;
+        this.routeNumProperty().set(routingNum);
     }
 }
 
