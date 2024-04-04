@@ -43,7 +43,7 @@
                <children>
                   <TitledPane fx:id="bankPane" animated="false" expanded="false" onMousePressed="#bankMousePressed" text="Bank Accounts">
                      <content>
-                        <TableView fx:id="bankTable">
+                        <TableView fx:id="bankTable" onMousePressed="#itemClickedBank">
                            <columns>
                               <TableColumn fx:id="bankNameCol" prefWidth="178.0" text="Bank Name" />
                               <TableColumn fx:id="accountNumCol" prefWidth="250.0" text="Account Number" />
@@ -55,7 +55,7 @@
                   </TitledPane>
                   <TitledPane fx:id="cardPane" animated="false" expanded="false" onMousePressed="#cardMousePressed" text="Credit Cards">
                      <content>
-                        <TableView fx:id="cardTable">
+                        <TableView fx:id="cardTable" onMousePressed="#itemClickedCard">
                            <columns>
                               <TableColumn fx:id="cardNameCol" prefWidth="178.0" text="Card Name" />
                               <TableColumn fx:id="cardNumCol" prefWidth="250.0" text="Card Number" />

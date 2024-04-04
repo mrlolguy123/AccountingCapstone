@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82acd049-9aee-4ad5-8b1c-b93bd0744441" name="Changes" comment="removed button on treasury dashboard&#10;readded transactions model">
+    <list default="true" id="82acd049-9aee-4ad5-8b1c-b93bd0744441" name="Changes" comment="reconverted card record and bank accounts&#10;readded employeeID column">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/TreasuryDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/TreasuryDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/bankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/bankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/cardRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/cardRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addBankPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addBankPopupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/cardTransactionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/cardTransactionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/TreasuryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/TreasuryDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/TreasuryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/TreasuryDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,17 +48,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Treasury",
-    "last_opened_file_path": "C:/Users/there/IdeaProjects/AccountingCapstone/DFA/src/main/resources/com/team7/dfa",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Treasury&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/there/IdeaProjects/AccountingCapstone/DFA/src/main/resources/com/team7/dfa&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Rohan_nu3d8wo\OneDrive\Desktop\488-PROTOTYPE\AccountingCapstone\DFA\src\main\java\com\team7\dfa\controller" />
@@ -110,6 +110,21 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Treasury" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -123,6 +138,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added edit and delete functions&#10;added javadoc comments&#10;added log verbosity&#10;cleaned up exception handling" />
     <MESSAGE value="removed button on treasury dashboard&#10;readded transactions model" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed button on treasury dashboard&#10;readded transactions model" />
+    <MESSAGE value="reconverted card record and bank accounts&#10;readded employeeID column" />
+    <option name="LAST_COMMIT_MESSAGE" value="reconverted card record and bank accounts&#10;readded employeeID column" />
   </component>
 </project>
