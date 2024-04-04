@@ -19,5 +19,10 @@ Python in some of the backend modules.
 Advisor: Kabir
 
 In order to generate the graphs, make sure to install the latest version of Python first.
-Next, you need to install the required dependencies. To install the Python packages run the command in you command prompt window: <br> 
+<br><b>1.</b> Install the required dependencies. To install the Python packages run the command in you command prompt window: <br> 
 <code>pip install seaborn matplotlib pandas pypyodbc</code>
+<br><b>2.</b> Install the <a href='https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16'>ODBC Driver Version 18 for Windows</a>. Install the driver using the deazfult options.
+After installing, go to your Windows search bar and type <code>ODBC Data Srources</code>.
+<br><b>3.</b> After opening 'ODBC Data Sources', navigate to the <code>Drivers</code> tab. Look for the name <code>ODBC Driver 18 for SQL Server </code>. This verifies you installed the correct version.
+<br><b>4.</b> Everything should work now.
+
