@@ -41,7 +41,7 @@ public class InvoicingController extends ParentController {
     * 4 - Payable Retainer Invoice
     * 5 - Payable Recurring Invoice
     */
-    int invoiceState = 0;
+    public static int invoiceState = 0;
 
     @FXML
     public TableView<InvoiceModel> invoiceTable;
