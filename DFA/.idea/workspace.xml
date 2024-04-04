@@ -9,7 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82acd049-9aee-4ad5-8b1c-b93bd0744441" name="Changes" comment="added edit and delete functions&#10;added javadoc comments&#10;added log verbosity&#10;cleaned up exception handling" />
+    <list default="true" id="82acd049-9aee-4ad5-8b1c-b93bd0744441" name="Changes" comment="removed button on treasury dashboard&#10;readded transactions model">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/TreasuryDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/TreasuryDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/bankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/bankAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/cardRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/cardRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addBankPopupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/controller/addBankPopupController.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -89,6 +95,15 @@
       <workItem from="1711768057009" duration="2692000" />
       <workItem from="1711771229520" duration="4618000" />
     </task>
+    <task id="LOCAL-00001" summary="removed button on treasury dashboard&#10;readded transactions model">
+      <option name="closed" value="true" />
+      <created>1712240662283</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712240662283</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +122,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added edit and delete functions&#10;added javadoc comments&#10;added log verbosity&#10;cleaned up exception handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="added edit and delete functions&#10;added javadoc comments&#10;added log verbosity&#10;cleaned up exception handling" />
+    <MESSAGE value="removed button on treasury dashboard&#10;readded transactions model" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed button on treasury dashboard&#10;readded transactions model" />
   </component>
 </project>

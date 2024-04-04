@@ -210,7 +210,8 @@ public class TreasuryDashboardController extends ParentController {
                 cardRecord temp = new cardRecord(rs.getString("CardName"),
                         rs.getString("CardNum"),
                         rs.getString("CardExpiry"),
-                        rs.getString("CardSec"));
+                        rs.getString("CardSec"),
+                        rs.getInt("EmployeeID"));
                 oL.add(temp);
             }
         }
@@ -247,7 +248,8 @@ public class TreasuryDashboardController extends ParentController {
             while (rs.next()) {
                 bankAccount temp = new bankAccount(rs.getString("bankName"),
                         rs.getString("accountNum"),
-                        rs.getString("routeNum"));
+                        rs.getString("routeNum"),
+                        rs.getInt("EmployeeID"));
                 oL.add(temp);
             }
         }
