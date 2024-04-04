@@ -10,10 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82acd049-9aee-4ad5-8b1c-b93bd0744441" name="Changes" comment="reconverted card record and bank accounts&#10;readded employeeID column">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/sample_BarGraph.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/sample_ScatterPlot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logFile.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/Graph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +103,7 @@
       <workItem from="1711771229520" duration="4618000" />
       <workItem from="1712243861638" duration="2643000" />
       <workItem from="1712252151242" duration="257000" />
-      <workItem from="1712257104126" duration="1408000" />
+      <workItem from="1712257104126" duration="4715000" />
     </task>
     <task id="LOCAL-00001" summary="removed button on treasury dashboard&#10;readded transactions model">
       <option name="closed" value="true" />

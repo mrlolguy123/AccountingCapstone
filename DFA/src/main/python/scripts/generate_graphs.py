@@ -12,8 +12,8 @@ graph_x_name = sys.argv[3]
 graph_y_name = sys.argv[4]
 graph_name = sys.argv[5]
 
-logging.basicConfig(filename='logFile.log', level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
-
+# # Configuration for Logging File. Returns any errors with execution
+logging.basicConfig(filename='graphErrorLog.log', level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s\n')
 
 def getDataFrame(query):
     username = "capstoneAdmin"
@@ -67,15 +67,16 @@ def make_bar(df, name, height, width, x_name, y_name):
     Note:
         This function requires the seaborn and matplotlib libraries to be installed.
     """
-
-    plt.figure(figsize=(width, height))
-    sns.set_style("dark")
-    sns.barplot(x=x_name, y=y_name, data=df)
-    plt.xlabel(x_name)
-    plt.ylabel(y_name)
-    plt.title(name)
-    plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
-
+    try:
+        plt.figure(figsize=(width, height))
+        sns.set_style("dark")
+        sns.barplot(x=x_name, y=y_name, data=df)
+        plt.xlabel(x_name)
+        plt.ylabel(y_name)
+        plt.title(name)
+        plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    except Exception as e:
+        raise RuntimeError("An error occurred while making bar graph: %s" % e)
 
 def make_scatter(df, name, height, width, x_name, y_name):
     """
@@ -95,15 +96,16 @@ def make_scatter(df, name, height, width, x_name, y_name):
     Note:
         This function requires the seaborn and matplotlib libraries to be installed.
     """
-
-    plt.figure(figsize=(width, height))
-    sns.set_style("white")
-    sns.scatterplot(x=x_name, y=y_name, data=df)
-    plt.xlabel(x_name)
-    plt.ylabel(y_name)
-    plt.title(name)
-    plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
-
+    try:
+        plt.figure(figsize=(width, height))
+        sns.set_style("white")
+        sns.scatterplot(x=x_name, y=y_name, data=df)
+        plt.xlabel(x_name)
+        plt.ylabel(y_name)
+        plt.title(name)
+        plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    except Exception as e:
+        raise RuntimeError("An error occurred while making scatter plot: %s" % e)
 
 def make_line(df, name, height, width, x_name, y_name):
     """
@@ -123,17 +125,18 @@ def make_line(df, name, height, width, x_name, y_name):
     Note:
         This function requires the seaborn and matplotlib libraries to be installed.
     """
+    try:
+        plt.figure(figsize=(width, height))
+        sns.set_style("white")
+        sns.lineplot(x=x_name, y=y_name, data=df)
+        plt.xlabel(x_name)
+        plt.ylabel(y_name)
+        plt.title(name)
+        plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    except Exception as e:
+        raise RuntimeError("An error occurred while making line graph: %s" % e)
 
-    plt.figure(figsize=(width, height))
-    sns.set_style("white")
-    sns.lineplot(x=x_name, y=y_name, data=df)
-    plt.xlabel(x_name)
-    plt.ylabel(y_name)
-    plt.title(name)
-    plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
-
-
-def make_pie_chart(df, name, height, width, col_name):
+def make_pie_chart(df, name, height, width, x_name):
     """
     Generates a scatter plot based on the provided DataFrame and saves it as an image file.
 
@@ -142,7 +145,7 @@ def make_pie_chart(df, name, height, width, col_name):
         :param name: The name of the graph and the output image file.
         :param height: The height of the generated figure.
         :param width: The width of the generated figure.
-        :param col_name: The label and column to select in the dataframe for the pie chart.
+        :param x_name: The label and column to select in the dataframe for the pie chart.
 
     Returns:
         None
@@ -151,21 +154,23 @@ def make_pie_chart(df, name, height, width, col_name):
         This function requires the seaborn and matplotlib libraries to be installed.
     """
 
-    plt.figure(figsize=(width, height))
-    sns.set_style("darkgrid")
-    data = df[col_name].value_counts()
-    colors = sns.color_palette("bright", len(data))
+    try:
+        plt.figure(figsize=(width, height))
+        sns.set_style("darkgrid")
+        data = df[x_name].value_counts()
+        colors = sns.color_palette("bright", len(data))
 
-    fig1, ax = plt.subplots()
-    patches, texts, autotexts = ax.pie(data, labels=data.index, colors=colors, autopct='%1.1f%%', startangle=90,
-                                       pctdistance=0.85)
+        fig1, ax = plt.subplots()
+        patches, texts, autotexts = ax.pie(data, labels=data.index, colors=colors, autopct='%1.1f%%', startangle=90,
+                                           pctdistance=0.85)
 
-    #adjust position of percentage labels
-    for autotext in autotexts:
-        autotext.set_size(10)  #font size for precentages
-    plt.title(name)
-    plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
-
+        #adjust position of percentage labels
+        for autotext in autotexts:
+            autotext.set_size(10)  #font size for precentages
+        plt.title(name)
+        plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    except Exception as e:
+        raise RuntimeError("An error occurred while making pie chart: %s" % e)
 
 if __name__ == '__main__':
     try:
