@@ -54,7 +54,7 @@ public class Graph {
      */
     public Graph(String sqlCommand, String col_name, String graphName){
         this.sqlCommand = sqlCommand;
-        this.graphChoice = "4";
+        this.graphChoice = "4"; //4
         this.x_name = col_name;
         this.y_name = "";
         this.graphName = graphName;

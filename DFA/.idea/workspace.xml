@@ -11,10 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="82acd049-9aee-4ad5-8b1c-b93bd0744441" name="Changes" comment="reconverted card record and bank accounts&#10;readded employeeID column">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/cardTransactionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/cardTransactionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/TreasuryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/TreasuryDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/TreasuryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/TreasuryDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logFile.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,17 +47,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Treasury&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/there/IdeaProjects/AccountingCapstone/DFA/src/main/resources/com/team7/dfa&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.TemplateTestApplication.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "amanDocumentation",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/there/IdeaProjects/AccountingCapstone/DFA/src/main/resources/com/team7/dfa",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Rohan_nu3d8wo\OneDrive\Desktop\488-PROTOTYPE\AccountingCapstone\DFA\src\main\java\com\team7\dfa\controller" />
@@ -69,6 +75,7 @@
     <attachedChunks>
       <set>
         <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>
@@ -94,6 +101,9 @@
       <workItem from="1711753798512" duration="1450000" />
       <workItem from="1711768057009" duration="2692000" />
       <workItem from="1711771229520" duration="4618000" />
+      <workItem from="1712243861638" duration="2643000" />
+      <workItem from="1712252151242" duration="257000" />
+      <workItem from="1712257104126" duration="4715000" />
     </task>
     <task id="LOCAL-00001" summary="removed button on treasury dashboard&#10;readded transactions model">
       <option name="closed" value="true" />
