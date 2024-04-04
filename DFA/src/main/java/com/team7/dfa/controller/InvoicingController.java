@@ -28,6 +28,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class InvoicingController extends ParentController {
+    /**
+     * This class is the controller for the invoicing view.
+     * It is responsible for handling the user input and responding to the user.
+     */
     public Button invoiceAddButton;
     @FXML
     private Button invoiceButton;
@@ -75,6 +79,11 @@ public class InvoicingController extends ParentController {
     @FXML
     private Button payRetButton;
 
+    /**
+     * This method is called when the user switches to a regular invoice on the invoicing view.
+     * It calls the refreshInvoiceTable method to populate the table with the regular invoices using the button click event.
+     * @param event
+     */
     @FXML
     protected void invButtonClick(ActionEvent event)
     {
@@ -83,6 +92,12 @@ public class InvoicingController extends ParentController {
         else
             recInvButtonClick(event);
     }
+
+    /**
+     * This method is called when the user switches to a retainer invoice on the invoicing view.
+     * It calls the refreshInvoiceTable method to populate the table with the retainer invoices using the button click event.
+     * @param event
+     */
     @FXML
     protected void retButtonClick(ActionEvent event)
     {
@@ -91,6 +106,12 @@ public class InvoicingController extends ParentController {
         else
             recRetButtonClick(event);
     }
+
+    /**
+     * This method is called when the user switches to a recurring invoice on the invoicing view.
+     * It calls the refreshInvoiceTable method to populate the table with the recurring invoices using the button click event.
+     * @param event
+     */
     @FXML
     protected void recButtonClick(ActionEvent event)
     {
@@ -99,6 +120,12 @@ public class InvoicingController extends ParentController {
         else
             recRecButtonClick(event);
     }
+
+    /**
+     * This method is called when the user clicks on the Receivable Invoice button.
+     * It loads the invoicing view.
+     * @param event
+     */
     @FXML
     protected void recInvButtonClick(ActionEvent event)
     {
@@ -108,6 +135,12 @@ public class InvoicingController extends ParentController {
         invoicingTablePane.setVisible(true);
         refreshInvoiceTable();
     }
+
+    /**
+     * This method is called when the user clicks on the Receivable Retainer Invoice button.
+     * It loads the invoicing view.
+     * @param event
+     */
     @FXML
     protected void recRetButtonClick(ActionEvent event)
     {
@@ -117,6 +150,12 @@ public class InvoicingController extends ParentController {
         invoicingTablePane.setVisible(true);
         refreshInvoiceTable();
     }
+
+    /**
+     * This method is called when the user clicks on the Receivable Recurring Invoice button.
+     * It loads the invoicing view.
+     * @param event
+     */
     @FXML
     protected void recRecButtonClick(ActionEvent event)
     {
@@ -126,6 +165,12 @@ public class InvoicingController extends ParentController {
         invoicingTablePane.setVisible(true);
         refreshInvoiceTable();
     }
+
+    /**
+     * This method is called when the user clicks on the Payable Invoice button.
+     * It loads the invoicing view.
+     * @param event
+     */
     @FXML
     protected void payInvButtonClick(ActionEvent event)
     {
@@ -135,6 +180,12 @@ public class InvoicingController extends ParentController {
         invoicingTablePane.setVisible(true);
         refreshInvoiceTable();
     }
+
+    /**
+     * This method is called when the user clicks on the Payable Retainer Invoice button.
+     * It loads the invoicing view.
+     * @param event
+     */
     @FXML
     protected void payRetButtonClick(ActionEvent event)
     {
@@ -144,6 +195,12 @@ public class InvoicingController extends ParentController {
         invoicingTablePane.setVisible(true);
         refreshInvoiceTable();
     }
+
+    /**
+     * This method is called when the user clicks on the Payable Recurring Invoice button.
+     * It loads the invoicing view.
+     * @param event
+     */
     @FXML
     protected void payRecButtonClick(ActionEvent event)
     {
@@ -154,13 +211,10 @@ public class InvoicingController extends ParentController {
         refreshInvoiceTable();
     }
 
-    @FXML
-    protected void invoiceButtonClick(ActionEvent event)
-    {
-        invoicingDashPane.setVisible(true);
-        invoicingTablePane.setVisible(false);
-    }
-
+    /**
+     * This method is called when invoices need to be refreshed, either when a view is loaded or done manually.
+     * It queries the database for the invoices and populates the table with the results.
+     */
     protected void refreshInvoiceTable() {
         try {
             String queryString = "select * from [dbo].[dannyInvoiceRecords] where inv_id like " + switch (invoiceState) {
@@ -200,6 +254,12 @@ public class InvoicingController extends ParentController {
 
     }
 
+    /**
+     * This method is called when the user clicks the add invoice button.
+     * It loads the add edit invoice view.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void invoiceAddClicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addEditInvoice.fxml"));
@@ -210,6 +270,12 @@ public class InvoicingController extends ParentController {
         stage.show();
     }
 
+    /**
+     * This method is called when the user double-clicks an invoice row on the invoice table.
+     * It loads the add edit invoice view.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     protected void handleRowSelect(Event event) throws IOException {
         if(event.getEventType().getName().equals("MOUSE_CLICKED"))
