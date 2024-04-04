@@ -1,5 +1,9 @@
-
+DFA/out
 DFA/.idea/dataSources.xml
 DFA/.idea/sqldialects.xml
 *.properties
 *.properties
+*.class
+DFA/target
+*.xml
+*.xml
