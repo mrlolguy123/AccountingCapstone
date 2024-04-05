@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.logging.Logger;
 
 public class ParentController {
     /**
@@ -21,6 +22,14 @@ public class ParentController {
      */
     DatabaseConnector db = new DatabaseConnector();
     Connection con = db.connect();
+
+    static Logger log = null;
+
+    static {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+        log = Logger.getLogger(addBankPopupController.class.getName());
+    }
+
     /**
      * This method is called when the user clicks the logout button on the sidebar.
      * It closes the application.

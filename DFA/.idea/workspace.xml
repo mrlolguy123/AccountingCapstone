@@ -9,12 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82acd049-9aee-4ad5-8b1c-b93bd0744441" name="Changes" comment="reconverted card record and bank accounts&#10;readded employeeID column">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logFile.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" afterDir="false" />
-    </list>
+    <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="templateUIUpdate" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -47,42 +42,68 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.TemplateTestApplication.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "amanDocumentation",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/there/IdeaProjects/AccountingCapstone/DFA/src/main/resources/com/team7/dfa",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TemplateTestApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;invoicing__add__edit&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/24dan/Documents/AccountingCapstone/DFA&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.22413793&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Rohan_nu3d8wo\OneDrive\Desktop\488-PROTOTYPE\AccountingCapstone\DFA\src\main\java\com\team7\dfa\controller" />
       <recent name="C:\Users\Rohan_nu3d8wo\OneDrive\Desktop\488-PROTOTYPE\AccountingCapstone\DFA\src\main\resources\com\team7\dfa" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.team7.dfa.Main" />
+      <module name="DFA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.team7.dfa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="82acd049-9aee-4ad5-8b1c-b93bd0744441" name="Changes" comment="" />
+      <changelist id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="" />
       <created>1711052335924</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -93,48 +114,21 @@
       <workItem from="1711487705289" duration="3712000" />
       <workItem from="1711576791117" duration="1501000" />
       <workItem from="1711638917932" duration="10629000" />
-      <workItem from="1711696166501" duration="5000" />
-      <workItem from="1711696173294" duration="2000" />
-      <workItem from="1712220590631" duration="18350000" />
       <workItem from="1711683687477" duration="2913000" />
       <workItem from="1711744805885" duration="227000" />
       <workItem from="1711753798512" duration="1450000" />
       <workItem from="1711768057009" duration="2692000" />
       <workItem from="1711771229520" duration="4618000" />
-      <workItem from="1712243861638" duration="2643000" />
-      <workItem from="1712252151242" duration="257000" />
-      <workItem from="1712257104126" duration="4715000" />
+      <workItem from="1712257013148" duration="189000" />
+      <workItem from="1712257426633" duration="8758000" />
+      <workItem from="1712330197194" duration="11919000" />
     </task>
-    <task id="LOCAL-00001" summary="removed button on treasury dashboard&#10;readded transactions model">
-      <option name="closed" value="true" />
-      <created>1712240662283</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1712240662283</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="Treasury" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -145,10 +139,8 @@
       </map>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="added edit and delete functions&#10;added javadoc comments&#10;added log verbosity&#10;cleaned up exception handling" />
-    <MESSAGE value="removed button on treasury dashboard&#10;readded transactions model" />
-    <MESSAGE value="reconverted card record and bank accounts&#10;readded employeeID column" />
-    <option name="LAST_COMMIT_MESSAGE" value="reconverted card record and bank accounts&#10;readded employeeID column" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

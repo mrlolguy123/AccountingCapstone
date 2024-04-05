@@ -26,6 +26,8 @@ public class addBankPopupController extends ParentController{
     @FXML
     private TextField routingNumText;
 
+<<<<<<< HEAD
+=======
     static Logger log = null;
 
     static {
@@ -37,6 +39,7 @@ public class addBankPopupController extends ParentController{
      * When confirm is clicked, creates a BankAccount from values in textFields
      * @param event the captured click event
      */
+>>>>>>> main
     @FXML
     protected void confirmClicked(ActionEvent event){
 

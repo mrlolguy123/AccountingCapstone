@@ -1,6 +1,7 @@
 package com.team7.dfa.controller;
 
 import com.team7.dfa.TemplateTestApplication;
+import com.team7.dfa.model.InvoiceLog;
 import com.team7.dfa.model.InvoiceModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -41,7 +42,7 @@ public class InvoicingController extends ParentController {
     * 4 - Payable Retainer Invoice
     * 5 - Payable Recurring Invoice
     */
-    int invoiceState = 0;
+    public static int invoiceState = 0;
 
     @FXML
     public TableView<InvoiceModel> invoiceTable;
@@ -75,6 +76,22 @@ public class InvoicingController extends ParentController {
     private Button payRecButton;
     @FXML
     private Button payRetButton;
+    @FXML
+    public TableView<InvoiceLog> invoicingUpdateTable;
+    @FXML
+    public TableColumn<InvoiceLog, String> log_id_col;
+    @FXML
+    public TableColumn<InvoiceLog, String> log_update_col;
+    @FXML
+    public TableColumn<InvoiceLog, String> log_desc_col;
+
+
+    @FXML
+    public void initialize() {
+        invoicingDashPane.setVisible(true);
+        invoicingTablePane.setVisible(false);
+        refreshLogTable();
+    }
 
     /**
      * This method is called when the user switches to a regular invoice on the invoicing view.
@@ -251,6 +268,28 @@ public class InvoicingController extends ParentController {
 
     }
 
+    protected void refreshLogTable() {
+        try {
+            ObservableList<InvoiceLog> logList = FXCollections.observableArrayList();
+            PreparedStatement ps = con.prepareStatement("select * from [dbo].[invoiceLog]");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next())
+                logList.add(new InvoiceLog(rs.getString("log_updated"),
+                        rs.getString("log_inv_id"),
+                        rs.getString("log_desc")));
+
+            log_update_col.setCellValueFactory(new PropertyValueFactory<>("log_date"));
+            log_id_col.setCellValueFactory(new PropertyValueFactory<>("log_id"));
+            log_desc_col.setCellValueFactory(new PropertyValueFactory<>("log_desc"));
+
+            invoicingUpdateTable.setItems(logList);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * This method is called when the user clicks the add invoice button.
      * It loads the add edit invoice view.
@@ -258,7 +297,8 @@ public class InvoicingController extends ParentController {
      * @throws IOException
      */
     @FXML
-    public void invoiceAddClicked(MouseEvent event) throws IOException {
+    protected void invoiceAddClicked(MouseEvent event) throws IOException {
+        InvoiceViewController.grabbed = null;
         FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addEditInvoice.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
@@ -279,10 +319,72 @@ public class InvoicingController extends ParentController {
         {
             if(((javafx.scene.input.MouseEvent) event).getClickCount() == 2)
             {
+                if(invoiceTable.getSelectionModel().getSelectedItem() == null)
+                    return;
                 InvoiceModel selectedInvoice = invoiceTable.getSelectionModel().getSelectedItem();
-                System.out.println(selectedInvoice.getInv_id());
-                invoiceAddClicked(null);
+                grabInvoice(selectedInvoice.getInv_id());
+                FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addEditInvoice.fxml"));
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Invoice");
+                stage.show();
             }
+        }
+    }
+
+    @FXML
+    protected void handleLogSelect(Event event) throws IOException {
+        if(event.getEventType().getName().equals("MOUSE_CLICKED"))
+        {
+            if(((javafx.scene.input.MouseEvent) event).getClickCount() == 2)
+            {
+                if(invoicingUpdateTable.getSelectionModel().getSelectedItem() == null)
+                    return;
+                InvoiceLog selectedInvoice = invoicingUpdateTable.getSelectionModel().getSelectedItem();
+                grabInvoice(selectedInvoice.getLog_id());
+                FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addEditInvoice.fxml"));
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Invoice");
+                stage.show();
+            }
+        }
+    }
+
+    @FXML
+    protected void refresh_clicked(ActionEvent event) {
+        refreshInvoiceTable();
+    }
+
+    protected void grabInvoice(String inv_id) {
+        try {
+            PreparedStatement ps = con.prepareStatement("select * from [dbo].[dannyInvoiceRecords] where inv_id = ?");
+            ps.setString(1, inv_id);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            InvoiceModel invoice = new InvoiceModel(rs.getString("inv_date"),
+                    rs.getString("inv_due_date"),
+                    rs.getString("inv_id"),
+                    rs.getString("inv_order_id"),
+                    rs.getString("inv_cust_name"),
+                    rs.getString("inv_shipping"),
+                    rs.getString("inv_billing"),
+                    rs.getString("inv_group"),
+                    rs.getString("inv_state"),
+                    rs.getDouble("inv_subtotal"),
+                    rs.getDouble("inv_discount"),
+                    rs.getDouble("inv_tax_rate"),
+                    rs.getDouble("inv_total"),
+                    rs.getDouble("inv_balance"),
+                    rs.getInt("inv_repeat"),
+                    rs.getString("inv_cust_notes"),
+                    rs.getString("inv_terms"));
+            InvoiceViewController.grabbed = invoice;
+            log.info("Loaded invoice:\n" + invoice.toString());
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

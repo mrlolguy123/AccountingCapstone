@@ -361,4 +361,31 @@ public class InvoiceModel {
     public void setInv_terms(String inv_terms) {
         this.inv_terms = inv_terms;
     }
+
+    /**
+     * toString() override method.
+     * @return string
+     */
+    @Override
+    public String toString() {
+        return "InvoiceModel{" +
+                "inv_date='" + inv_date + '\'' +
+                ", inv_due_date='" + inv_due_date + '\'' +
+                ", inv_id='" + inv_id + '\'' +
+                ", inv_order_id='" + inv_order_id + '\'' +
+                ", inv_cust_name='" + inv_cust_name + '\'' +
+                ", inv_shipping='" + inv_shipping + '\'' +
+                ", inv_billing='" + inv_billing + '\'' +
+                ", inv_group='" + inv_group + '\'' +
+                ", inv_state='" + inv_state + '\'' +
+                ", inv_subtotal=" + inv_subtotal +
+                ", inv_discount=" + inv_discount +
+                ", inv_tax_rate=" + inv_tax_rate +
+                ", inv_total=" + inv_total +
+                ", inv_balance=" + inv_balance +
+                ", inv_repeat=" + inv_repeat +
+                ", inv_cust_notes='" + inv_cust_notes + '\'' +
+                ", inv_terms='" + inv_terms + '\'' +
+                '}';
+    }
 }

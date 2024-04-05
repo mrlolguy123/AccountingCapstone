@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -20,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" stylesheets="@stylesheets/template.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.InvoicingController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" stylesheets="@stylesheets/template.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.InvoicingController">
    <left>
       <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="126.0" BorderPane.alignment="CENTER">
          <children>
@@ -163,11 +157,11 @@
                                  <children>
                                     <AnchorPane layoutX="-4.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
                                        <children>
-                                          <TableView fx:id="invoicingUpdateTable" layoutX="90.0" layoutY="22.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TableView fx:id="invoicingUpdateTable" layoutX="90.0" layoutY="22.0" onMouseClicked="#handleLogSelect" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
-                                              <TableColumn prefWidth="75.0" text="Invoice ID" />
-                                              <TableColumn prefWidth="101.0" text="Updated" />
-                                                <TableColumn prefWidth="265.0" text="Short Description" />
+                                              <TableColumn fx:id="log_id_col" editable="false" prefWidth="107.0" text="Invoice ID" />
+                                              <TableColumn fx:id="log_update_col" editable="false" prefWidth="177.0" text="Updated" />
+                                                <TableColumn fx:id="log_desc_col" editable="false" prefWidth="157.0" text="Short Description" />
                                             </columns>
                                           </TableView>
                                        </children>
@@ -239,7 +233,12 @@
                                           <Insets left="5.0" right="5.0" />
                                        </GridPane.margin>
                                     </Button>
-                                    <Button fx:id="invoiceAddButton" maxWidth="1.7976931348623157E308" onMouseClicked="#invoiceAddClicked" mnemonicParsing="false" text="Add Invoice" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+                                    <Button fx:id="invoiceAddButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#invoiceAddClicked" text="Add Invoice" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#refresh_clicked" text="Refresh" GridPane.columnIndex="3">
                                        <GridPane.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </GridPane.margin>
