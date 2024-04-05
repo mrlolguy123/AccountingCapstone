@@ -285,4 +285,17 @@ public class InvoicingController extends ParentController {
             }
         }
     }
+
+    protected void grabInvoice(String inv_id) {
+        try {
+            PreparedStatement ps = con.prepareStatement("select * from [dbo].[dannyInvoiceRecords] where inv_id = ?");
+            ps.setString(1, inv_id);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            InvoiceModel invoice = null; // finish this
+            InvoiceViewController.grabbed = invoice;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -23,13 +23,6 @@ public class addBankPopupController extends ParentController{
     @FXML
     private TextField routingNumText;
 
-    static Logger log = null;
-
-    static {
-        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
-        log = Logger.getLogger(addBankPopupController.class.getName());
-    }
-
     @FXML
     protected void confirmClicked(ActionEvent event) throws SQLException {
 
