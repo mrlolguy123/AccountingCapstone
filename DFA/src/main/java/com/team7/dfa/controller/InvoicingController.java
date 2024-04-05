@@ -76,6 +76,12 @@ public class InvoicingController extends ParentController {
     @FXML
     private Button payRetButton;
 
+    @FXML
+    public void initialize() {
+        invoicingDashPane.setVisible(true);
+        invoicingTablePane.setVisible(false);
+    }
+
     /**
      * This method is called when the user switches to a regular invoice on the invoicing view.
      * It calls the refreshInvoiceTable method to populate the table with the regular invoices using the button click event.
@@ -258,7 +264,8 @@ public class InvoicingController extends ParentController {
      * @throws IOException
      */
     @FXML
-    public void invoiceAddClicked(MouseEvent event) throws IOException {
+    protected void invoiceAddClicked(MouseEvent event) throws IOException {
+        InvoiceViewController.grabbed = null;
         FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addEditInvoice.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
@@ -279,11 +286,23 @@ public class InvoicingController extends ParentController {
         {
             if(((javafx.scene.input.MouseEvent) event).getClickCount() == 2)
             {
+                if(invoiceTable.getSelectionModel().getSelectedItem() == null)
+                    return;
                 InvoiceModel selectedInvoice = invoiceTable.getSelectionModel().getSelectedItem();
-                System.out.println(selectedInvoice.getInv_id());
-                invoiceAddClicked(null);
+                grabInvoice(selectedInvoice.getInv_id());
+                FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addEditInvoice.fxml"));
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Invoice");
+                stage.show();
             }
         }
+    }
+
+    @FXML
+    protected void refresh_clicked(ActionEvent event) {
+        refreshInvoiceTable();
     }
 
     protected void grabInvoice(String inv_id) {
@@ -292,8 +311,25 @@ public class InvoicingController extends ParentController {
             ps.setString(1, inv_id);
             ResultSet rs = ps.executeQuery();
             rs.next();
-            InvoiceModel invoice = null; // finish this
+            InvoiceModel invoice = new InvoiceModel(rs.getString("inv_date"),
+                    rs.getString("inv_due_date"),
+                    rs.getString("inv_id"),
+                    rs.getString("inv_order_id"),
+                    rs.getString("inv_cust_name"),
+                    rs.getString("inv_shipping"),
+                    rs.getString("inv_billing"),
+                    rs.getString("inv_group"),
+                    rs.getString("inv_state"),
+                    rs.getDouble("inv_subtotal"),
+                    rs.getDouble("inv_discount"),
+                    rs.getDouble("inv_tax_rate"),
+                    rs.getDouble("inv_total"),
+                    rs.getDouble("inv_balance"),
+                    rs.getInt("inv_repeat"),
+                    rs.getString("inv_cust_notes"),
+                    rs.getString("inv_terms"));
             InvoiceViewController.grabbed = invoice;
+            log.info("Loaded invoice:\n" + invoice.toString());
         } catch (SQLException e) {
             e.printStackTrace();
         }

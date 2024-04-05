@@ -57,88 +57,23 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <children>
-                              <GridPane layoutX="50.0" layoutY="-20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="98.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="365.0" minWidth="10.0" prefWidth="313.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Label text="Group:" GridPane.halignment="RIGHT">
-                                       <GridPane.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <TextField fx:id="group_field" GridPane.columnIndex="1">
-                                       <GridPane.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </GridPane.margin>
-                                    </TextField>
-                                 </children>
-                              </GridPane>
-                           </children>
-                        </AnchorPane>
-                        <GridPane prefHeight="59.0" prefWidth="279.0" GridPane.rowIndex="3">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="76.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="198.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="State:" GridPane.halignment="RIGHT">
-                                 <GridPane.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <ComboBox fx:id="state_field" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1">
-                                  <items>
-                                    <FXCollections fx:factory="observableArrayList">
-                                        <String fx:value="Open" />
-                                        <String fx:value="Partially Paid" />
-                                        <String fx:value="Paid In Full" />
-                                        <String fx:value="Void" />
-                                        <String fx:value="Draft" />
-                                    </FXCollections>
-                                  </items>
-                                 <GridPane.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </GridPane.margin>
-                              </ComboBox>
-                           </children>
-                        </GridPane>
-                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="92.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="156.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="152.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="Recur every:" GridPane.halignment="RIGHT">
-                                 <GridPane.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label text="days" GridPane.columnIndex="2">
-                                 <padding>
-                                    <Insets bottom="5.0" right="5.0" top="5.0" />
-                                 </padding>
-                              </Label>
-                              <TextField fx:id="recur_field" GridPane.columnIndex="1">
-                                 <GridPane.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </GridPane.margin>
-                              </TextField>
-                           </children>
-                        </GridPane>
+                         <GridPane GridPane.rowIndex="1">
+                             <columnConstraints>
+                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="77.0" />
+                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="195.0" />
+                             </columnConstraints>
+                             <rowConstraints>
+                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                             </rowConstraints>
+                             <children>
+                                 <TextField fx:id="customer_field" GridPane.columnIndex="1">
+                                     <GridPane.margin>
+                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                     </GridPane.margin>
+                                 </TextField>
+                                 <Label text="Customer:" GridPane.halignment="RIGHT" />
+                             </children>
+                         </GridPane>
                         <GridPane GridPane.rowIndex="2">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="77.0" />
@@ -160,40 +95,78 @@
                               </DatePicker>
                            </children>
                         </GridPane>
-                        <GridPane GridPane.rowIndex="1">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="77.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="195.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <TextField fx:id="customer_field" GridPane.columnIndex="1">
-                                 <GridPane.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </GridPane.margin>
-                              </TextField>
-                              <Label text="Customer:" GridPane.halignment="RIGHT" />
-                           </children>
-                        </GridPane>
-                        <GridPane>
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="75.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="197.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="Invoice ID:" GridPane.halignment="RIGHT" />
-                              <TextField fx:id="id_field" disable="true" GridPane.columnIndex="1">
-                                 <GridPane.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </GridPane.margin>
-                              </TextField>
-                           </children>
-                        </GridPane>
+                         <GridPane prefHeight="59.0" prefWidth="279.0" GridPane.rowIndex="3">
+                             <columnConstraints>
+                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="76.0" />
+                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="198.0" />
+                             </columnConstraints>
+                             <rowConstraints>
+                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                             </rowConstraints>
+                             <children>
+                                 <Label text="State:" GridPane.halignment="RIGHT">
+                                     <GridPane.margin>
+                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                     </GridPane.margin>
+                                 </Label>
+                                 <ComboBox fx:id="state_field" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1">
+                                     <items>
+                                         <FXCollections fx:factory="observableArrayList">
+                                             <String fx:value="Open" />
+                                             <String fx:value="Partially Paid" />
+                                             <String fx:value="Paid In Full" />
+                                             <String fx:value="Void" />
+                                             <String fx:value="Draft" />
+                                         </FXCollections>
+                                     </items>
+                                     <GridPane.margin>
+                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                     </GridPane.margin>
+                                 </ComboBox>
+                             </children>
+                         </GridPane>
+                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                             <children>
+                                 <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                     <columnConstraints>
+                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="10.0" prefWidth="99.0" />
+                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="361.0" minWidth="10.0" prefWidth="312.0" />
+                                     </columnConstraints>
+                                     <rowConstraints>
+                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                     </rowConstraints>
+                                     <children>
+                                         <Label text="Shipping:" GridPane.halignment="RIGHT">
+                                             <GridPane.margin>
+                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </GridPane.margin>
+                                         </Label>
+                                         <TextArea fx:id="shipping_field" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </GridPane.margin>
+                                         </TextArea>
+                                     </children>
+                                 </GridPane>
+                             </children>
+                         </AnchorPane>
+                         <GridPane>
+                             <columnConstraints>
+                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="75.0" />
+                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="197.0" />
+                             </columnConstraints>
+                             <rowConstraints>
+                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                             </rowConstraints>
+                             <children>
+                                 <Label text="Invoice ID:" GridPane.halignment="RIGHT" />
+                                 <TextField fx:id="id_field" disable="true" GridPane.columnIndex="1">
+                                     <GridPane.margin>
+                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                     </GridPane.margin>
+                                 </TextField>
+                             </children>
+                         </GridPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
                               <GridPane layoutX="50.0" layoutY="-20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -219,31 +192,58 @@
                               </GridPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                           <children>
-                              <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="10.0" prefWidth="99.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="361.0" minWidth="10.0" prefWidth="312.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <Label text="Shipping:" GridPane.halignment="RIGHT">
-                                       <GridPane.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <TextArea fx:id="shipping_field" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                                       <GridPane.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </GridPane.margin>
-                                    </TextArea>
-                                 </children>
-                              </GridPane>
-                           </children>
-                        </AnchorPane>
+                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                             <children>
+                                 <GridPane layoutX="50.0" layoutY="-20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                     <columnConstraints>
+                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="98.0" />
+                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="365.0" minWidth="10.0" prefWidth="313.0" />
+                                     </columnConstraints>
+                                     <rowConstraints>
+                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                     </rowConstraints>
+                                     <children>
+                                         <Label text="Group:" GridPane.halignment="RIGHT">
+                                             <GridPane.margin>
+                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </GridPane.margin>
+                                         </Label>
+                                         <TextField fx:id="group_field" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </GridPane.margin>
+                                         </TextField>
+                                     </children>
+                                 </GridPane>
+                             </children>
+                         </AnchorPane>
+                         <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                             <columnConstraints>
+                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="92.0" />
+                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="156.0" />
+                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="152.0" />
+                             </columnConstraints>
+                             <rowConstraints>
+                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                             </rowConstraints>
+                             <children>
+                                 <Label text="Recur every:" GridPane.halignment="RIGHT">
+                                     <GridPane.margin>
+                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                     </GridPane.margin>
+                                 </Label>
+                                 <Label text="days" GridPane.columnIndex="2">
+                                     <padding>
+                                         <Insets bottom="5.0" right="5.0" top="5.0" />
+                                     </padding>
+                                 </Label>
+                                 <TextField fx:id="recur_field" GridPane.columnIndex="1">
+                                     <GridPane.margin>
+                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                     </GridPane.margin>
+                                 </TextField>
+                             </children>
+                         </GridPane>
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="2">
@@ -322,26 +322,37 @@
                         <Insets right="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <Button fx:id="draft_button" mnemonicParsing="false" text="Save as Draft" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="8">
-                     <GridPane.margin>
-                        <Insets left="5.0" right="5.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button fx:id="publish_button" mnemonicParsing="false" onAction="#publish_clicked" text="Publish" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
-                     <GridPane.margin>
-                        <Insets left="5.0" right="5.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button fx:id="delete_button" mnemonicParsing="false" text="Delete" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
-                     <GridPane.margin>
-                        <Insets left="5.0" right="5.0" />
-                     </GridPane.margin>
-                  </Button>
                   <TextField fx:id="order_field" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
+                   <TextArea fx:id="notes_field" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                       <GridPane.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                       </GridPane.margin>
+                   </TextArea>
+                   <GridPane prefHeight="47.0" prefWidth="395.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                       <columnConstraints>
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="33.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="222.0" minWidth="3.0" prefWidth="220.0" />
+                       </columnConstraints>
+                       <rowConstraints>
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                       </rowConstraints>
+                       <children>
+                           <Label text="Net">
+                               <GridPane.margin>
+                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                               </GridPane.margin>
+                           </Label>
+                           <TextField fx:id="term_field" maxWidth="60.0" GridPane.columnIndex="1">
+                               <GridPane.margin>
+                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                               </GridPane.margin>
+                           </TextField>
+                       </children>
+                   </GridPane>
                   <TextField fx:id="subtotal_field" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -367,32 +378,16 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextArea fx:id="notes_field" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </GridPane.margin>
-                  </TextArea>
-                  <GridPane prefHeight="47.0" prefWidth="395.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="33.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="222.0" minWidth="3.0" prefWidth="220.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label text="Net">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="term_field" maxWidth="60.0" GridPane.columnIndex="1">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </TextField>
-                     </children>
-                  </GridPane>
+                   <Button fx:id="delete_button" mnemonicParsing="false" onAction="#delete_clicked" text="Delete" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+                       <GridPane.margin>
+                           <Insets left="5.0" right="5.0" />
+                       </GridPane.margin>
+                   </Button>
+                   <Button fx:id="publish_button" mnemonicParsing="false" onAction="#publish_clicked" text="Save" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+                       <GridPane.margin>
+                           <Insets left="5.0" right="5.0" />
+                       </GridPane.margin>
+                   </Button>
                </children>
             </GridPane>
          </children>
