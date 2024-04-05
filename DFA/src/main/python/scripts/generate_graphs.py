@@ -12,14 +12,10 @@ graph_x_name = sys.argv[3]
 graph_y_name = sys.argv[4]
 graph_name = sys.argv[5]
 
-# need to decide how to implement dynamic sizing of the graph
-# do i need to return the path for the image? no, there will be naming conventions for all of them
-# 1 - scatterplot, 2 - barplot, 3 - lineplot , do this in if statements
-
-logging.basicConfig(filename='logFile.log', level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
+# # Configuration for Logging File. Returns any errors with execution
+logging.basicConfig(filename='graphErrorLog.log', level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s\n')
 
 def getDataFrame(query):
-    # will leave creds in python file for now, implement security later
     username = "capstoneAdmin"
     password = "Group7@Capstone"
 
@@ -38,11 +34,14 @@ def getDataFrame(query):
 
     return dataframe
 
-# def getLogDirectory():
-#     path = os.path.dirname(__file__)
-#     lst = path.split("\x5c")
 
 def graphPathDirectory():
+    """
+    Gets the path for the graph working directory.
+
+    Returns:
+    str: The path to the directory where the generated graphs are stored."""
+
     path = os.path.dirname(__file__)
     lst = path.split("\x5c")
     lst.pop()
@@ -51,53 +50,127 @@ def graphPathDirectory():
 
 
 def make_bar(df, name, height, width, x_name, y_name):
-    plt.figure(figsize=(width, height))
-    sns.set_style("dark")
-    sns.barplot(x=x_name, y=y_name, data=df)
-    plt.xlabel(x_name)
-    plt.ylabel(y_name)
-    plt.title(name)
-    plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    """
+    Generates a bar graph based on the provided DataFrame and saves it as an image file.
 
+    Args:
+        :param df: The DataFrame containing the data to be plotted.
+        :param name: The name of the graph and the output image file.
+        :param height: The height of the generated figure.
+        :param width: The width of the generated figure.
+        :param x_name: The label for the x-axis.
+        :param y_name: The label for the y-axis.
+
+    Returns:
+        None
+
+    Note:
+        This function requires the seaborn and matplotlib libraries to be installed.
+    """
+    try:
+        plt.figure(figsize=(width, height))
+        sns.set_style("dark")
+        sns.barplot(x=x_name, y=y_name, data=df)
+        plt.xlabel(x_name)
+        plt.ylabel(y_name)
+        plt.title(name)
+        plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    except Exception as e:
+        raise RuntimeError("An error occurred while making bar graph: %s" % e)
 
 def make_scatter(df, name, height, width, x_name, y_name):
-    plt.figure(figsize=(width, height))
-    sns.set_style("white")
-    sns.scatterplot(x=x_name, y=y_name, data=df)
-    plt.xlabel(x_name)
-    plt.ylabel(y_name)
-    plt.title(name)
-    plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    """
+    Generates a scatter plot based on the provided DataFrame and saves it as an image file.
 
+    Args:
+        :param df: The DataFrame containing the data to be plotted.
+        :param name: The name of the graph and the output image file.
+        :param height: The height of the generated figure.
+        :param width: The width of the generated figure.
+        :param x_name: The label for the x-axis.
+        :param y_name: The label for the y-axis.
+
+    Returns:
+        None
+
+    Note:
+        This function requires the seaborn and matplotlib libraries to be installed.
+    """
+    try:
+        plt.figure(figsize=(width, height))
+        sns.set_style("white")
+        sns.scatterplot(x=x_name, y=y_name, data=df)
+        plt.xlabel(x_name)
+        plt.ylabel(y_name)
+        plt.title(name)
+        plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    except Exception as e:
+        raise RuntimeError("An error occurred while making scatter plot: %s" % e)
 
 def make_line(df, name, height, width, x_name, y_name):
-    plt.figure(figsize=(width, height))
-    sns.set_style("white")
-    sns.lineplot(x=x_name, y=y_name, data=df)
-    plt.xlabel(x_name)
-    plt.ylabel(y_name)
-    plt.title(name)
-    plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    """
+    Generates a line graph based on the provided DataFrame and saves it as an image file.
 
+    Args:
+        :param df: The DataFrame containing the data to be plotted.
+        :param name: The name of the graph and the output image file.
+        :param height: The height of the generated figure.
+        :param width: The width of the generated figure.
+        :param x_name: The label for the x-axis.
+        :param y_name: The label for the y-axis.
+
+    Returns:
+        None
+
+    Note:
+        This function requires the seaborn and matplotlib libraries to be installed.
+    """
+    try:
+        plt.figure(figsize=(width, height))
+        sns.set_style("white")
+        sns.lineplot(x=x_name, y=y_name, data=df)
+        plt.xlabel(x_name)
+        plt.ylabel(y_name)
+        plt.title(name)
+        plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    except Exception as e:
+        raise RuntimeError("An error occurred while making line graph: %s" % e)
 
 def make_pie_chart(df, name, height, width, x_name):
-    plt.figure(figsize=(width, height))
-    sns.set_style("darkgrid")
-    data = df[x_name].value_counts()
+    """
+    Generates a scatter plot based on the provided DataFrame and saves it as an image file.
 
-    colors = sns.color_palette("bright", len(data))
+    Args:
+        :param df: The DataFrame containing the data to be plotted.
+        :param name: The name of the graph and the output image file.
+        :param height: The height of the generated figure.
+        :param width: The width of the generated figure.
+        :param x_name: The label and column to select in the dataframe for the pie chart.
 
-    # Create pie chart
-    fig1, ax = plt.subplots()
-    patches, texts, autotexts = ax.pie(data, labels=data.index, colors=colors, autopct='%1.1f%%', startangle=90,
-                                       pctdistance=0.85)
+    Returns:
+        None
 
-    # Adjust the position of percentage labels
-    for autotext in autotexts:
-        autotext.set_size(10)  # Adjust the font size as needed
-    plt.title(name)
-    plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    Note:
+        This function requires the seaborn and matplotlib libraries to be installed.
+    """
 
+    try:
+        plt.figure(figsize=(width, height))
+        sns.set_style("darkgrid")
+        data = df[x_name].value_counts()
+        colors = sns.color_palette("bright", len(data))
+
+        fig1, ax = plt.subplots()
+        patches, texts, autotexts = ax.pie(data, labels=data.index, colors=colors, autopct='%1.1f%%', startangle=90,
+                                           pctdistance=0.85)
+
+        #adjust position of percentage labels
+        for autotext in autotexts:
+            autotext.set_size(10)  #font size for precentages
+        plt.title(name)
+        plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+    except Exception as e:
+        raise RuntimeError("An error occurred while making pie chart: %s" % e)
 
 if __name__ == '__main__':
     try:
