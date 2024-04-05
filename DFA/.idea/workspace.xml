@@ -9,13 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/TemplateTestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/TemplateTestApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/InvoicingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/InvoicingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/invoicing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/invoicing.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,7 +121,7 @@
       <workItem from="1711771229520" duration="4618000" />
       <workItem from="1712257013148" duration="189000" />
       <workItem from="1712257426633" duration="8758000" />
-      <workItem from="1712330197194" duration="11432000" />
+      <workItem from="1712330197194" duration="11919000" />
     </task>
     <servers />
   </component>
