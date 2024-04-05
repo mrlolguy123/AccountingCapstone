@@ -41,7 +41,7 @@
    <center>
       <AnchorPane fx:id="contentPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <BorderPane fx:id="invoicingDashPane" layoutX="125.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <BorderPane fx:id="invoicingDashPane" layoutX="125.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
                   <Label text="Invoicing Dashboard" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
@@ -157,11 +157,11 @@
                                  <children>
                                     <AnchorPane layoutX="-4.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
                                        <children>
-                                          <TableView fx:id="invoicingUpdateTable" layoutX="90.0" layoutY="22.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TableView fx:id="invoicingUpdateTable" layoutX="90.0" layoutY="22.0" onMouseClicked="#handleLogSelect" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
-                                              <TableColumn prefWidth="75.0" text="Invoice ID" />
-                                              <TableColumn prefWidth="101.0" text="Updated" />
-                                                <TableColumn prefWidth="265.0" text="Short Description" />
+                                              <TableColumn fx:id="log_id_col" editable="false" prefWidth="107.0" text="Invoice ID" />
+                                              <TableColumn fx:id="log_update_col" editable="false" prefWidth="177.0" text="Updated" />
+                                                <TableColumn fx:id="log_desc_col" editable="false" prefWidth="157.0" text="Short Description" />
                                             </columns>
                                           </TableView>
                                        </children>
@@ -183,7 +183,7 @@
                   </GridPane>
                </center>
             </BorderPane>
-            <BorderPane fx:id="invoicingTablePane" layoutX="304.0" layoutY="206.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <BorderPane fx:id="invoicingTablePane" layoutX="304.0" layoutY="206.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
                   <Label fx:id="invoicesTableTitle" text="Invoices" BorderPane.alignment="CENTER">
                      <font>
