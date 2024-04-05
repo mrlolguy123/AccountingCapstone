@@ -10,3 +10,4 @@ DFA/target
 /DFA/.idea
 /DFA/target
 /DFA/target/classes/
+*.xml
