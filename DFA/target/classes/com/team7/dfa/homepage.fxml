@@ -61,13 +61,10 @@
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0">
                                              <children>
-                                                 <ImageView fx:id="profitGraph" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                 <ImageView fx:id="profitGraph" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                      <viewport>
                                                          <javafx.geometry.Rectangle2D />
                                                      </viewport>
-                                                   <image>
-                                                      <Image url="@stylesheets/backgrounds/home_background.jpg" />
-                                                   </image>
                                                  </ImageView>
                                              </children>
                                           </AnchorPane>

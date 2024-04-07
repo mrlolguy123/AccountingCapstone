@@ -14,7 +14,9 @@ import java.util.List;
  * It generates graphs based on specified parameters and updates the graph image.
  * The types of graphs you can generate are:
  * "1" - Scatter Plot
- * "2" -
+ * "2" - Bar Graph
+ * "3" - Line Graph
+ * "4" = Pie Chart
  */
 public class Graph {
     private final String sqlCommand; // SQL Command for data retrieval
