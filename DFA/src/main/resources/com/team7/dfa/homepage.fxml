@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" stylesheets="@stylesheets/template.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.HomePageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.HomePageController">
     <left>
         <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="126.0" BorderPane.alignment="CENTER">
             <children>
@@ -34,7 +35,7 @@
     <center>
         <AnchorPane id="homePagePane" fx:id="contentPane" BorderPane.alignment="CENTER">
          <children>
-            <GridPane alignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+            <GridPane fx:id="mainPane" alignment="CENTER" layoutY="102.0" prefHeight="517.0" prefWidth="980.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="102.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -44,13 +45,13 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
-                  <AnchorPane GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                  <AnchorPane fx:id="profitAnchor" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <children>
-                        <GridPane alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane fx:id="profitGridPane" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="64.0" text="Total Profit" />
+                                    <Label fx:id="profitHeading" layoutX="155.0" layoutY="1.0" prefHeight="30.0" prefWidth="114.0" text="Total Profit" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="155.0" AnchorPane.topAnchor="1.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -59,7 +60,7 @@
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0">
                                              <children>
-                                                <ImageView fx:id="graph1" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ImageView fx:id="profitGraph" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children>
                                           </AnchorPane>
                                       </content>
@@ -68,7 +69,7 @@
                               </AnchorPane>
                            </children>
                            <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints fillHeight="false" maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
@@ -77,18 +78,18 @@
                         </GridPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane GridPane.columnIndex="1">
+                  <AnchorPane fx:id="acivityAnchor" GridPane.columnIndex="1">
                      <children>
-                        <GridPane alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane fx:id="activityPane" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <Label text="Recent Activity" />
+                                    <Label fx:id="activityHeading" layoutX="141.0" layoutY="-1.0" text="Recent Activity" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="155.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <ListView prefHeight="233.0" prefWidth="427.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <ListView fx:id="listView" prefHeight="233.0" prefWidth="427.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -102,13 +103,13 @@
                         </GridPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane GridPane.rowIndex="1">
+                  <AnchorPane fx:id="expenseAnchor" GridPane.rowIndex="1">
                      <children>
-                        <GridPane alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane fx:id="expensePane" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <Label text="Expenses Structure" />
+                                    <Label fx:id="expenseHeading" layoutX="123.0" layoutY="1.0" text="Expenses Structure" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -117,7 +118,7 @@
                                        <content>
                                           <AnchorPane>
                                              <children>
-                                                <ImageView fx:id="graph11" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ImageView fx:id="expensesGraph" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -135,13 +136,13 @@
                         </GridPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <AnchorPane fx:id="invoiceAnchor" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <GridPane alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane fx:id="invoicePane" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <Label text="Invoice Flow" />
+                                    <Label fx:id="invoiceHeading" layoutX="153.0" layoutY="1.0" text="Invoice Flow" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -150,7 +151,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
                                              <children>
-                                                <ImageView fx:id="graph12" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ImageView fx:id="invoiceFlowGraph" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -170,18 +171,23 @@
                   </AnchorPane>
                </children>
             </GridPane>
-            <Label layoutX="35.0" layoutY="14.0" prefHeight="39.0" prefWidth="125.0" text="Welcome!">
+            <Label fx:id="titleLabel" layoutX="14.0" layoutY="13.0" prefHeight="39.0" prefWidth="108.0" text="Welcome!">
                <font>
                   <Font size="27.0" />
                </font>
             </Label>
-            <TextField layoutX="652.0" layoutY="21.0" prefHeight="31.0" prefWidth="365.0" promptText="Search Here" AnchorPane.rightAnchor="20.0">
+            <TextField fx:id="searchBar" layoutX="625.0" layoutY="14.0" prefHeight="31.0" prefWidth="365.0" promptText="Search Here" AnchorPane.rightAnchor="10.0">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="generateGraphsButton" layoutX="220.0" layoutY="24.0" mnemonicParsing="false" onAction="#generateGraphButton" text="Refresh Graphs" />
+            <Button fx:id="generateGraphsButton" layoutX="176.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateGraphButton" text="Update Activity" />
+            <Label fx:id="descriptionLabel" layoutX="14.0" layoutY="61.0" text="Your homepage enables you to see your total profit, recent activity, expense structure, and invoice flow. All in one Place." />
          </children>
         </AnchorPane>
     </center>
+   <stylesheets>
+      <URL value="@stylesheets/template.css" />
+      <URL value="@stylesheets/hompage.css" />
+   </stylesheets>
 </BorderPane>
