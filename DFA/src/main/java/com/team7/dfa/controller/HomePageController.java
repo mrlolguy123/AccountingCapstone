@@ -24,6 +24,9 @@ public class HomePageController extends ParentController {
     private ImageView profitGraph;
 
     @FXML
+    private ImageView invoiceFlowGraph;
+
+    @FXML
     private Button generateGraphsButton;
 
     /**
@@ -37,10 +40,10 @@ public class HomePageController extends ParentController {
             Graph sample_graph = new Graph("select inv_state from dannyInvoiceRecords",
                     "inv_state",
                     "Invoice State Pie Chart");
-            sample_graph.updateGraphImage(profitGraph);
-            profitGraph.setPreserveRatio(true);
-            profitGraph.setFitWidth(profitGraph.getFitWidth());
-            profitGraph.setFitHeight(profitGraph.getFitHeight());
+            sample_graph.updateGraphImage(invoiceFlowGraph);
+//            profitGraph.setPreserveRatio(true);
+//            profitGraph.setFitWidth(profitGraph.getFitWidth());
+//            profitGraph.setFitHeight(profitGraph.getFitHeight());
         });
     }
 }

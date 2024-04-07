@@ -158,17 +158,18 @@ def make_pie_chart(df, name, height, width, x_name):
         plt.figure(figsize=(width, height))
         sns.set_style("darkgrid")
         data = df[x_name].value_counts()
-        colors = sns.color_palette("bright", len(data))
+        colors = sns.color_palette("flare", len(data))
 
         fig1, ax = plt.subplots()
         patches, texts, autotexts = ax.pie(data, labels=data.index, colors=colors, autopct='%1.1f%%', startangle=90,
-                                           pctdistance=0.85)
+                                           pctdistance=0.85, shadow=True, wedgeprops={'edgecolor': 'black'})
 
         #adjust position of percentage labels
         for autotext in autotexts:
-            autotext.set_size(10)  #font size for precentages
+            autotext.set_size(11)  #font size for precentages
+
         plt.title(name)
-        plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+        plt.savefig(graphPathDirectory() + name + ".png", dpi=80)
     except Exception as e:
         raise RuntimeError("An error occurred while making pie chart: %s" % e)
 
