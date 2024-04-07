@@ -38,6 +38,9 @@ public class HomePageController extends ParentController {
                     "inv_state",
                     "Invoice State Pie Chart");
             sample_graph.updateGraphImage(profitGraph);
+            profitGraph.setPreserveRatio(true);
+            profitGraph.setFitWidth(profitGraph.getFitWidth());
+            profitGraph.setFitHeight(profitGraph.getFitHeight());
         });
     }
 }

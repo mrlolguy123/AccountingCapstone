@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -45,13 +46,13 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
-                  <AnchorPane fx:id="profitAnchor" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                  <AnchorPane fx:id="profitAnchor" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <children>
                         <GridPane fx:id="profitGridPane" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <Label fx:id="profitHeading" layoutX="155.0" layoutY="1.0" prefHeight="30.0" prefWidth="114.0" text="Total Profit" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="155.0" AnchorPane.topAnchor="1.0" />
+                                    <Label fx:id="profitHeading" layoutX="14.0" layoutY="-1.0" prefHeight="30.0" text="Total Profit" textAlignment="CENTER" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="-1.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -60,7 +61,14 @@
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0">
                                              <children>
-                                                <ImageView fx:id="profitGraph" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                 <ImageView fx:id="profitGraph" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                     <viewport>
+                                                         <javafx.geometry.Rectangle2D />
+                                                     </viewport>
+                                                   <image>
+                                                      <Image url="@stylesheets/backgrounds/home_background.jpg" />
+                                                   </image>
+                                                 </ImageView>
                                              </children>
                                           </AnchorPane>
                                       </content>
@@ -69,7 +77,7 @@
                               </AnchorPane>
                            </children>
                            <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints fillHeight="false" maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="NEVER" />
@@ -84,7 +92,7 @@
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <Label fx:id="activityHeading" layoutX="141.0" layoutY="-1.0" text="Recent Activity" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="155.0" />
+                                    <Label fx:id="activityHeading" layoutX="14.0" text="Recent Activity" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="296.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -109,7 +117,7 @@
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <Label fx:id="expenseHeading" layoutX="123.0" layoutY="1.0" text="Expenses Structure" />
+                                    <Label fx:id="expenseHeading" layoutX="14.0" layoutY="1.0" text="Expenses Structure" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -142,7 +150,7 @@
                            <children>
                               <AnchorPane prefHeight="0.0" prefWidth="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <Label fx:id="invoiceHeading" layoutX="153.0" layoutY="1.0" text="Invoice Flow" />
+                                    <Label fx:id="invoiceHeading" layoutX="14.0" layoutY="2.0" text="Invoice Flow" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
