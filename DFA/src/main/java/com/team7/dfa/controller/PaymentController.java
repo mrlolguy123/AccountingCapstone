@@ -1,5 +1,6 @@
 package com.team7.dfa.controller;
 
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,17 +16,59 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PaymentController implements Initializable {
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
+public class PaymentController extends ParentController implements Initializable {
 
-    //  @FXML
-    //private Button logoutButton;
+    /**
+     * This class is the controller for handling Payments.
+     * It contains the methods that are used to update all payment table views and contains add,update,delete and pay employee from company payroll.
+     */
 
-    //@FXML
-    //protected void logoutClicked(ActionEvent event)
-    // {
-    //     System.exit(0);
-    //  }
+    @FXML
+    private Button BtnDownload;
+    @FXML
+    private TableView<Payment> table5;
+
+    @FXML
+    private TableColumn<Payment, String> APPAmountPayedCol;
+
+    @FXML
+    private TableColumn<Payment, String> APPDateTransferCol;
+
+    @FXML
+    private TableColumn<Payment, String> APPEmployeePayStatusCol;
+
+    @FXML
+    private TableColumn<Payment, String> APPIDCol;
+
+    @FXML
+    private TableColumn<Payment, String> APPNameCol;
+
+    @FXML
+    private TableColumn<Payment, String> APPPaymentDueDateCol;
+
+    @FXML
+    private TableColumn<Payment, String> PPAmountOwedCol;
+
+    @FXML
+    private TableColumn<Payment, String> PPAmountPayedCol;
+
+    @FXML
+    private TableColumn<Payment, String> PPDueDateCol;
+
+    @FXML
+    private TableColumn<Payment, String> PPIDcol;
+
+    @FXML
+    private TableColumn<Payment, String> PPLastPayedCol;
+
+    @FXML
+    private TableColumn<Payment, String> PPNameCol;
+
+    @FXML
+    private TableColumn<Payment, String> PPStatusCol;
 
     @FXML
     private TableColumn<Payment, String> Deductionscol;
@@ -61,6 +104,24 @@ public class PaymentController implements Initializable {
     private TableView<Payment> PayStatustable;
 
     @FXML
+    private TableView<Payment> table3;
+
+    @FXML
+    private TableView<Payment> Table4;
+
+    @FXML
+    private TableColumn<Payment, String> PrevPayDateCol;
+
+    @FXML
+    private TableColumn<Payment, String> PrevPayIDCol;
+
+    @FXML
+    private TableColumn<Payment, String> PrevPayNameCol;
+
+    @FXML
+    private TableColumn<Payment, String> PrevPayStatusCol;
+
+    @FXML
     private TableColumn<Payment, String> SalaeyJobCol;
 
     @FXML
@@ -74,6 +135,11 @@ public class PaymentController implements Initializable {
 
     @FXML
     private TextField txtPayName;
+
+    @FXML
+    private Button btnPPPay;
+
+
 
     @FXML
     private Button accountingButton;
@@ -118,6 +184,15 @@ public class PaymentController implements Initializable {
     private Button treasuryButton;
 
     @FXML
+    private TextField txtPPAmountTransfer;
+
+    @FXML
+    private TextField txtPPID;
+
+    @FXML
+    private TextField txtPPName;
+
+    @FXML
     private TextField txtHoursWorked;
 
     @FXML
@@ -132,62 +207,148 @@ public class PaymentController implements Initializable {
     @FXML
     private TextField txtSalary;
 
+
+
+    /**
+     * This method is called when the user chicks the add employee button on the payroll overview screen.
+     * It populates rohanPayroll table then updates rohanPayrollStatus by calling FillTable3 method and adding a new employee into the company, uses the button click event.
+     * @param event
+     */
     @FXML
     void Add(ActionEvent event) {
-        String ID,Name,Job,Salary,HoursWorked,Deductions,NetPay; // stname,mobile,course;
-        ID = txtID.getText();
+
+        String Name,Job,Salary,HoursWorked,Deductions,NetPay;
         Name = txtName.getText();
         Job = txtJob.getText();
         Salary = txtSalary.getText();
         HoursWorked = txtHoursWorked.getText();
         Deductions  = "0";
         NetPay = "9000";
-
-        //int SalInt = Integer.parseInt(Salary);
-        //int calcTax = SalInt / 100;
-        //Deductions = String.valueOf(calcTax*8);
-        //NetPay = String.valueOf(SalInt - Integer.parseInt(Deductions));
+        float SalFloat = Float.parseFloat(Salary);;
+        float calcTax = (SalFloat / 100) * 8;
+        Deductions = String.valueOf(calcTax);
+        NetPay = String.valueOf(SalFloat - calcTax);
+        int employeeID=0;
 
         try
         {
-            pst = con.prepareStatement("insert into payroll(ID,Name,Job,Salary,HoursWorked,Deductions,NetPay)values(?,?,?,?,?,?,?)");
-            pst.setString(1, ID);
-            pst.setString(2, Name);
-            pst.setString(3, Job);
-            pst.setString(4, Salary);
-            pst.setString(5, HoursWorked);
-            pst.setString(6, Deductions);
-            pst.setString(7, NetPay);
+            pst = con.prepareStatement("insert into rohanPayroll(Name,Job,Salary,HoursWorked,Deductions,NetPay)values(?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+
+            pst.setString(1, Name);
+            pst.setString(2, Job);
+            pst.setString(3, Salary);
+            pst.setString(4, HoursWorked);
+            pst.setString(5, Deductions);
+            pst.setString(6, NetPay);
             pst.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Employee Registation");
-
             alert.setHeaderText("Employee Payroll");
             alert.setContentText("Record Addedddd!");
             alert.showAndWait();
             table();
+            table3();
+            table2();
+            table4();
 
-            txtID.setText("");
             txtName.setText("");
             txtJob.setText("");
             txtSalary.setText("");
-            txtHoursWorked.requestFocus();
+            txtHoursWorked.setText("");
+
+            pst.executeQuery();
+
+            try {
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT MAX(ID) AS MaxID FROM rohanPayroll");
+
+                if (rs.next()) {
+                    int maxID = rs.getInt("MaxID");
+                    employeeID = maxID;
+                    System.out.println("Largest ID: " + maxID);
+                }
+
+                rs.close();
+                stmt.close();
+
+            } catch (SQLException ex)
+            {
+                ex.printStackTrace();
+            }
+
+            FillTable3(employeeID, Name, Job, Salary, NetPay);
         }
         catch (SQLException ex)
         {
-            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    /**
+     * This method is called when an new employee is added into rohanPayroll table. It also adds the employee into rohanPayStatus to keep track of payment status for employee.
+     * It updates all table views for payroll section.
+     */
+    public void FillTable3(int employeeID, String Name,String Job,String Salary,String NetPay){
+        //System.out.println(Name);
+        String ID =Integer.toString(employeeID);
+        String Status = "Not payed";
+        String Owed = NetPay;
+        String DueDate = "18/4/2024";
+        String LastPayed = "Never";
+        String AmountPayedLast = "0";
+
+        try
+        {
+            // Calculate DueDate by adding two weeks to the current date
+            LocalDate currentDate = LocalDate.now();
+            LocalDate dueDate = currentDate.plusWeeks(2);
+
+            // Format the date as "dd/MM/yyyy"
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            String dueDateString = dueDate.format(formatter);
+
+            pst = con.prepareStatement("INSERT INTO rohanPayStatus (EmployeeID,Name,NetPay,Status,Owed,DueDate,LastPayed,AmountPayedLast)values(?,?,?,?,?,?,?,?)");
+            pst.setString(1, ID);
+            pst.setString(2, Name);
+            pst.setString(3, NetPay);
+            pst.setString(4, Status);
+            pst.setString(5, Owed);
+            pst.setString(6, dueDateString);
+            pst.setString(7, LastPayed);
+            pst.setString(8, AmountPayedLast);
+            pst.executeUpdate();
+
+            table3();
+            table2();
+            table4();
+
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+
+
+    /**
+     * This method is called whenever there is a add,delete,update or payment functions are used. Used to update rohanPayroll table information into table1 view.
+     * It updates table view for table1 in payroll overview page.
+     */
     public void table()
     {
         Connect();
         ObservableList<Payment> payments = FXCollections.observableArrayList();
         try
         {
-            pst = con.prepareStatement("select ID,Name,Job,Salary,HoursWorked,Deductions,NetPay from payroll");
+            pst = con.prepareStatement("select ID,Name,Job,Salary,HoursWorked,Deductions,NetPay from rohanPayroll");
+
+            //pst = con.prepareStatement("select EmployeeID,Name,NetPay,Status,Owed,DueDate,LastPayed,AmountPayedLast from rohanPayStatus");
             ResultSet rs = pst.executeQuery();
             {
                 while (rs.next())
@@ -217,7 +378,7 @@ public class PaymentController implements Initializable {
 
         catch (SQLException ex)
         {
-            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         table.setRowFactory( tv -> {
             TableRow<Payment> myRow = new TableRow<>();
@@ -227,8 +388,8 @@ public class PaymentController implements Initializable {
                 {
                     myIndex =  table.getSelectionModel().getSelectedIndex();
 
-                    //id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
-                    txtID.setText(table.getItems().get(myIndex).getId());
+                    id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
+                    //txtID.setText(table.getItems().get(myIndex).getId());
                     txtName.setText(table.getItems().get(myIndex).getName());
                     txtJob.setText(table.getItems().get(myIndex).getJob());
                     txtSalary.setText(table.getItems().get(myIndex).getSalary());
@@ -243,148 +404,262 @@ public class PaymentController implements Initializable {
 
 
     }
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    /**
+     * This method is called whenever there is a add,delete,update or payment functions are used. Used to update rohanPayStatus table information into table3 view.
+     * It updates table view for table3 in payroll pay employees page.
+     */
+    public void table3()
+    {
+        Connect();
+        ObservableList<Payment> payments = FXCollections.observableArrayList();
+        try
+        {
+            pst = con.prepareStatement("select EmployeeID,Name,NetPay,Status,Owed,DueDate,LastPayed,AmountPayedLast from rohanPayStatus");
+            ResultSet rs = pst.executeQuery();
+            {
+                while (rs.next())
+                {
+                    Payment st = new Payment();
+                    st.setPPEmployeeID(rs.getString("EmployeeID"));
+                    st.setPPName(rs.getString("Name"));
+                    st.setPPOwed(rs.getString("Owed"));
+                    st.setPPNetPay(rs.getString("NetPay"));
+                    st.setPPDueDate(rs.getString("DueDate"));
+                    st.setPPLastPayed(rs.getString("LastPayed"));
+                    st.setPPAmountPayedLast(rs.getString("AmountPayedLast"));
+                    st.setPPStatus(rs.getString("Status"));
+                    payments.add(st);
+                }
+            }
+            table3.setItems(payments);
+            PPIDcol.setCellValueFactory(f -> f.getValue().PPEmployeeIDProperty());
+            PPNameCol.setCellValueFactory(f -> f.getValue().PPNameProperty());
+            PPAmountOwedCol.setCellValueFactory(f -> f.getValue().PPOwedProperty());
+            PPDueDateCol.setCellValueFactory(f -> f.getValue().PPDueDateProperty());
+            PPLastPayedCol.setCellValueFactory(f -> f.getValue().PPLastPayedProperty());
+            PPAmountPayedCol.setCellValueFactory(f -> f.getValue().PPAmountPayedLastProperty());
+            PPStatusCol.setCellValueFactory(f -> f.getValue().PPStatusProperty());
+
+        }
+
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        table3.setRowFactory( tv -> {
+            TableRow<Payment> myRow = new TableRow<>();
+            myRow.setOnMouseClicked (event ->
+            {
+                if (event.getClickCount() == 1 && (!myRow.isEmpty()))
+                {
+                    System.out.println("Clicked");
+                    myIndex =  table3.getSelectionModel().getSelectedIndex();
+                    txtPPID.setText(table3.getItems().get(myIndex).getPPEmployeeID());
+                    System.out.println(table3.getItems().get(myIndex).getPPEmployeeID());
+                    txtPPName.setText(table3.getItems().get(myIndex).getPPName());
+                    txtPPAmountTransfer.setText(table3.getItems().get(myIndex).getPPOwed());
+
+
+                }
+            });
+            return myRow;
+        });
+
+    }
+
+    /**
+     * This method is called whenever there is a add,delete,update or payment functions are used. Used to update rohanPayStatus table information into table2 view.
+     * It updates table view for table2 in Unpayed employees page.
+     */
     public void table2()
     {
         Connect();
         ObservableList<Payment> payments = FXCollections.observableArrayList();
         try {
-            pst = con.prepareStatement("select Name,NetPay from payroll");
+            pst = con.prepareStatement("select Name,Owed, Status from rohanPayStatus where Status = 'Not Payed'");
             ResultSet rs = pst.executeQuery();
             {
                 while (rs.next()) {
                     Payment st = new Payment();
-                    st.setName(rs.getString("Name"));
-                    st.setNetPay(rs.getString("NetPay"));
+                    st.setPPName(rs.getString("Name"));
+                    st.setPPOwed(rs.getString("Owed"));
+                    st.setPPStatus(rs.getString("Status"));
                     payments.add(st);
                 }
             }
             PayStatustable.setItems(payments);
-            PayNameCol.setCellValueFactory(f -> f.getValue().nameProperty());
-            PayNetPayCol.setCellValueFactory(f -> f.getValue().NetPayProperty());
-            //PayPayStatusCol.setCellValueFactory("payed");
+            PayNameCol.setCellValueFactory(f -> f.getValue().PPNameProperty());
+            PayNetPayCol.setCellValueFactory(f -> f.getValue().PPOwedProperty());
+            PayPayStatusCol.setCellValueFactory(f -> f.getValue().PPStatusProperty());
 
 
         }
 
         catch (SQLException ex)
         {
-            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        PayStatustable.setRowFactory( tv -> {
-            TableRow<Payment> myRow = new TableRow<>();
 
-            myRow.setOnMouseClicked (event ->
-            {
-                if (event.getClickCount() == 1 && (!myRow.isEmpty()))
-                {
-                    /////////////NOTHING
-                    myIndex =  PayStatustable.getSelectionModel().getSelectedIndex();
 
-                    txtPayName.setText(PayStatustable.getItems().get(myIndex).getName());
-
-                }
-            });
-            return myRow;
-        });
 
 
     }
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void table3()
+
+
+    /**
+     * This method is called whenever there is a add,delete,update or payment functions are used. Used to update rohanPayStatus table information into table4 view.
+     * It updates table view for table4 in Payed employees page.
+     */
+    public void table4()
     {
         Connect();
         ObservableList<Payment> payments = FXCollections.observableArrayList();
         try {
-            pst = con.prepareStatement("select Name,Salary,Job from payroll");
+            pst = con.prepareStatement("select EmployeeID,Name,LastPayed, Status from rohanPayStatus where Status = 'Payed'");
             ResultSet rs = pst.executeQuery();
             {
                 while (rs.next()) {
                     Payment st = new Payment();
-                    st.setName(rs.getString("Name"));
-                    st.setSalary(rs.getString("Salary"));
-                    st.setJob(rs.getString("Job"));
-
+                    st.setPPEmployeeID(rs.getString("EmployeeID"));
+                    st.setPPName(rs.getString("Name"));
+                    st.setPPOwed(rs.getString("LastPayed"));
+                    st.setPPStatus(rs.getString("Status"));
                     payments.add(st);
                 }
             }
-            SalaryTable.setItems(payments);
-            SalaryNameCol.setCellValueFactory(f -> f.getValue().nameProperty());
-            SalarySalaryCol.setCellValueFactory(f -> f.getValue().SalaryProperty());
-            SalaeyJobCol.setCellValueFactory(f -> f.getValue().JobProperty());
-            //PayPayStatusCol.setCellValueFactory("payed");
+            Table4.setItems(payments);
+            PrevPayIDCol.setCellValueFactory(f -> f.getValue().PPEmployeeIDProperty());
+            PrevPayNameCol.setCellValueFactory(f -> f.getValue().PPNameProperty());
+            PrevPayDateCol.setCellValueFactory(f -> f.getValue().PPOwedProperty());
+            PrevPayStatusCol.setCellValueFactory(f -> f.getValue().PPStatusProperty());
 
 
         }
 
         catch (SQLException ex)
         {
-            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        PayStatustable.setRowFactory( tv -> {
-            TableRow<Payment> myRow = new TableRow<>();
-
-            myRow.setOnMouseClicked (event ->
-            {
-                if (event.getClickCount() == 1 && (!myRow.isEmpty()))
-                {
-                    /////////////NOTHING
-
-                }
-            });
-            return myRow;
-        });
 
 
     }
 
 
+    /**
+     * This method is called whenever there is a add,delete,update or payment functions are used. Used to update rohanPayStatus table information into table5 view.
+     * It updates table view for table5 in All previous payments page.
+     */
+    public void table5()
+    {
+        Connect();
+        ObservableList<Payment> payments = FXCollections.observableArrayList();
+        try {
+            pst = con.prepareStatement("select EmployeeID,Name,AmountPayed, DateTransfer,PaymentDueDate,PayStatus from rohanPreviousPayments ");
+            ResultSet rs = pst.executeQuery();
+            {
+                while (rs.next()) {
+                    Payment st = new Payment();
+                    st.setAPPID(rs.getString("EmployeeID"));
+                    st.setAPPName(rs.getString("Name"));
+                    st.setAPPAmountPayed(rs.getString("AmountPayed"));
+                    st.setAPPDateTransfer(rs.getString("DateTransfer"));
+                    st.setAPPPaymentDueDate(rs.getString("PaymentDueDate"));
+                    st.setAPPEmployeePayStatus(rs.getString("PayStatus"));
+                    payments.add(st);
+                }
+            }
+            table5.setItems(payments);
+            APPIDCol.setCellValueFactory(f -> f.getValue().APPIDProperty());
+            APPNameCol.setCellValueFactory(f -> f.getValue().APPNameProperty());
+            APPAmountPayedCol.setCellValueFactory(f -> f.getValue().APPAmountPayedProperty());
+            APPDateTransferCol.setCellValueFactory(f -> f.getValue().APPDateTransferProperty());
+            APPPaymentDueDateCol.setCellValueFactory(f -> f.getValue().APPPaymentDueDateProperty());
+            APPEmployeePayStatusCol.setCellValueFactory(f -> f.getValue().APPEmployeePayStatusProperty());
 
 
+        }
 
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+    }
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * This method is called when the user clicks the delete employee button on the payroll overview screen.
+     * It deletes the spefic employee using id from rohanPayroll and rohanPayStatus tables then updates all table views for payroll screens, uses the button click event.
+     * @param event
+     */
     @FXML
     void Delete(ActionEvent event) {
         myIndex = table.getSelectionModel().getSelectedIndex();
 
-        //id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
+        id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
 
         try
         {
             //System.out.println("!!!!!!!!!!"+txtID.getText());
             String tempID = txtID.getText();
-            pst = con.prepareStatement("delete from emppayroll where ID ="+ tempID );
-            //pst.setInt(1, id);
+            pst = con.prepareStatement("delete from rohanPayroll where id = ?" );
+            pst.setInt(1, id);
             pst.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("employee payroll delete");
 
-            alert.setHeaderText("delete");
-            alert.setContentText("Deletedd!");
+            alert.setHeaderText("employee registration");
+            alert.setContentText("Deleted!");
             alert.showAndWait();
             table();
         }
         catch (SQLException ex)
         {
-            Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
+        id = Integer.parseInt(String.valueOf(table3.getItems().get(myIndex).getPPEmployeeID()));
+        try
+        {
+            //System.out.println("!!!!!!!!!!"+txtID.getText());
+            //String tempID = txtID.getText();
+            pst = con.prepareStatement("delete from rohanPayStatus where EmployeeID = ?" );
+            pst.setInt(1, id);
+            pst.executeUpdate();
+
+            table3();
+            table2();
+            table4();
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
 
     }
 
+
+    /**
+     * This method is called when the user clicks the update employee button on the payroll overview screen.
+     * It updates rohanPayroll table then updates rohanPayroll by taking user input as arguments for updated info, uses the button click event.
+     * @param event
+     */
     @FXML
     void Update(ActionEvent event) {
-        /*
-        String ID,Name,Job,Salary,HoursWorked,Deductions,NetPay;
+
+        String Name,Job,Salary,HoursWorked,Deductions,NetPay;
 
         myIndex = table.getSelectionModel().getSelectedIndex();
 
-        //id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
+        id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getId()));
 
-        ID = txtID.getText();
+        //ID = txtID.getText();
         Name = txtName.getText();
         Job = txtJob.getText();
         Salary = txtSalary.getText();
@@ -393,10 +668,10 @@ public class PaymentController implements Initializable {
         NetPay = "9000";
         try
         {
-            pst = con.prepareStatement("update registation set ID = ?,Name = ? ,Job = ? where id = ? ");
-            pst.setString(1, stname);
-            pst.setString(2, mobile);
-            pst.setString(3, course);
+            pst = con.prepareStatement("update rohanPayroll set Name = ? ,Job = ?, Salary = ? where id = ? ");
+            pst.setString(1, Name);
+            pst.setString(2, Job);
+            pst.setString(3, Salary);
             pst.setInt(4, id);
             pst.executeUpdate();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -406,36 +681,119 @@ public class PaymentController implements Initializable {
             alert.setContentText("Updateddd!");
             alert.showAndWait();
             table();
+            table3();
+            table2();
+            table4();
         }
         catch (SQLException ex)
         {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-*/
+
+    }
+
+
+    /**
+     * This method is called when the user clicks the pay employee button on the pay employee screen.
+     * It updates rohanPayStatus table then updates rohanPayroll by taking user input as arguments for updated payment info and handles changing employee pay status, uses the button click event.
+     * @param event
+     */
+    @FXML
+    void PayAmount(ActionEvent event) {
+        String ID, Name, Owe, Status, AmountTransfer,LastPayDate, TransferedAmount, Duedate;
+
+        myIndex = table3.getSelectionModel().getSelectedIndex();
+
+        id = Integer.parseInt(String.valueOf(table3.getItems().get(myIndex).getPPEmployeeID()));
+        ID = String.valueOf(table3.getItems().get(myIndex).getPPEmployeeID());
+        Name = String.valueOf(table3.getItems().get(myIndex).getPPName());
+        Owe = String.valueOf(table3.getItems().get(myIndex).getPPOwed());
+
+        Duedate = String.valueOf(table3.getItems().get(myIndex).getPPDueDate());
+
+        //Name = txtPPName.getText();
+        Status = "Not Payed";
+        AmountTransfer = txtPPAmountTransfer.getText();
+        TransferedAmount = AmountTransfer;
+        Float NewOwe = Float.parseFloat(Owe) - Float.parseFloat(AmountTransfer);
+        String NNewOwe = Float.toString(NewOwe);
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDate = currentDate.format(formatter);
+        LastPayDate = formattedDate;
+
+        if(NewOwe <= 0 ){
+            Status = "Payed";
+            NewOwe = 0.00F;
+            NNewOwe= "0";
+        }
+
+        try
+        {
+            pst = con.prepareStatement("update rohanPayStatus set Owed = ? ,LastPayed = ?, AmountPayedLast = ? , Status = ? where EmployeeID = ? ");
+            pst.setString(1, NNewOwe);
+            pst.setString(2, LastPayDate);
+            pst.setString(3, AmountTransfer);
+            pst.setString(4, Status);
+            pst.setInt(5, id);
+            pst.executeUpdate();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Payment Payroll");
+
+            alert.setHeaderText("Employee Payed");
+            alert.setContentText("Money Transfered!");
+            alert.showAndWait();
+            table3();
+            table4();
+
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+        try
+        {
+            pst = con.prepareStatement("INSERT INTO rohanPreviousPayments (EmployeeID,Name,AmountPayed,DateTransfer,PaymentDueDate,PayStatus)values(?,?,?,?,?,?)");
+            pst.setString(1, ID);
+            pst.setString(2, Name);
+            pst.setString(3, TransferedAmount);
+            pst.setString(4, LastPayDate);
+            pst.setString(5, Duedate);
+            pst.setString(6, Status);
+            pst.executeUpdate();
+
+            table5();
+
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     @FXML
-    void logoutClicked(ActionEvent event) {
+    void DownloadTable5(ActionEvent event) {
 
     }
+
+    //@FXML
+    //void logoutClicked(ActionEvent event) {
+
+    //}
 
     Connection con;
     PreparedStatement pst;
     int myIndex;
     int id;
-    /*
-    public void Connect(){
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/payroll","root","rohan");
-        }catch (ClassNotFoundException ex){
 
-        }catch(SQLException ex){
-            ex.printStackTrace();
 
-        }
-    }
-    */
+    /**
+     * This method is called to connect to database
+     */
+
     public void Connect(){
         try{
             //Class.forName("com.mysql.jdbc.Driver");
@@ -447,13 +805,19 @@ public class PaymentController implements Initializable {
         }
     }
 
-
+    /**
+     * This method is called to initilize all table views for screens and connect to database when opening payroll section.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb){
         Connect();
         table();
-        table2();
         table3();
+        table2();
+        table4();
+        table5();
+
+
     }
 
 
