@@ -13,9 +13,9 @@ public class InvoiceItemModel {
 
     /**
      * Constructor for the invoice item model.
-     * @param desc
-     * @param quantity
-     * @param price
+     * @param desc Description of the invoice item
+     * @param quantity Quantity of the invoice item
+     * @param price Price of the invoice item
      */
     public InvoiceItemModel(String desc, int quantity, double price) {
         this.desc = desc;
@@ -34,7 +34,7 @@ public class InvoiceItemModel {
 
     /**
      * This method sets the description of the invoice item.
-     * @param desc
+     * @param desc Description of the invoice item
      */
     public void setDesc(String desc) {
         this.desc = desc;
@@ -51,7 +51,7 @@ public class InvoiceItemModel {
     /**
      * This method sets the quantity of the invoice item.
      * It also calls the calculateTotal method to update the total.
-     * @param quantity
+     * @param quantity Quantity of the invoice item
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
@@ -69,7 +69,7 @@ public class InvoiceItemModel {
     /**
      * This method sets the price of the invoice item.
      * It also calls the calculateTotal method to update the total.
-     * @param price
+     * @param price Price of the invoice item
      */
     public void setPrice(double price) {
         this.price = price;

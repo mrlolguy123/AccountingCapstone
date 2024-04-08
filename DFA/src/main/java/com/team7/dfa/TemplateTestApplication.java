@@ -11,6 +11,7 @@ import java.io.IOException;
  * It extends the Application class from JavaFX.
  */
 public class TemplateTestApplication extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(TemplateTestApplication.class.getResource("homepage.fxml"));

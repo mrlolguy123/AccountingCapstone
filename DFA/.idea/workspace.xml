@@ -11,6 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/TemplateTestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/TemplateTestApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/InvoiceViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/InvoiceViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/InvoicingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/InvoicingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/ParentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/ParentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/InvoiceItemModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/InvoiceItemModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/InvoiceLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/InvoiceLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/InvoiceModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/InvoiceModel.java" afterDir="false" />
