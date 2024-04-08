@@ -1,11 +1,10 @@
 package com.team7.dfa.model;
 
+/**
+ * This class is the model for the invoice.
+ * It contains the attributes of the invoice.
+ */
 public class InvoiceModel {
-    /**
-     * This class is the model for the invoice.
-     * It contains the attributes of the invoice.
-     */
-
     // Attributes of the invoice
     private String inv_date;
     private String inv_due_date;

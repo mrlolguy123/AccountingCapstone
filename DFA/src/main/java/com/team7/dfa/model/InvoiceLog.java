@@ -1,11 +1,10 @@
 package com.team7.dfa.model;
 
+/**
+ * This class is the model for the invoice log.
+ * It contains the attributes of the invoice log used on the Log table on the invoicing home page.
+ */
 public class InvoiceLog {
-    /**
-     * This class is the model for the invoice log.
-     * It contains the attributes of the invoice log used on the Log table on the invoicing home page.
-     */
-
     // Attributes of the invoice log
     private String log_date;
     private String log_id;

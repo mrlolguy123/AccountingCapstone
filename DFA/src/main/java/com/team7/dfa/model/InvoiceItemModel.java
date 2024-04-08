@@ -1,11 +1,10 @@
 package com.team7.dfa.model;
 
+/**
+ * This class is the model for the invoice item.
+ * It contains the attributes of the invoice item.
+ */
 public class InvoiceItemModel {
-    /**
-     * This class is the model for the invoice item.
-     * It contains the attributes of the invoice item.
-     */
-
     // Attributes of the invoice item
     private String desc;
     private int quantity;
