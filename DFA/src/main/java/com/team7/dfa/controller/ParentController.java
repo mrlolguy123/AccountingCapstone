@@ -14,15 +14,18 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.logging.Logger;
 
+/**
+ * This class is the parent controller for all the other controllers.
+ * It contains the methods that are common to all the controllers.
+ * It is responsible for handling the navigation between the different views.
+ */
 public class ParentController {
-    /**
-     * This class is the parent controller for all the other controllers.
-     * It contains the methods that are common to all the controllers.
-     * It is responsible for handling the navigation between the different views.
-     */
     DatabaseConnector db = new DatabaseConnector();
     Connection con = db.connect();
 
+    /**
+     * The logger for the ParentController class.
+     */
     static Logger log = null;
 
     static {

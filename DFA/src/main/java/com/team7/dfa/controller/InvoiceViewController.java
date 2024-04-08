@@ -15,12 +15,11 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * This class is the controller for the add edit invoice view.
+ * It contains the methods that are used to interact with the add edit invoice view.
+ */
 public class InvoiceViewController extends ParentController {
-    /**
-     * This class is the controller for the add edit invoice view.
-     * It contains the methods that are used to interact with the add edit invoice view.
-     */
-
     @FXML
     private TableView<InvoiceItemModel> inv_item_table;
     @FXML

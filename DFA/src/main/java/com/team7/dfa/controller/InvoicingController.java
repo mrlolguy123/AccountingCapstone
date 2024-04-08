@@ -1,5 +1,6 @@
 package com.team7.dfa.controller;
 
+
 import com.team7.dfa.TemplateTestApplication;
 import com.team7.dfa.model.InvoiceLog;
 import com.team7.dfa.model.InvoiceModel;
@@ -25,11 +26,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * This class is the controller for the invoicing view.
+ * It is responsible for handling the user input and responding to the user.
+ */
 public class InvoicingController extends ParentController {
-    /**
-     * This class is the controller for the invoicing view.
-     * It is responsible for handling the user input and responding to the user.
-     */
     public Button invoiceAddButton;
     @FXML
     private Button invoiceButton;
