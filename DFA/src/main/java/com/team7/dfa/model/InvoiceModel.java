@@ -1,11 +1,10 @@
 package com.team7.dfa.model;
 
+/**
+ * This class is the model for the invoice.
+ * It contains the attributes of the invoice.
+ */
 public class InvoiceModel {
-    /**
-     * This class is the model for the invoice.
-     * It contains the attributes of the invoice.
-     */
-
     // Attributes of the invoice
     private String inv_date;
     private String inv_due_date;
@@ -28,23 +27,23 @@ public class InvoiceModel {
 
     /**
      * Constructor for the invoice model.
-     * @param inv_date
-     * @param inv_due_date
-     * @param inv_id
-     * @param inv_order_id
-     * @param inv_cust_name
-     * @param inv_shipping
-     * @param inv_billing
-     * @param inv_group
-     * @param inv_state
-     * @param inv_subtotal
-     * @param inv_discount
-     * @param inv_tax_rate
-     * @param inv_total
-     * @param inv_balance
-     * @param inv_repeat
-     * @param inv_cust_notes
-     * @param inv_terms
+     * @param inv_date Invoice Date
+     * @param inv_due_date Invoice Due Date
+     * @param inv_id Invoice ID
+     * @param inv_order_id Invoice Order ID
+     * @param inv_cust_name Invoice Customer Name
+     * @param inv_shipping Invoice Shipping Address
+     * @param inv_billing Invoice Billing Address
+     * @param inv_group Invoice Group
+     * @param inv_state Invoice State
+     * @param inv_subtotal Invoice Subtotal
+     * @param inv_discount Invoice Discount
+     * @param inv_tax_rate Invoice Tax Rate
+     * @param inv_total Invoice Total
+     * @param inv_balance Invoice Balance
+     * @param inv_repeat Invoice Repeat
+     * @param inv_cust_notes Invoice Customer Notes
+     * @param inv_terms Invoice Terms
      */
     public InvoiceModel(String inv_date, String inv_due_date, String inv_id, String inv_order_id, String inv_cust_name, String inv_shipping, String inv_billing, String inv_group, String inv_state, double inv_subtotal, double inv_discount, double inv_tax_rate, double inv_total, double inv_balance, int inv_repeat, String inv_cust_notes, String inv_terms) {
         this.inv_date = inv_date;
@@ -74,12 +73,12 @@ public class InvoiceModel {
 
     /**
      * Constructor for the invoice model.
-     * @param invDate
-     * @param invId
-     * @param invCustName
-     * @param invGroup
-     * @param invState
-     * @param invTotal
+     * @param invDate Invoice Date
+     * @param invId Invoice ID
+     * @param invCustName Invoice Customer Name
+     * @param invGroup Invoice Group
+     * @param invState Invoice State
+     * @param invTotal Invoice Total
      */
     public InvoiceModel(String invDate, String invId, String invCustName, String invGroup, String invState, int invTotal) {
         this.inv_date = invDate;
@@ -116,7 +115,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice due date.
-     * @param inv_due_date
+     * @param inv_due_date Invoice Due Date
      */
     public void setInv_due_date(String inv_due_date) {
         this.inv_due_date = inv_due_date;
@@ -132,7 +131,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice ID.
-     * @param inv_id
+     * @param inv_id Invoice ID
      */
     public void setInv_id(String inv_id) {
         this.inv_id = inv_id;
@@ -148,7 +147,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice order ID.
-     * @param inv_order_id
+     * @param inv_order_id Invoice Order ID
      */
     public void setInv_order_id(String inv_order_id) {
         this.inv_order_id = inv_order_id;
@@ -164,7 +163,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice customer name.
-     * @param inv_cust_name
+     * @param inv_cust_name Invoice Customer Name
      */
     public void setInv_cust_name(String inv_cust_name) {
         this.inv_cust_name = inv_cust_name;
@@ -180,7 +179,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice shipping address.
-     * @param inv_shipping
+     * @param inv_shipping Invoice Shipping Address
      */
     public void setInv_shipping(String inv_shipping) {
         this.inv_shipping = inv_shipping;
@@ -196,7 +195,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice billing address.
-     * @param inv_billing
+     * @param inv_billing Invoice Billing Address
      */
     public void setInv_billing(String inv_billing) {
         this.inv_billing = inv_billing;
@@ -212,7 +211,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice group.
-     * @param inv_group
+     * @param inv_group Invoice Group
      */
     public void setInv_group(String inv_group) {
         this.inv_group = inv_group;
@@ -228,7 +227,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice state.
-     * @param inv_state
+     * @param inv_state Invoice State
      */
     public void setInv_state(String inv_state) {
         this.inv_state = inv_state;
@@ -244,7 +243,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice subtotal.
-     * @param inv_subtotal
+     * @param inv_subtotal Invoice Subtotal
      */
     public void setInv_subtotal(double inv_subtotal) {
         this.inv_subtotal = inv_subtotal;
@@ -260,7 +259,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice discount.
-     * @param inv_discount
+     * @param inv_discount Invoice Discount
      */
     public void setInv_discount(double inv_discount) {
         this.inv_discount = inv_discount;
@@ -276,7 +275,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice tax rate.
-     * @param inv_tax_rate
+     * @param inv_tax_rate Invoice Tax Rate
      */
     public void setInv_tax_rate(double inv_tax_rate) {
         this.inv_tax_rate = inv_tax_rate;
@@ -292,7 +291,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice total.
-     * @param inv_total
+     * @param inv_total Invoice Total
      */
     public void setInv_total(double inv_total) {
         this.inv_total = inv_total;
@@ -308,7 +307,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice balance.
-     * @param inv_balance
+     * @param inv_balance Invoice Balance
      */
     public void setInv_balance(double inv_balance) {
         this.inv_balance = inv_balance;
@@ -324,7 +323,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice repeat.
-     * @param inv_repeat
+     * @param inv_repeat Invoice Repeat
      */
     public void setInv_repeat(int inv_repeat) {
         this.inv_repeat = inv_repeat;
@@ -340,7 +339,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice customer notes.
-     * @param inv_cust_notes
+     * @param inv_cust_notes Invoice Customer Notes
      */
     public void setInv_cust_notes(String inv_cust_notes) {
         this.inv_cust_notes = inv_cust_notes;
@@ -356,7 +355,7 @@ public class InvoiceModel {
 
     /**
      * Method to set the invoice terms.
-     * @param inv_terms
+     * @param inv_terms Invoice Terms
      */
     public void setInv_terms(String inv_terms) {
         this.inv_terms = inv_terms;

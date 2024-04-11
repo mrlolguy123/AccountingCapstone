@@ -1,11 +1,10 @@
 package com.team7.dfa.model;
 
+/**
+ * This class is the model for the invoice log.
+ * It contains the attributes of the invoice log used on the Log table on the invoicing home page.
+ */
 public class InvoiceLog {
-    /**
-     * This class is the model for the invoice log.
-     * It contains the attributes of the invoice log used on the Log table on the invoicing home page.
-     */
-
     // Attributes of the invoice log
     private String log_date;
     private String log_id;
@@ -13,9 +12,9 @@ public class InvoiceLog {
 
     /**
      * Constructor for the invoice log model.
-     * @param log_date
-     * @param log_id
-     * @param log_desc
+     * @param log_date Invoice Log Update Date
+     * @param log_id Invoice Log ID
+     * @param log_desc Invoice Log Description
      */
     public InvoiceLog(String log_date, String log_id, String log_desc) {
         setLog_id(log_id);
@@ -33,7 +32,7 @@ public class InvoiceLog {
 
     /**
      * This method sets the date of the log.
-     * @param log_date
+     * @param log_date Invoice Log Update Date
      */
     public void setLog_date(String log_date) {
         this.log_date = log_date.substring(0, log_date.indexOf('.'));
@@ -49,7 +48,7 @@ public class InvoiceLog {
 
     /**
      * This method sets the id of the log.
-     * @param log_id
+     * @param log_id Invoice Log ID
      */
     public void setLog_id(String log_id) {
         this.log_id = log_id;
@@ -65,7 +64,7 @@ public class InvoiceLog {
 
     /**
      * This method sets the description of the log.
-     * @param log_desc
+     * @param log_desc Invoice Log Description
      */
     public void setLog_desc(String log_desc) {
         this.log_desc = log_desc;

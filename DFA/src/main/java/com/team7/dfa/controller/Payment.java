@@ -3,8 +3,13 @@ package com.team7.dfa.controller;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-
+/**
+ * This class represents a payment record
+ */
 public class Payment {
+    /**
+     *  Define properties for employee payroll data (rohanPayroll table)
+     */
     private final StringProperty ID;
     private final StringProperty Name;
     private final StringProperty Job;
@@ -12,11 +17,41 @@ public class Payment {
     private final StringProperty HoursWorked;
     private final StringProperty Deductions;
     private final StringProperty NetPay;
-    //private final StringProperty mobile;
-    //private final StringProperty  course;
 
+/////////////////////////////////////////////////////////////////////
+    /**
+     * TDefine properties for employee payment status data (rohanPayStatus table)
+     */
+    private final StringProperty PPEmployeeID;
+    private final StringProperty PPName;
+    private final StringProperty PPNetPay;
+    private final StringProperty PPStatus;
+    private final StringProperty PPOwed;
+    private final StringProperty PPDueDate;
+    private final StringProperty PPLastPayed;
+    private final StringProperty PPAmountPayedLast;
+    /////////////////////////////////////////////////////////
+    /**
+     * Define properties for additional payment data (table 5)
+     */
+    private final StringProperty APPAmountPayed;
+    private final StringProperty APPDateTransfer;
+    private final StringProperty APPEmployeePayStatus;
+    private final StringProperty APPID;
+    private final StringProperty APPName;
+    private final StringProperty APPPaymentDueDate;
+
+
+
+
+    /**
+     * Constructor to initialize properties
+     */
     public Payment()
     {
+        /**
+         * Initialize properties for employee payroll data
+         */
         ID = new SimpleStringProperty(this, "ID");
         Name = new SimpleStringProperty(this, "Name");
         Job = new SimpleStringProperty(this, "Job");
@@ -24,7 +59,111 @@ public class Payment {
         HoursWorked = new SimpleStringProperty(this, "HoursWorked");
         Deductions = new SimpleStringProperty(this, "Deductions");
         NetPay = new SimpleStringProperty(this, "NetPay");
+        //////////////////////////////////////////////////////////////////////
+        /**
+         * Initialize properties for employee payment status data
+         */
+        //For table 2,3,4 (rohanPayStatus table)
+        PPEmployeeID = new SimpleStringProperty(this, "PPEmployeeID");
+        PPName = new SimpleStringProperty(this, "PPName");
+        PPNetPay = new SimpleStringProperty(this, "PPNetPay");
+        PPStatus = new SimpleStringProperty(this, "PPStatus");
+        PPOwed = new SimpleStringProperty(this, "PPOwed");
+        PPDueDate = new SimpleStringProperty(this, "PPDueDate");
+        PPLastPayed = new SimpleStringProperty(this, "PPLastPayed");
+        PPAmountPayedLast = new SimpleStringProperty(this, "PPAmountPayedLast");
+        //////////////////////////////////////////////////////////////////////////////
+        /**
+         * Initialize properties for additional payment data for table5
+         */
+        //for table 5
+        APPAmountPayed = new SimpleStringProperty(this, "APPAmountPayed");
+        APPDateTransfer = new SimpleStringProperty(this, "APPDateTransfer");
+        APPEmployeePayStatus = new SimpleStringProperty(this, "APPEmployeePayStatus");
+        APPID = new SimpleStringProperty(this, "APPID");
+        APPName = new SimpleStringProperty(this, "APPName");
+        APPPaymentDueDate = new SimpleStringProperty(this, "APPPaymentDueDate");
+
+
     }
+
+
+
+
+    /**
+     * Getter and setter methods for employee payroll data properties for table 5
+     */
+    public StringProperty APPAmountPayedProperty() { return APPAmountPayed; }
+    public String getAPPAmountPayed() { return APPAmountPayed.get(); }
+    public void setAPPAmountPayed(String newId) { APPAmountPayed.set(newId); }
+
+
+    public StringProperty APPDateTransferProperty() { return APPDateTransfer; }
+    public String getAPPDateTransfer() { return APPDateTransfer.get(); }
+    public void setAPPDateTransfer(String newId) { APPDateTransfer.set(newId); }
+
+    public StringProperty APPEmployeePayStatusProperty() { return APPEmployeePayStatus; }
+    public String getAPPEmployeePayStatus() { return APPEmployeePayStatus.get(); }
+    public void setAPPEmployeePayStatus(String newId) { APPEmployeePayStatus.set(newId); }
+
+    public StringProperty APPIDProperty() { return APPID; }
+    public String getAPPID() { return APPID.get(); }
+    public void setAPPID(String newId) { APPID.set(newId); }
+
+    public StringProperty APPNameProperty() { return APPName; }
+    public String getAPPName() { return APPName.get(); }
+    public void setAPPName(String newId) { APPName.set(newId); }
+
+
+    public StringProperty APPPaymentDueDateProperty() { return APPPaymentDueDate; }
+    public String getAPPPaymentDueDate() { return APPPaymentDueDate.get(); }
+    public void setAPPPaymentDueDate(String newId) { APPPaymentDueDate.set(newId); }
+
+
+    ///////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Getter and setter methods for employee payroll data properties for table 2, 3, 4 and 5
+     */
+    public StringProperty PPAmountPayedLastProperty() { return PPAmountPayedLast; }
+    public String getPPAmountPayedLast() { return PPAmountPayedLast.get(); }
+    public void setPPAmountPayedLast(String newId) { PPAmountPayedLast.set(newId); }
+
+    public StringProperty PPLastPayedProperty() { return PPLastPayed; }
+    public String getPPLastPayed() { return PPLastPayed.get(); }
+    public void setPPLastPayed(String newId) { PPLastPayed.set(newId); }
+
+
+    public StringProperty PPDueDateProperty() { return PPDueDate; }
+    public String getPPDueDate() { return PPDueDate.get(); }
+    public void setPPDueDate(String newId) { PPDueDate.set(newId); }
+
+    public StringProperty PPOwedProperty() { return PPOwed; }
+    public String getPPOwed() { return PPOwed.get(); }
+    public void setPPOwed(String newId) { PPOwed.set(newId); }
+
+    public StringProperty PPStatusProperty() { return PPStatus; }
+    public String getPPStatus() { return PPStatus.get(); }
+    public void setPPStatus(String newId) { PPStatus.set(newId); }
+
+    public StringProperty PPNetPayProperty() { return PPNetPay; }
+    public String getPPNetPay() { return PPNetPay.get(); }
+    public void setPPNetPay(String newId) { PPNetPay.set(newId); }
+
+    public StringProperty PPNameProperty() { return PPName; }
+    public String getPPName() { return PPName.get(); }
+    public void setPPName(String newId) { PPName.set(newId); }
+
+
+    public StringProperty PPEmployeeIDProperty() { return PPEmployeeID; }
+    public String getPPEmployeeID() { return PPEmployeeID.get(); }
+    public void setPPEmployeeID(String newId) { PPEmployeeID.set(newId); }
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    /**
+     * Getter and setter methods for employee payroll data properties for table 1
+     */
+
     public StringProperty idProperty() { return ID; }
     public String getId() { return ID.get(); }
     public void setId(String newId) { ID.set(newId); }

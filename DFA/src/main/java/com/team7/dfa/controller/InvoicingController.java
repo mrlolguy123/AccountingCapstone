@@ -1,5 +1,6 @@
 package com.team7.dfa.controller;
 
+
 import com.team7.dfa.TemplateTestApplication;
 import com.team7.dfa.model.InvoiceLog;
 import com.team7.dfa.model.InvoiceModel;
@@ -25,11 +26,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * This class is the controller for the invoicing view.
+ * It is responsible for handling the user input and responding to the user.
+ */
 public class InvoicingController extends ParentController {
-    /**
-     * This class is the controller for the invoicing view.
-     * It is responsible for handling the user input and responding to the user.
-     */
     public Button invoiceAddButton;
     @FXML
     private Button invoiceButton;
@@ -96,7 +97,7 @@ public class InvoicingController extends ParentController {
     /**
      * This method is called when the user switches to a regular invoice on the invoicing view.
      * It calls the refreshInvoiceTable method to populate the table with the regular invoices using the button click event.
-     * @param event
+     * @param event The event that triggered the method call
      */
     @FXML
     protected void invButtonClick(ActionEvent event)
@@ -110,7 +111,7 @@ public class InvoicingController extends ParentController {
     /**
      * This method is called when the user switches to a retainer invoice on the invoicing view.
      * It calls the refreshInvoiceTable method to populate the table with the retainer invoices using the button click event.
-     * @param event
+     * @param event The event that triggered the method call
      */
     @FXML
     protected void retButtonClick(ActionEvent event)
@@ -124,7 +125,7 @@ public class InvoicingController extends ParentController {
     /**
      * This method is called when the user switches to a recurring invoice on the invoicing view.
      * It calls the refreshInvoiceTable method to populate the table with the recurring invoices using the button click event.
-     * @param event
+     * @param event The event that triggered the method call
      */
     @FXML
     protected void recButtonClick(ActionEvent event)
@@ -138,7 +139,7 @@ public class InvoicingController extends ParentController {
     /**
      * This method is called when the user clicks on the Receivable Invoice button.
      * It loads the invoicing view.
-     * @param event
+     * @param event The event that triggered the method call
      */
     @FXML
     protected void recInvButtonClick(ActionEvent event)
@@ -153,7 +154,7 @@ public class InvoicingController extends ParentController {
     /**
      * This method is called when the user clicks on the Receivable Retainer Invoice button.
      * It loads the invoicing view.
-     * @param event
+     * @param event The event that triggered the method call
      */
     @FXML
     protected void recRetButtonClick(ActionEvent event)
@@ -168,7 +169,7 @@ public class InvoicingController extends ParentController {
     /**
      * This method is called when the user clicks on the Receivable Recurring Invoice button.
      * It loads the invoicing view.
-     * @param event
+     * @param event The event that triggered the method call
      */
     @FXML
     protected void recRecButtonClick(ActionEvent event)
@@ -183,7 +184,7 @@ public class InvoicingController extends ParentController {
     /**
      * This method is called when the user clicks on the Payable Invoice button.
      * It loads the invoicing view.
-     * @param event
+     * @param event The event that triggered the method call
      */
     @FXML
     protected void payInvButtonClick(ActionEvent event)
@@ -198,7 +199,7 @@ public class InvoicingController extends ParentController {
     /**
      * This method is called when the user clicks on the Payable Retainer Invoice button.
      * It loads the invoicing view.
-     * @param event
+     * @param event The event that triggered the method call
      */
     @FXML
     protected void payRetButtonClick(ActionEvent event)
@@ -213,7 +214,7 @@ public class InvoicingController extends ParentController {
     /**
      * This method is called when the user clicks on the Payable Recurring Invoice button.
      * It loads the invoicing view.
-     * @param event
+     * @param event The event that triggered the method call
      */
     @FXML
     protected void payRecButtonClick(ActionEvent event)
@@ -268,6 +269,10 @@ public class InvoicingController extends ParentController {
 
     }
 
+    /**
+     * This method is called when the log table needs to be refreshed, either when a view is loaded or done manually.
+     * It queries the database for the log entries and populates the table with the results.
+     */
     protected void refreshLogTable() {
         try {
             ObservableList<InvoiceLog> logList = FXCollections.observableArrayList();
@@ -293,8 +298,8 @@ public class InvoicingController extends ParentController {
     /**
      * This method is called when the user clicks the add invoice button.
      * It loads the add edit invoice view.
-     * @param event
-     * @throws IOException
+     * @param event The event that triggered the method call
+     * @throws IOException If the FXML file is not found
      */
     @FXML
     protected void invoiceAddClicked(MouseEvent event) throws IOException {
@@ -310,8 +315,8 @@ public class InvoicingController extends ParentController {
     /**
      * This method is called when the user double-clicks an invoice row on the invoice table.
      * It loads the add edit invoice view.
-     * @param event
-     * @throws IOException
+     * @param event The event that triggered the method call
+     * @throws IOException If the FXML file is not found
      */
     @FXML
     protected void handleRowSelect(Event event) throws IOException {
@@ -333,6 +338,12 @@ public class InvoicingController extends ParentController {
         }
     }
 
+    /**
+     * This method is called when the user double-clicks a log row on the log table.
+     * It loads the add edit invoice view.
+     * @param event The event that triggered the method call
+     * @throws IOException If the FXML file is not found
+     */
     @FXML
     protected void handleLogSelect(Event event) throws IOException {
         if(event.getEventType().getName().equals("MOUSE_CLICKED"))
@@ -353,6 +364,11 @@ public class InvoicingController extends ParentController {
         }
     }
 
+    /**
+     * This method is called when the user clicks the refresh button.
+     * It refreshes the invoice table.
+     * @param event The event that triggered the method call
+     */
     @FXML
     protected void refresh_clicked(ActionEvent event) {
         refreshInvoiceTable();

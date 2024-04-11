@@ -5,10 +5,24 @@ import java.sql.*;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+/**
+ * This class is responsible for connecting to the database.
+ * It uses the application.properties file to get the connection details.
+ * It also disconnects from the database when the application is closed.
+ */
 public class DatabaseConnector {
+    /**
+     * This variable is used to store the connection to the database.
+     */
     Connection conn = null;
+    /**
+     * This variable is used to log messages to the console.
+     */
     static Logger log = null;
 
+    /**
+     * This variable is used to check if the database is connected.
+     */
     public boolean connected = false;
 
     static {
@@ -16,6 +30,10 @@ public class DatabaseConnector {
         log = Logger.getLogger(DatabaseConnector.class.getName());
     }
 
+    /**
+     * This method connects to the database using the connection details in the application.properties file.
+     * @return Connection object
+     */
     public Connection connect() {
         try {
             log.info("Loading application properties");
@@ -33,6 +51,9 @@ public class DatabaseConnector {
         return null;
     }
 
+    /**
+     * This method disconnects from the database.
+     */
     public void disconnect() {
         if (connected)
             try {

@@ -11,3 +11,5 @@ DFA/target
 /DFA/target
 /DFA/target/classes/
 *.xml
+DFA/.idea/workspace.xml
+DFA/target/classes/module-info.class

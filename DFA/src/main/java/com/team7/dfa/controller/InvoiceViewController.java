@@ -15,12 +15,11 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * This class is the controller for the add edit invoice view.
+ * It contains the methods that are used to interact with the add edit invoice view.
+ */
 public class InvoiceViewController extends ParentController {
-    /**
-     * This class is the controller for the add edit invoice view.
-     * It contains the methods that are used to interact with the add edit invoice view.
-     */
-
     @FXML
     private TableView<InvoiceItemModel> inv_item_table;
     @FXML
@@ -77,6 +76,7 @@ public class InvoiceViewController extends ParentController {
     /**
      * This method is called when the window opens.
      * If an invoice was clicked on the table, it fills in its info into the form.
+     * If not, it leaves the form blank.
      */
     @FXML
     public void initialize() {
@@ -106,7 +106,8 @@ public class InvoiceViewController extends ParentController {
     /**
      * This method is called when the user clicks the publish button on the add edit invoice view.
      * It adds or updates a row using saveNewInvoice or updateInvoice.
-     * @param event
+     * @param event The event that triggered the method call
+     * @throws SQLException If the SQL query is invalid
      */
     @FXML
     protected void publish_clicked(ActionEvent event) throws SQLException, IOException {
@@ -123,7 +124,8 @@ public class InvoiceViewController extends ParentController {
     /**
      * This method is called when the user clicks the publish button on the add edit invoice view.
      * It adds a new row to the invoice item table with the specified details filled out on the form.
-     * @param event
+     * @param event The event that triggered the method call
+     * @throws SQLException If the SQL query is invalid
      */
     private void saveNewInvoice(ActionEvent event) throws SQLException {
         String id = findNextInvID();
@@ -178,7 +180,8 @@ public class InvoiceViewController extends ParentController {
     /**
      * This method is called when the user clicks the publish button on the add edit invoice view.
      * It updates a row to the invoice item table with the specified details filled out on the form.
-     * @param event
+     * @param event The event that triggered the method call
+     * @throws SQLException If the SQL query is invalid
      */
     private void updateInvoice(ActionEvent event) throws SQLException {
         String id = grabbed.getInv_id();
@@ -233,6 +236,8 @@ public class InvoiceViewController extends ParentController {
     /**
      * This method is called when the user within the publish_clicked function.
      * It finds a new invoice ID based on the current invoice state.
+     * @return The new invoice ID
+     * @throws SQLException If the SQL query is invalid
      */
     private String findNextInvID() throws SQLException {
         int adjust = switch (invoice_state) {
@@ -275,8 +280,8 @@ public class InvoiceViewController extends ParentController {
     /**
      * This method is called when the user clicks the delete button on the add edit invoice view.
      * It either functions as the close button (if the invoice is not saved) or as the delete invoice button to delete a saved row from the database.
-     * @param event
-     * @throws IOException
+     * @param event The event that triggered the method call
+     * @throws IOException If the FXML file is not found
      */
     @FXML
     protected void delete_clicked(ActionEvent event) throws SQLException, IOException {
