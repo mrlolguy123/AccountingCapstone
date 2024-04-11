@@ -5,6 +5,12 @@ import com.team7.dfa.model.Graph;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.control.*;
+import javafx.scene.image.*;
+import javafx.scene.layout.*;
+import javafx.scene.text.*;
+import javafx.animation.FadeTransition;
+import javafx.util.Duration;
 
 import java.util.logging.Logger;
 
@@ -13,21 +19,28 @@ import java.util.logging.Logger;
  */
 public class HomePageController extends ParentController {
 
-    static Logger log = null;
-
-    static {
-        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
-        log = Logger.getLogger(DatabaseConnector.class.getName());
-    }
-
     @FXML
-    private ImageView profitGraph;
+    private AnchorPane contentPane;
+
+    static Logger log = null;
 
     @FXML
     private ImageView invoiceFlowGraph;
 
     @FXML
     private Button generateGraphsButton;
+
+    static {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+        log = Logger.getLogger(DatabaseConnector.class.getName());
+    }
+
+    public void initialize() {
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(1500), contentPane);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
 
     /**
      * Handles the action event when the generateGraphsButton is clicked.
