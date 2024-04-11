@@ -1,0 +1,78 @@
+/* General Styles */
+.root {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 12px;
+    -fx-background-color: #F5F5F5; /* Light grey background */
+}
+
+/* Container Styles */
+.anchor-pane, .grid-pane {
+    -fx-background-color: #FFFFFF; /* White background for containers */
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-padding: 10px;
+}
+
+/* GridPane Styles */
+#mainPane {
+    -fx-padding: 10px;
+    -fx-vgap: 10px;
+    -fx-hgap: 10px;
+}
+
+/* Label Styles */
+#titleLabel, #descriptionLabel, #profitHeading, #activityHeading, #expenseHeading, #invoiceHeading {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333; /* Dark text for better contrast */
+}
+
+/* TextField Styles */
+#searchBar {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-border-radius: 5px;
+}
+
+/* Button Styles */
+#generateGraphsButton {
+    -fx-background-color: #007BFF;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #007BFF;
+    -fx-border-width: 1px;
+    -fx-padding: 5px 15px;
+    -fx-background-radius: 5px;
+    -fx-text-alignment: center;
+}
+
+#generateGraphsButton:hover {
+    -fx-background-color: #0056b3;
+}
+
+/* ScrollPane Styles */
+.scroll-pane {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+/* ImageView Styles */
+.image-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+/* ListView Styles */
+#listView {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-border-radius: 5px;
+}
