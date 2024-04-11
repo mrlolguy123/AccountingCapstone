@@ -1,60 +1,78 @@
-#mainPane {
-    -fx-background-color: rgba(208, 208, 208, 0.9);
-    -fx-padding: 20px;
+/* General Styles */
+.root {
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 12px;
+    -fx-background-color: #F5F5F5; /* Light grey background */
 }
 
-.label {
-    -fx-font-size: 20px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #333333;
-}
-
-.scroll-pane {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-}
-
-.list-view {
-    -fx-background-color: transparent;
-    -fx-border-color: #090909;
+/* Container Styles */
+.anchor-pane, .grid-pane {
+    -fx-background-color: #FFFFFF; /* White background for containers */
+    -fx-border-color: #CCCCCC;
     -fx-border-width: 1px;
     -fx-border-radius: 10px;
+    -fx-padding: 10px;
 }
 
-#welcomeHeading {
-    -fx-font-family: "Arial", sans-serif;
-    -fx-font-size: 36px;
+/* GridPane Styles */
+#mainPane {
+    -fx-padding: 10px;
+    -fx-vgap: 10px;
+    -fx-hgap: 10px;
+}
+
+/* Label Styles */
+#titleLabel, #descriptionLabel, #profitHeading, #activityHeading, #expenseHeading, #invoiceHeading {
+    -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-text-fill: #000000;
+    -fx-text-fill: #333333; /* Dark text for better contrast */
 }
 
-#descriptionLabel {
-    -fx-font-family: "Arial", sans-serif;
-    -fx-font-size: 14px;
-    -fx-text-fill: #34485d;
+/* TextField Styles */
+#searchBar {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-border-radius: 5px;
 }
 
+/* Button Styles */
 #generateGraphsButton {
-    -fx-background-color: transparent;
-    -fx-text-fill: #333333;
-    -fx-font-weight: normal;
-    -fx-font-size: 14px;
-    -fx-padding: 8px 16px;
-    -fx-border-color: #000000;
-    -fx-border-radius: 7px;
-    -fx-focus-color: transparent;
+    -fx-background-color: #007BFF;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #007BFF;
+    -fx-border-width: 1px;
+    -fx-padding: 5px 15px;
+    -fx-background-radius: 5px;
+    -fx-text-alignment: center;
 }
 
 #generateGraphsButton:hover {
-    -fx-background-color: #34485d;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: #0056b3;
 }
 
-.graph-container {
-    -fx-background-color: #ffffff; /* White background */
-    -fx-border-color: #000000; /* Black border */
+/* ScrollPane Styles */
+.scroll-pane {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CCCCCC;
     -fx-border-width: 1px;
-    -fx-border-radius: 10px; /* Rounded corners */
-    -fx-padding: 10px; /* Add some padding */
-    -fx-margin: 10px; /* Add some margin */
+    -fx-border-radius: 5px;
+}
+
+/* ImageView Styles */
+.image-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+/* ListView Styles */
+#listView {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-border-radius: 5px;
 }
