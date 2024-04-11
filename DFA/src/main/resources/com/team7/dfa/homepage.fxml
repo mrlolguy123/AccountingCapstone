@@ -53,12 +53,12 @@
                                 <AnchorPane fx:id="profitAnchorInner" layoutX="10.0" layoutY="24.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
                                     <children>
                                         <ScrollPane fx:id="profitScroll" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <content>
-                                                <ImageView fx:id="invoiceFlowGraph2" pickOnBounds="true" />
-                                            </content>
                                  <effect>
                                     <DropShadow />
                                  </effect>
+                                 <content>
+                                                <ImageView fx:id="profitGraph" pickOnBounds="true" />
+                                 </content>
                                         </ScrollPane>
                                     </children>
                                     <padding>
@@ -110,12 +110,12 @@
                                   <AnchorPane AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
                                       <children>
                                           <ScrollPane fx:id="invoiceScroll" fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                              <content>
-                                                  <ImageView fx:id="invoiceFlowGraph" pickOnBounds="true" />
-                                              </content>
                                  <effect>
                                     <DropShadow />
                                  </effect>
+                                 <content>
+                                                  <ImageView fx:id="invoiceFlowGraph" pickOnBounds="true" smooth="false" />
+                                 </content>
                                           </ScrollPane>
                                       </children>
                            <padding>
@@ -127,16 +127,16 @@
                         </AnchorPane>
                     </children>
                 </GridPane>
-                <Label fx:id="titleLabel" alignment="CENTER" layoutX="42.0" layoutY="23.0" prefHeight="39.0" prefWidth="92.0" text="Welcome!" textAlignment="CENTER" AnchorPane.leftAnchor="42.0">
+                <Label fx:id="titleLabel" alignment="CENTER" layoutX="274.0" layoutY="14.0" prefHeight="39.0" prefWidth="130.0" text="Home Page" textAlignment="CENTER" AnchorPane.leftAnchor="274.0" AnchorPane.rightAnchor="273.0" AnchorPane.topAnchor="14.0">
                     <font>
                         <Font size="27.0" />
                     </font>
                 </Label>
-                <Button fx:id="generateGraphsButton" layoutX="770.0" layoutY="25.0" mnemonicParsing="false" onAction="#generateGraphButton" prefHeight="36.0" prefWidth="107.0" text="Refresh" AnchorPane.rightAnchor="31.0">
+                <Button fx:id="generateGraphsButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="766.0" layoutY="79.0" mnemonicParsing="false" onAction="#generateGraphButton" text="Refresh" AnchorPane.rightAnchor="35.0">
                <effect>
                   <DropShadow />
                </effect></Button>
-                <Label fx:id="descriptionLabel" layoutX="156.0" layoutY="15.0" prefHeight="55.0" prefWidth="596.0" text="Your homepage enables you to see your total profit, recent activity, expense structure, and invoice flow. All in one Place." textAlignment="CENTER" wrapText="true" />
+                <Label fx:id="descriptionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="155.0" layoutY="52.0" prefHeight="35.0" prefWidth="598.0" text="Your homepage enables you to see your total profit, recent activity, expense structure, and invoice flow. All in one Place. Click on the Refresh Button to see the statistics!" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="155.0" AnchorPane.topAnchor="52.0" />
             </children>
          <effect>
             <InnerShadow />

@@ -2,6 +2,7 @@ package com.team7.dfa.controller;
 
 import com.team7.dfa.db.DatabaseConnector;
 import com.team7.dfa.model.Graph;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -47,8 +48,7 @@ public class HomePageController extends ParentController {
      * Currently, it updates the graph1 ImageView with the correct graph image.
      */
     @FXML
-    private void generateGraphButton() {
-        generateGraphsButton.setOnAction(event -> {
+    private void generateGraphButton(ActionEvent event) {
             log.info("Generating Graphs");
             Graph sample_graph = new Graph("select inv_state from dannyInvoiceRecords",
                     "inv_state",
@@ -57,6 +57,5 @@ public class HomePageController extends ParentController {
 //            profitGraph.setPreserveRatio(true);
 //            profitGraph.setFitWidth(profitGraph.getFitWidth());
 //            profitGraph.setFitHeight(profitGraph.getFitHeight());
-        });
     }
 }
