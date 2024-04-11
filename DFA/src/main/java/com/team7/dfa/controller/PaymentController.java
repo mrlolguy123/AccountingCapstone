@@ -624,6 +624,7 @@ public class PaymentController extends ParentController implements Initializable
 
 
         id = Integer.parseInt(String.valueOf(table3.getItems().get(myIndex).getPPEmployeeID()));
+        System.out.println("ID is =  " + id);
         try
         {
             //System.out.println("!!!!!!!!!!"+txtID.getText());
@@ -639,6 +640,7 @@ public class PaymentController extends ParentController implements Initializable
         catch (SQLException ex)
         {
             Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("didnt delete from rohanPayStatus");
         }
 
 
@@ -653,7 +655,7 @@ public class PaymentController extends ParentController implements Initializable
     @FXML
     void Update(ActionEvent event) {
 
-        String Name,Job,Salary,HoursWorked,Deductions,NetPay;
+        String Name,Job,Salary,HoursWorked,Deductions,NetPay ,Status,Owed;
 
         myIndex = table.getSelectionModel().getSelectedIndex();
 
@@ -666,19 +668,31 @@ public class PaymentController extends ParentController implements Initializable
         HoursWorked = txtHoursWorked.getText();
         Deductions  = "0";
         NetPay = "9000";
+
+        float SalFloat = Float.parseFloat(Salary);;
+        float calcTax = (SalFloat / 100) * 8;
+        Deductions = String.valueOf(calcTax);
+        NetPay = String.valueOf(SalFloat - calcTax);
+
+        Status = "Not Payed";
+        Owed = NetPay;
+
+
         try
         {
-            pst = con.prepareStatement("update rohanPayroll set Name = ? ,Job = ?, Salary = ? where id = ? ");
+            pst = con.prepareStatement("update rohanPayroll set Name = ? ,Job = ?, Salary = ? , Deductions = ? , NetPay = ? where id = ? ");
             pst.setString(1, Name);
             pst.setString(2, Job);
             pst.setString(3, Salary);
-            pst.setInt(4, id);
+            pst.setString(4, Deductions);
+            pst.setString(5, NetPay);
+            pst.setInt(6, id);
             pst.executeUpdate();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Student Registationn");
+            alert.setTitle("Employee Update");
 
-            alert.setHeaderText("Student Registation");
-            alert.setContentText("Updateddd!");
+            alert.setHeaderText("Employee Updated");
+            alert.setContentText("Updated!");
             alert.showAndWait();
             table();
             table3();
@@ -690,12 +704,36 @@ public class PaymentController extends ParentController implements Initializable
             Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        //ADD FUNCTION TO MAKE SURE EMPLOYEE IS FULLY PAYED FOR LAST PAYMENT
+        System.out.println("ID FOR PAYSTATUS: "+id);
+
+        try
+        {
+            pst = con.prepareStatement("update rohanPayStatus set Name = ? ,NetPay = ?, Status = ? , Owed = ?  where EmployeeID = ? ");
+            pst.setString(1, Name);
+            pst.setString(2, NetPay);
+            pst.setString(3, Status);
+            pst.setString(4, Owed);
+            pst.setInt(5, id);
+            pst.executeUpdate();
+
+            table();
+            table3();
+            table2();
+            table4();
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("didnt Update from rohanPayStatus");
+        }
+
     }
 
 
     /**
      * This method is called when the user clicks the pay employee button on the pay employee screen.
-     * It updates rohanPayStatus table then updates rohanPayroll by taking user input as arguments for updated payment info and handles changing employee pay status, uses the button click event.
+     * It updates rohanPayStatus table then updates rohanPreviousPayments by taking user input as arguments for updated payment info and handles changing employee pay status, uses the button click event.
      * @param event
      */
     @FXML
@@ -711,7 +749,6 @@ public class PaymentController extends ParentController implements Initializable
 
         Duedate = String.valueOf(table3.getItems().get(myIndex).getPPDueDate());
 
-        //Name = txtPPName.getText();
         Status = "Not Payed";
         AmountTransfer = txtPPAmountTransfer.getText();
         TransferedAmount = AmountTransfer;
