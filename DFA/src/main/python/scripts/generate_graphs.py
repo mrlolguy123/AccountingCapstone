@@ -185,6 +185,6 @@ if __name__ == '__main__':
             make_line(getDataFrame(str(sql_statement)), str(graph_name), 10, 15, graph_x_name, graph_y_name)
 
         elif graph_choice == 4 and graph_y_name == "":
-            make_pie_chart(getDataFrame(str(sql_statement)), str(graph_name), 10, 10, graph_x_name)
+            make_pie_chart(getDataFrame(str(sql_statement)), str(graph_name), 6, 15, graph_x_name)
     except Exception as e:
         logging.error("An error occurred: %s", e, exc_info=True)

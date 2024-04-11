@@ -28,8 +28,6 @@ public class HomePageController extends ParentController {
     @FXML
     private ImageView invoiceFlowGraph;
 
-    @FXML
-    private Button generateGraphsButton;
 
     static {
         System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
