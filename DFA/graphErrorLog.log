@@ -1,0 +1,45 @@
+2024-04-13 23:26:52,098 - ERROR - An error occurred: An error occurred while making bar graph: name 'data' is not defined
+Traceback (most recent call last):
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 72, in make_bar
+    colors = sns.color_palette("flare", len(data))
+                                            ^^^^
+NameError: name 'data' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 184, in <module>
+    make_bar(getDataFrame(str(sql_statement)), str(graph_name), 10, 7, graph_x_name, graph_y_name)
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 81, in make_bar
+    raise RuntimeError("An error occurred while making bar graph: %s" % e)
+RuntimeError: An error occurred while making bar graph: name 'data' is not defined
+2024-04-13 23:28:36,403 - ERROR - An error occurred: An error occurred while making bar graph: name 'data' is not defined
+Traceback (most recent call last):
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 72, in make_bar
+    colors = sns.color_palette("flare", len(data))
+                                            ^^^^
+NameError: name 'data' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 184, in <module>
+    make_bar(getDataFrame(str(sql_statement)), str(graph_name), 6, 6, graph_x_name, graph_y_name)
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 81, in make_bar
+    raise RuntimeError("An error occurred while making bar graph: %s" % e)
+RuntimeError: An error occurred while making bar graph: name 'data' is not defined
+2024-04-13 23:29:15,793 - ERROR - An error occurred: An error occurred while making bar graph: name 'data' is not defined
+Traceback (most recent call last):
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 72, in make_bar
+    colors = sns.color_palette("flare", len(data))
+                                            ^^^^
+NameError: name 'data' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 184, in <module>
+    make_bar(getDataFrame(str(sql_statement)), str(graph_name), 6, 6, graph_x_name, graph_y_name)
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 81, in make_bar
+    raise RuntimeError("An error occurred while making bar graph: %s" % e)
+RuntimeError: An error occurred while making bar graph: name 'data' is not defined

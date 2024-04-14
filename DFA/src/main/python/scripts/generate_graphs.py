@@ -70,11 +70,11 @@ def make_bar(df, name, height, width, x_name, y_name):
     try:
         plt.figure(figsize=(width, height))
         sns.set_style("dark")
-        sns.barplot(x=x_name, y=y_name, data=df)
+        sns.barplot(x=x_name, y=y_name, data=df, palette="flare")
         plt.xlabel(x_name)
         plt.ylabel(y_name)
         plt.title(name)
-        plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+        plt.savefig(graphPathDirectory() + name + ".png")
     except Exception as e:
         raise RuntimeError("An error occurred while making bar graph: %s" % e)
 
@@ -176,15 +176,15 @@ def make_pie_chart(df, name, height, width, x_name):
 if __name__ == '__main__':
     try:
         if graph_choice == 1:
-            make_scatter(getDataFrame(str(sql_statement)), str(graph_name), 10, 5, graph_x_name, graph_y_name)
+            make_scatter(getDataFrame(str(sql_statement)), str(graph_name), 10, 20, graph_x_name, graph_y_name)
 
         elif graph_choice == 2:
-            make_bar(getDataFrame(str(sql_statement)), str(graph_name), 20, 7, graph_x_name, graph_y_name)
+            make_bar(getDataFrame(str(sql_statement)), str(graph_name), 6, 6, graph_x_name, graph_y_name)
 
         elif graph_choice == 3:
-            make_line(getDataFrame(str(sql_statement)), str(graph_name), 10, 15, graph_x_name, graph_y_name)
+            make_line(getDataFrame(str(sql_statement)), str(graph_name), 7, 14, graph_x_name, graph_y_name)
 
         elif graph_choice == 4 and graph_y_name == "":
-            make_pie_chart(getDataFrame(str(sql_statement)), str(graph_name), 6, 15, graph_x_name)
+            make_pie_chart(getDataFrame(str(sql_statement)), str(graph_name), 6, 12, graph_x_name)
     except Exception as e:
         logging.error("An error occurred: %s", e, exc_info=True)
