@@ -4,21 +4,28 @@ import com.team7.dfa.db.DatabaseConnector;
 import com.team7.dfa.model.Graph;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.*;
-import javafx.scene.image.*;
 import javafx.scene.layout.*;
-import javafx.scene.text.*;
 import javafx.animation.FadeTransition;
 import javafx.util.Duration;
 
+import java.sql.Connection;
+import java.util.Locale;
 import java.util.logging.Logger;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javafx.scene.control.ListView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * The HomePageController class controls the functionality of the home page of the DFA application.
  */
 public class HomePageController extends ParentController {
+
+    DatabaseConnector db = new DatabaseConnector();
+    Connection conn = db.connect();
 
     @FXML
     private AnchorPane contentPane;
@@ -26,7 +33,13 @@ public class HomePageController extends ParentController {
     static Logger log = null;
 
     @FXML
-    private ImageView invoiceFlowGraph;
+    private ImageView invoiceFlowGraphImage;
+
+    @FXML
+    private ImageView expenseGraphImage;
+
+    @FXML
+    private ListView<String> listView;
 
 
     static {
@@ -48,12 +61,51 @@ public class HomePageController extends ParentController {
     @FXML
     private void generateGraphButton(ActionEvent event) {
             log.info("Generating Graphs");
-            Graph sample_graph = new Graph("select inv_state from dannyInvoiceRecords",
+            Graph invoiceGraph = new Graph("select inv_state from dannyInvoiceRecords",
                     "inv_state",
                     "Invoice State Pie Chart");
-            sample_graph.updateGraphImage(invoiceFlowGraph);
-//            profitGraph.setPreserveRatio(true);
-//            profitGraph.setFitWidth(profitGraph.getFitWidth());
-//            profitGraph.setFitHeight(profitGraph.getFitHeight());
+            invoiceGraph.updateGraphImage(invoiceFlowGraphImage);
+
+            Graph expenseGraph = new Graph("SELECT 'Employees Net Pay' AS Category, SUM(CAST(rp.NetPay AS DECIMAL(10, 2))) AS \"Number of dollars\" FROM rohanPayroll rp " +
+                    "JOIN dannyInvoiceRecords di ON di.inv_ID LIKE '%P%' WHERE di.inv_total > 0 " +
+                    "UNION ALL " +
+                    "SELECT 'Payable Invoices' AS Category, SUM(di.inv_total) AS \"Number of dollars\" FROM dannyInvoiceRecords di WHERE di.inv_ID LIKE '%P%' AND di.inv_total > 0;", "2",
+                    "Category", "Number of dollars", "Total Expenses"
+                    );
+            expenseGraph.updateGraphImage(expenseGraphImage);
+
+            refreshActivity();
+
+    }
+
+    private void refreshActivity() {
+        log.info("Refreshing Activity!");
+        refreshListView();
+    }
+
+    private void refreshListView () {
+        try {
+            String sqlQuery = "SELECT CONCAT(t.name, ' : ', SUM(p.rows), ' items') AS TableInfo " +
+                    "FROM sys.tables t " +
+                    "INNER JOIN sys.partitions p ON t.object_id = p.object_id " +
+                    "WHERE t.is_ms_shipped = 0 AND p.index_id IN (0, 1) " +
+                    "GROUP BY t.name " +
+                    "ORDER BY SUM(p.rows) DESC";
+
+            PreparedStatement statement = conn.prepareStatement(sqlQuery);
+            ResultSet resultSet = statement.executeQuery();
+
+            // Populate ListView with query results
+            ObservableList<String> tableInfoList = FXCollections.observableArrayList();
+            while (resultSet.next()) {
+                tableInfoList.add(resultSet.getString("TableInfo"));
+            }
+            listView.setItems(tableInfoList);
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
