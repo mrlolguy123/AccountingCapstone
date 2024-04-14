@@ -10,36 +10,36 @@ public class Payment {
     /**
      *  Define properties for employee payroll data (rohanPayroll table)
      */
-    private final StringProperty ID;
-    private final StringProperty Name;
-    private final StringProperty Job;
-    private final StringProperty Salary;
-    private final StringProperty HoursWorked;
-    private final StringProperty Deductions;
-    private final StringProperty NetPay;
+    public final StringProperty ID;
+    public final StringProperty Name;
+    public final StringProperty Job;
+    public final StringProperty Salary;
+    public final StringProperty HoursWorked;
+    public final StringProperty Deductions;
+    public final StringProperty NetPay;
 
 /////////////////////////////////////////////////////////////////////
     /**
      * TDefine properties for employee payment status data (rohanPayStatus table)
      */
-    private final StringProperty PPEmployeeID;
-    private final StringProperty PPName;
-    private final StringProperty PPNetPay;
-    private final StringProperty PPStatus;
-    private final StringProperty PPOwed;
-    private final StringProperty PPDueDate;
-    private final StringProperty PPLastPayed;
-    private final StringProperty PPAmountPayedLast;
+    public final StringProperty PPEmployeeID;
+    public final StringProperty PPName;
+    public final StringProperty PPNetPay;
+    public final StringProperty PPStatus;
+    public final StringProperty PPOwed;
+    public final StringProperty PPDueDate;
+    public final StringProperty PPLastPayed;
+    public final StringProperty PPAmountPayedLast;
     /////////////////////////////////////////////////////////
     /**
      * Define properties for additional payment data (table 5)
      */
-    private final StringProperty APPAmountPayed;
-    private final StringProperty APPDateTransfer;
-    private final StringProperty APPEmployeePayStatus;
-    private final StringProperty APPID;
-    private final StringProperty APPName;
-    private final StringProperty APPPaymentDueDate;
+    public final StringProperty APPAmountPayed;
+    public final StringProperty APPDateTransfer;
+    public final StringProperty APPEmployeePayStatus;
+    public final StringProperty APPID;
+    public final StringProperty APPName;
+    public final StringProperty APPPaymentDueDate;
 
 
 
