@@ -1,67 +1,45 @@
-2024-04-04 16:52:00,308 - ERROR - An error occurred: An error occurred while making pie chart: [Errno 2] No such file or directory: 'C:\\Users\\Aman Sahu\\Desktop\\Capstone 2024\\AccountingCapstone\\DFA\\src\\main\\python\\generated_graphs\\Invoice State Pie Chart.png'
+2024-04-13 23:26:52,098 - ERROR - An error occurred: An error occurred while making bar graph: name 'data' is not defined
 Traceback (most recent call last):
-  File "C:\Users\Aman Sahu\Desktop\Capstone 2024\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 171, in make_pie_chart
-    plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
-  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\pyplot.py", line 1119, in savefig
-    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\figure.py", line 3390, in savefig
-    self.canvas.print_figure(fname, **kwargs)
-  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\backend_bases.py", line 2193, in print_figure
-    result = print_method(
-             ^^^^^^^^^^^^^
-  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\backend_bases.py", line 2043, in <lambda>
-    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
-                                                                 ^^^^^
-  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\backends\backend_agg.py", line 497, in print_png
-    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
-  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\backends\backend_agg.py", line 446, in _print_pil
-    mpl.image.imsave(
-  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\image.py", line 1656, in imsave
-    image.save(fname, **pil_kwargs)
-  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\PIL\Image.py", line 2436, in save
-    fp = builtins.open(filename, "w+b")
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Aman Sahu\\Desktop\\Capstone 2024\\AccountingCapstone\\DFA\\src\\main\\python\\generated_graphs\\Invoice State Pie Chart.png'
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 72, in make_bar
+    colors = sns.color_palette("flare", len(data))
+                                            ^^^^
+NameError: name 'data' is not defined
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\Aman Sahu\Desktop\Capstone 2024\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 187, in <module>
-    make_pie_chart(getDataFrame(str(sql_statement)), str(graph_name), 10, 10, graph_x_name)
-  File "C:\Users\Aman Sahu\Desktop\Capstone 2024\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 173, in make_pie_chart
-    raise RuntimeError("An error occurred while making pie chart: %s" % e)
-RuntimeError: An error occurred while making pie chart: [Errno 2] No such file or directory: 'C:\\Users\\Aman Sahu\\Desktop\\Capstone 2024\\AccountingCapstone\\DFA\\src\\main\\python\\generated_graphs\\Invoice State Pie Chart.png'
-2024-04-07 03:11:56,778 - ERROR - An error occurred: An error occurred while making pie chart: '#69d' is not a valid palette name
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 184, in <module>
+    make_bar(getDataFrame(str(sql_statement)), str(graph_name), 10, 7, graph_x_name, graph_y_name)
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 81, in make_bar
+    raise RuntimeError("An error occurred while making bar graph: %s" % e)
+RuntimeError: An error occurred while making bar graph: name 'data' is not defined
+2024-04-13 23:28:36,403 - ERROR - An error occurred: An error occurred while making bar graph: name 'data' is not defined
 Traceback (most recent call last):
-  File "C:\Python312\Lib\site-packages\seaborn\palettes.py", line 235, in color_palette
-    palette = mpl_palette(palette, n_colors, as_cmap=as_cmap)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Python312\Lib\site-packages\seaborn\palettes.py", line 406, in mpl_palette
-    cmap = get_colormap(name)
-           ^^^^^^^^^^^^^^^^^^
-  File "C:\Python312\Lib\site-packages\seaborn\_compat.py", line 62, in get_colormap
-    return mpl.colormaps[name]
-           ~~~~~~~~~~~~~^^^^^^
-  File "C:\Python312\Lib\site-packages\matplotlib\cm.py", line 93, in __getitem__
-    raise KeyError(f"{item!r} is not a known colormap name") from None
-KeyError: "'#69d' is not a known colormap name"
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 72, in make_bar
+    colors = sns.color_palette("flare", len(data))
+                                            ^^^^
+NameError: name 'data' is not defined
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 161, in make_pie_chart
-    colors = sns.color_palette("#69d", len(data))
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Python312\Lib\site-packages\seaborn\palettes.py", line 237, in color_palette
-    raise ValueError(f"{palette!r} is not a valid palette name")
-ValueError: '#69d' is not a valid palette name
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 184, in <module>
+    make_bar(getDataFrame(str(sql_statement)), str(graph_name), 6, 6, graph_x_name, graph_y_name)
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 81, in make_bar
+    raise RuntimeError("An error occurred while making bar graph: %s" % e)
+RuntimeError: An error occurred while making bar graph: name 'data' is not defined
+2024-04-13 23:29:15,793 - ERROR - An error occurred: An error occurred while making bar graph: name 'data' is not defined
+Traceback (most recent call last):
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 72, in make_bar
+    colors = sns.color_palette("flare", len(data))
+                                            ^^^^
+NameError: name 'data' is not defined
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 187, in <module>
-    make_pie_chart(getDataFrame(str(sql_statement)), str(graph_name), 10, 10, graph_x_name)
-  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 173, in make_pie_chart
-    raise RuntimeError("An error occurred while making pie chart: %s" % e)
-RuntimeError: An error occurred while making pie chart: '#69d' is not a valid palette name
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 184, in <module>
+    make_bar(getDataFrame(str(sql_statement)), str(graph_name), 6, 6, graph_x_name, graph_y_name)
+  File "G:\Capstone Files SP24\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 81, in make_bar
+    raise RuntimeError("An error occurred while making bar graph: %s" % e)
+RuntimeError: An error occurred while making bar graph: name 'data' is not defined
