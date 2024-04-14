@@ -1,14 +1,14 @@
 /* General Styles */
 .root {
-    -fx-font-family: 'Segoe UI';
-    -fx-font-size: 12px;
-    -fx-background-color: #F5F5F5; /* Light grey background */
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #9b9b9b; /* Light grey background */
 }
 
 /* Container Styles */
 .anchor-pane, .grid-pane {
-    -fx-background-color: #FFFFFF; /* White background for containers */
-    -fx-border-color: #CCCCCC;
+    -fx-background-color: #000000;
+    -fx-border-color: rgba(197, 197, 197, 0);
     -fx-border-width: 1px;
     -fx-border-radius: 10px;
     -fx-padding: 10px;
@@ -22,57 +22,57 @@
 }
 
 /* Label Styles */
-#titleLabel, #descriptionLabel, #profitHeading, #activityHeading, #expenseHeading, #invoiceHeading {
-    -fx-font-size: 16px;
+#titleLabel, #profitHeading, #activityHeading, #expenseHeading, #invoiceHeading {
+    -fx-font-size: 18px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333333; /* Dark text for better contrast */
+    -fx-text-fill: #333333;
 }
-
-/* TextField Styles */
-#searchBar {
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #CCCCCC;
-    -fx-border-width: 1px;
-    -fx-padding: 5px;
-    -fx-border-radius: 5px;
+#descriptionLabel {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
 }
 
 /* Button Styles */
 #generateGraphsButton {
-    -fx-background-color: #007BFF;
-    -fx-text-fill: #FFFFFF;
-    -fx-border-color: #007BFF;
+    -fx-background-color: #34485d;
+    -fx-text-fill: #ffffff;
+    /*-fx-border-color: transaprent;*/
     -fx-border-width: 1px;
-    -fx-padding: 5px 15px;
+    -fx-padding: 8px 15px;
     -fx-background-radius: 5px;
-    -fx-text-alignment: center;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
 }
 
 #generateGraphsButton:hover {
-    -fx-background-color: #0056b3;
+    -fx-background-color: #486c94; /* Darker green */
+}
+
+#invoiceScroll {
+    -fx-border-radius: 10px;
 }
 
 /* ScrollPane Styles */
 .scroll-pane {
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #CCCCCC;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dcdcdc;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
 }
 
 /* ImageView Styles */
 .image-view {
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #CCCCCC;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dcdcdc;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
 }
 
 /* ListView Styles */
 #listView {
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #CCCCCC;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dcdcdc;
     -fx-border-width: 1px;
-    -fx-padding: 5px;
     -fx-border-radius: 5px;
 }
