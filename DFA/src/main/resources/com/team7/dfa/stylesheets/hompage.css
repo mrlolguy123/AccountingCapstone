@@ -4,10 +4,6 @@
     -fx-background-color: #9b9b9b;
 }
 
-#contentPane {
-    -fx-background-image: 'src/main/python/generated_graphs/homepage_bg.jpg';
-}
-
 .anchor-pane, .grid-pane {
     -fx-background-color: #000000;
     -fx-border-color: rgba(197, 197, 197, 0);

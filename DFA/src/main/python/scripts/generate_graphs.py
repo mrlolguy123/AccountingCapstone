@@ -163,6 +163,7 @@ def make_double_line(df, name, height, width, x_name, y_name, y2_name):
     """
     try:
         plt.figure(figsize=(width, height))
+        sns.set_palette("flare")
         sns.set_style("white")
         sns.lineplot(x=x_name, y=y_name, data=df, label=y_name)
         sns.lineplot(x=x_name, y=y2_name, data=df, label=y2_name)
@@ -224,10 +225,11 @@ if __name__ == '__main__':
         elif graph_choice == 3:
             make_line(getDataFrame(str(sql_statement)), str(graph_name), 7, 14, graph_x_name, graph_y_name)
 
-        elif graph_choice == 3.5:
-            make_double_line(getDataFrame(str(sql_statement)), str(graph_name), 7, 14, graph_x_name, graph_y_name, graph_y2_name)
 
-        elif graph_choice == 4 and graph_y_name == "*":
+        elif graph_choice == 4 and graph_y_name == "*" and graph_y2_name == "*":
             make_pie_chart(getDataFrame(str(sql_statement)), str(graph_name), 6, 12, graph_x_name)
+
+        elif graph_choice == 5:
+            make_double_line(getDataFrame(str(sql_statement)), str(graph_name), 7, 14, graph_x_name, graph_y_name, graph_y2_name)
     except Exception as e:
         logging.error("An error occurred: %s", e, exc_info=True)
