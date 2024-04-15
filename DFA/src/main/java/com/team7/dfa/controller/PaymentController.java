@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.sql.*;
@@ -207,6 +208,11 @@ public class PaymentController extends ParentController implements Initializable
     @FXML
     private TextField txtSalary;
 
+    @FXML
+    private Text txtNextPayedDate;
+
+    @FXML
+    private Text txtLastPayedDate;
 
 
     /**
@@ -311,13 +317,18 @@ public class PaymentController extends ParentController implements Initializable
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String dueDateString = dueDate.format(formatter);
 
+            String NextPayDate = txtNextPayedDate.getText();
+            String LastPayDate = txtLastPayedDate.getText();
+
+
+
             pst = con.prepareStatement("INSERT INTO rohanPayStatus (EmployeeID,Name,NetPay,Status,Owed,DueDate,LastPayed,AmountPayedLast)values(?,?,?,?,?,?,?,?)");
             pst.setString(1, ID);
             pst.setString(2, Name);
             pst.setString(3, NetPay);
             pst.setString(4, Status);
             pst.setString(5, Owed);
-            pst.setString(6, dueDateString);
+            pst.setString(6, NextPayDate);
             pst.setString(7, LastPayed);
             pst.setString(8, AmountPayedLast);
             pst.executeUpdate();
@@ -623,7 +634,7 @@ public class PaymentController extends ParentController implements Initializable
         }
 
 
-        id = Integer.parseInt(String.valueOf(table3.getItems().get(myIndex).getPPEmployeeID()));
+        // id = Integer.parseInt(String.valueOf(table3.getItems().get(myIndex).getPPEmployeeID()));
         System.out.println("ID is =  " + id);
         try
         {
@@ -781,7 +792,9 @@ public class PaymentController extends ParentController implements Initializable
             alert.setContentText("Money Transfered!");
             alert.showAndWait();
             table3();
+
             table4();
+            table2();
 
         }
         catch (SQLException ex)
@@ -811,8 +824,45 @@ public class PaymentController extends ParentController implements Initializable
 
     }
 
+
     @FXML
     void DownloadTable5(ActionEvent event) {
+
+        System.out.println("Downloading data");
+
+    }
+
+
+    public void DateUpdate()
+    {
+
+        try {
+            pst = con.prepareStatement("select PrevDueDate,NextDueDate from rohanPayrollDateSettings ");
+            ResultSet rs = pst.executeQuery();
+            {
+                while (rs.next()) {
+                    Payment st = new Payment();
+                    st.setLastPayedDate(rs.getString("PrevDueDate"));
+                    st.setNextPayedDate(rs.getString("NextDueDate"));
+                    String PrevDue=rs.getString("PrevDueDate");
+                    String NextDue = rs.getString("NextDueDate");
+                    txtLastPayedDate.setText(PrevDue);
+                    txtNextPayedDate.setText(NextDue);
+
+                }
+            }
+            System.out.println("After:" +txtLastPayedDate.getText());
+            System.out.println("After:" +txtNextPayedDate.getText());
+
+
+        }
+
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
 
     }
 
@@ -849,6 +899,7 @@ public class PaymentController extends ParentController implements Initializable
     public void initialize(URL url, ResourceBundle rb){
         Connect();
         table();
+        DateUpdate();
         table3();
         table2();
         table4();
