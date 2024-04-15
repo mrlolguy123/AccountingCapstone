@@ -1,0 +1,23 @@
+#button {
+    -fx-background-color: #34485d;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);
+}
+
+#button:hover {
+    -fx-background-color: #486c94;
+}
+
+#smallbutton {
+    -fx-background-color: #34485d;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 3, 0, 0, 0);
+}
+
+#smallbutton:hover {
+    -fx-background-color: #486c94;
+}

@@ -3,6 +3,7 @@ package com.team7.dfa.controller;
 import com.team7.dfa.TemplateTestApplication;
 import com.team7.dfa.model.bankAccount;
 import com.team7.dfa.model.cardRecord;
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,9 +13,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.*;
@@ -52,6 +55,8 @@ public class TreasuryDashboardController extends ParentController {
     private ContextMenu bankContext;
     @FXML
     private ContextMenu cardContext;
+    @FXML
+    private AnchorPane contentPane;
 
 
     static Logger log = null;
@@ -60,7 +65,6 @@ public class TreasuryDashboardController extends ParentController {
         System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
         log = Logger.getLogger(TreasuryDashboardController.class.getName());
     }
-
 
     /**
      * Handles the click event for the Add Credit Card Button
@@ -381,6 +385,10 @@ public class TreasuryDashboardController extends ParentController {
             }
         });
 
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(1500), contentPane);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
     }
 }
 

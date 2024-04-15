@@ -8,6 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.bankAccountTransactionsController">
    <children>
       <Text layoutX="65.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions on Bank Account">
@@ -23,13 +24,16 @@
             <TableColumn fx:id="amountCol" prefWidth="167.0" text="Amount" />
         </columns>
       </TableView>
-      <Button fx:id="closeButton" layoutX="65.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#closeWindow" text="Close" />
-      <Button fx:id="addButton" layoutX="565.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#addTransaction" prefHeight="25.0" prefWidth="52.0" text="Add" />
-      <Button fx:id="refreshButton" layoutX="478.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#refreshBankTable" prefHeight="25.0" prefWidth="65.0" text="Refresh" />
+      <Button fx:id="closeButton" id="smallbutton" layoutX="65.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#closeWindow" text="Close" />
+      <Button fx:id="addButton" id="smallbutton" layoutX="565.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#addTransaction" prefHeight="25.0" prefWidth="52.0" text="Add" />
+      <Button fx:id="refreshButton" id="smallbutton" layoutX="478.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#refreshBankTable" prefHeight="25.0" prefWidth="65.0" text="Refresh" />
       <Text layoutX="565.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="169.13671875" />
       <TextField fx:id="amountText" layoutX="565.0" layoutY="117.0" />
       <Text layoutX="565.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="149.0" />
       <TextField fx:id="dateText" layoutX="565.0" layoutY="165.0" promptText="YYYY-MM-DD" />
-      <Button fx:id="editButton" layoutX="662.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#editTransaction" prefHeight="25.0" prefWidth="52.0" text="Edit" />
+      <Button fx:id="editButton" id="smallbutton" layoutX="662.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#editTransaction" prefHeight="25.0" prefWidth="52.0" text="Edit" />
    </children>
+    <stylesheets>
+        <URL value="@stylesheets/treasury.css" />
+    </stylesheets>
 </AnchorPane>
