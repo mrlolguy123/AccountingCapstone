@@ -2,11 +2,14 @@ package com.team7.dfa.controller;
 
 import com.team7.dfa.model.InvoiceItemModel;
 import com.team7.dfa.model.InvoiceModel;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -69,6 +72,8 @@ public class InvoiceViewController extends ParentController {
     private TextField group_field;
     @FXML
     private ComboBox<String> state_field;
+    @FXML
+    private AnchorPane contentPane;
 
     int invoice_state = InvoicingController.invoiceState;
 
@@ -102,6 +107,10 @@ public class InvoiceViewController extends ParentController {
             billing_field.setText(grabbed.getInv_billing());
             group_field.setText(grabbed.getInv_group());
         }
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(500), contentPane);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
     }
 
     /**
@@ -135,8 +144,6 @@ public class InvoiceViewController extends ParentController {
         String shipping = shipping_field.getText();
         String billing = billing_field.getText();
         String group = group_field.getText();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate date_formatted = LocalDate.parse(date, formatter);
 
         if (customer.isEmpty() || date.isEmpty() || state == null || shipping.isEmpty() || billing.isEmpty() || term_field.getText().isEmpty() || subtotal_field.getText().isEmpty() || discount_field.getText().isEmpty() || total_tax_field.getText().isEmpty() || total_field.getText().isEmpty() || balance_field.getText().isEmpty())
         {
@@ -152,6 +159,8 @@ public class InvoiceViewController extends ParentController {
             Double total = Double.parseDouble(total_field.getText());
             Double balance = Double.parseDouble(balance_field.getText());
 
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate date_formatted = LocalDate.parse(date, formatter);
             LocalDate due_date_formatted = date_formatted.plusDays(term);
             String due_date = due_date_formatted.format(formatter);
 
@@ -223,8 +232,6 @@ public class InvoiceViewController extends ParentController {
         String shipping = shipping_field.getText();
         String billing = billing_field.getText();
         String group = group_field.getText();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate date_formatted = LocalDate.parse(date, formatter);
 
         if (customer.isEmpty() || date.isEmpty() || state == null || shipping.isEmpty() || billing.isEmpty() || term_field.getText().isEmpty() || subtotal_field.getText().isEmpty() || discount_field.getText().isEmpty() || total_tax_field.getText().isEmpty() || total_field.getText().isEmpty() || balance_field.getText().isEmpty()) {
             throwError("All BOLDED fields must be filled out.");
@@ -240,6 +247,8 @@ public class InvoiceViewController extends ParentController {
             Double total = Double.parseDouble(total_field.getText());
             Double balance = Double.parseDouble(balance_field.getText());
 
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate date_formatted = LocalDate.parse(date, formatter);
             LocalDate due_date_formatted = date_formatted.plusDays(term);
             String due_date = due_date_formatted.format(formatter);
 

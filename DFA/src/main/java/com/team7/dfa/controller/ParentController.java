@@ -60,7 +60,11 @@ public class ParentController {
      */
     @FXML
     protected void accountClicked(ActionEvent event) throws IOException {
-        // not implemented
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Accounting");
+        alert.setHeaderText("Under Construction...");
+        alert.setContentText("This feature is not currently available. Please check back later.");
+        alert.showAndWait();
     }
 
     /**

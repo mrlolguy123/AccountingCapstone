@@ -4,6 +4,7 @@ package com.team7.dfa.controller;
 import com.team7.dfa.TemplateTestApplication;
 import com.team7.dfa.model.InvoiceLog;
 import com.team7.dfa.model.InvoiceModel;
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,8 +19,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -85,6 +88,8 @@ public class InvoicingController extends ParentController {
     public TableColumn<InvoiceLog, String> log_update_col;
     @FXML
     public TableColumn<InvoiceLog, String> log_desc_col;
+    @FXML
+    private AnchorPane contentPane;
 
 
     @FXML
@@ -92,6 +97,15 @@ public class InvoicingController extends ParentController {
         invoicingDashPane.setVisible(true);
         invoicingTablePane.setVisible(false);
         refreshLogTable();
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(1500), contentPane);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
+
+    protected void generateGraph()
+    {
+
     }
 
     /**
@@ -328,32 +342,6 @@ public class InvoicingController extends ParentController {
                     return;
                 InvoiceModel selectedInvoice = invoiceTable.getSelectionModel().getSelectedItem();
                 grabInvoice(selectedInvoice.getInv_id());
-                FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addEditInvoice.fxml"));
-                Parent root = loader.load();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Invoice");
-                stage.show();
-            }
-        }
-    }
-
-    /**
-     * This method is called when the user double-clicks a log row on the log table.
-     * It loads the add edit invoice view.
-     * @param event The event that triggered the method call
-     * @throws IOException If the FXML file is not found
-     */
-    @FXML
-    protected void handleLogSelect(Event event) throws IOException {
-        if(event.getEventType().getName().equals("MOUSE_CLICKED"))
-        {
-            if(((javafx.scene.input.MouseEvent) event).getClickCount() == 2)
-            {
-                if(invoicingUpdateTable.getSelectionModel().getSelectedItem() == null)
-                    return;
-                InvoiceLog selectedInvoice = invoicingUpdateTable.getSelectionModel().getSelectedItem();
-                grabInvoice(selectedInvoice.getLog_id());
                 FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addEditInvoice.fxml"));
                 Parent root = loader.load();
                 Stage stage = new Stage();

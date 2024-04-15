@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,9 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" stylesheets="@stylesheets/template.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.InvoicingController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.InvoicingController">
    <left>
-      <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="126.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="sidebar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="126.0" BorderPane.alignment="CENTER">
          <children>
              <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Home" />
              <Button fx:id="accountingButton" mnemonicParsing="false" onAction="#accountClicked" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: transparent;" text="Accounting" />
@@ -28,7 +30,7 @@
       </VBox>
    </left>
    <top>
-      <AnchorPane fx:id="titleBar" prefHeight="49.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="titleBar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="49.0" prefWidth="1034.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="companyName" layoutX="14.0" layoutY="9.0" text="Placeholder Company Name" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="9.0">
                <font>
@@ -39,17 +41,20 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane fx:id="contentPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="contentPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <BorderPane fx:id="invoicingDashPane" layoutX="125.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <BorderPane fx:id="invoicingDashPane" layoutX="125.0" layoutY="110.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
                   <Label text="Invoicing Dashboard" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
-                        <Insets top="25.0" />
+                        <Insets top="20.0" />
                      </BorderPane.margin>
                      <font>
                         <Font size="34.0" />
                      </font>
+                     <padding>
+                        <Insets bottom="15.0" />
+                     </padding>
                   </Label>
                </top>
                <center>
@@ -62,117 +67,125 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <GridPane>
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="158.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="423.0" minHeight="10.0" prefHeight="423.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
+                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                        <children>
+                            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints maxHeight="285.0" minHeight="10.0" prefHeight="158.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="423.0" minHeight="10.0" prefHeight="423.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                               <children>
+                                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
+                                     <children>
+                                        <GridPane layoutX="113.0" layoutY="112.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                           <children>
+                                              <Label text="Receivables:" GridPane.halignment="LEFT">
+                                                 <font>
+                                                    <Font size="16.0" />
+                                                 </font>
+                                                 <GridPane.margin>
+                                                    <Insets left="5.0" />
+                                                 </GridPane.margin>
+                                              </Label>
+                                              <Label text="Payables:" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+                                                 <font>
+                                                    <Font size="16.0" />
+                                                 </font>
+                                                 <GridPane.margin>
+                                                    <Insets left="5.0" />
+                                                 </GridPane.margin>
+                                              </Label>
+                                              <Button fx:id="recInvButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recInvButtonClick" text="Standard" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                                 <font>
+                                                    <Font size="16.0" />
+                                                 </font>
+                                                 <GridPane.margin>
+                                                    <Insets left="5.0" right="5.0" />
+                                                 </GridPane.margin>
+                                                   <styleClass>
+                                                      <String fx:value="button" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                              </Button>
+                                              <Button fx:id="recRetButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recRetButtonClick" text="Retainer" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                                 <font>
+                                                    <Font size="16.0" />
+                                                 </font>
+                                                 <GridPane.margin>
+                                                    <Insets left="5.0" right="5.0" />
+                                                 </GridPane.margin>
+                                              </Button>
+                                              <Button fx:id="recRecButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recRecButtonClick" text="Recurring" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                                 <font>
+                                                    <Font size="16.0" />
+                                                 </font>
+                                                 <GridPane.margin>
+                                                    <Insets left="5.0" right="5.0" />
+                                                 </GridPane.margin>
+                                              </Button>
+                                              <Button fx:id="payInvButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payInvButtonClick" text="Standard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                                 <font>
+                                                    <Font size="16.0" />
+                                                 </font>
+                                                 <GridPane.margin>
+                                                    <Insets left="5.0" right="5.0" />
+                                                 </GridPane.margin>
+                                              </Button>
+                                              <Button fx:id="payRetButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payRetButtonClick" text="Retainer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                                 <font>
+                                                    <Font size="16.0" />
+                                                 </font>
+                                                 <GridPane.margin>
+                                                    <Insets left="5.0" right="5.0" />
+                                                 </GridPane.margin>
+                                              </Button>
+                                              <Button fx:id="payRecButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payRecButtonClick" text="Recurring" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                                 <font>
+                                                    <Font size="16.0" />
+                                                 </font>
+                                                 <GridPane.margin>
+                                                    <Insets left="5.0" right="5.0" />
+                                                 </GridPane.margin>
+                                              </Button>
+                                           </children>
+                                        </GridPane>
+                                     </children>
+                                  </AnchorPane>
+                                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                                     <children>
+                                        <AnchorPane layoutX="-4.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                                           <children>
+                                              <TableView fx:id="invoicingUpdateTable" layoutX="1.0" layoutY="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                                                  <columns>
+                                                  <TableColumn fx:id="log_id_col" editable="false" prefWidth="107.0" text="Invoice ID" />
+                                                  <TableColumn fx:id="log_update_col" editable="false" prefWidth="177.0" text="Updated" />
+                                                    <TableColumn fx:id="log_desc_col" editable="false" prefWidth="157.0" text="Short Description" />
+                                                </columns>
+                                              </TableView>
+                                           </children>
+                                        </AnchorPane>
+                                     </children>
+                                  </AnchorPane>
+                               </children>
+                            </GridPane>
+                        </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                            <children>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <GridPane layoutX="113.0" layoutY="112.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                       <children>
-                                          <Label text="Receivables:" GridPane.halignment="LEFT">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <GridPane.margin>
-                                                <Insets left="5.0" />
-                                             </GridPane.margin>
-                                          </Label>
-                                          <Label text="Payables:" GridPane.columnIndex="1" GridPane.halignment="LEFT">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <GridPane.margin>
-                                                <Insets left="5.0" />
-                                             </GridPane.margin>
-                                          </Label>
-                                          <Button fx:id="recInvButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recInvButtonClick" text="Standard" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </GridPane.margin>
-                                          </Button>
-                                          <Button fx:id="recRetButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recRetButtonClick" text="Retainer" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </GridPane.margin>
-                                          </Button>
-                                          <Button fx:id="recRecButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recRecButtonClick" text="Recurring" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </GridPane.margin>
-                                          </Button>
-                                          <Button fx:id="payInvButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payInvButtonClick" text="Standard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </GridPane.margin>
-                                          </Button>
-                                          <Button fx:id="payRetButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payRetButtonClick" text="Retainer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </GridPane.margin>
-                                          </Button>
-                                          <Button fx:id="payRecButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payRecButtonClick" text="Recurring" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </GridPane.margin>
-                                          </Button>
-                                       </children>
-                                    </GridPane>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                                 <children>
-                                    <AnchorPane layoutX="-4.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
-                                       <children>
-                                          <TableView fx:id="invoicingUpdateTable" layoutX="90.0" layoutY="22.0" onMouseClicked="#handleLogSelect" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <columns>
-                                              <TableColumn fx:id="log_id_col" editable="false" prefWidth="107.0" text="Invoice ID" />
-                                              <TableColumn fx:id="log_update_col" editable="false" prefWidth="177.0" text="Updated" />
-                                                <TableColumn fx:id="log_desc_col" editable="false" prefWidth="157.0" text="Short Description" />
-                                            </columns>
-                                          </TableView>
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </GridPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                           <children>
-                              <AnchorPane fx:id="invoicingPieChart" layoutX="94.0" layoutY="144.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                              <AnchorPane fx:id="invoicingLineChart" layoutX="-4.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="10.0">
                                  <children>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="122.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
@@ -271,4 +284,7 @@
             </BorderPane>
          </children></AnchorPane>
    </center>
+    <stylesheets>
+        <URL value="@stylesheets/template.css" />
+    </stylesheets>
 </BorderPane>
