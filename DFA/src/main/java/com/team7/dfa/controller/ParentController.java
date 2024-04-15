@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -118,6 +119,8 @@ public class ParentController {
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.setTitle("DFA");
+        newStage.setMinHeight(900);
+        newStage.setMinWidth(1600);
 
         previousStage.close();
 

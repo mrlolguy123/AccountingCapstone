@@ -15,7 +15,7 @@ public class TemplateTestApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(TemplateTestApplication.class.getResource("homepage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        Scene scene = new Scene(fxmlLoader.load(), 1600, 900);
         stage.setTitle("DFA");
         stage.setMinHeight(900);
         stage.setMinWidth(1600);

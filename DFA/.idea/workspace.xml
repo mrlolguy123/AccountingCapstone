@@ -10,11 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphErrorLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/graphErrorLog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/TemplateTestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/TemplateTestApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/homepage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/stylesheets/hompage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/stylesheets/hompage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/InvoicingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/InvoicingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/ParentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/ParentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/Double Line Test.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/generated_graphs/Double Line Test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/Invoice State Pie Chart.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/generated_graphs/Invoice State Pie Chart.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/Total Expenses.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/generated_graphs/Total Expenses.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/invoicing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/invoicing.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +31,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -86,10 +93,11 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "homepage-wallpaper",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "G:/Capstone Files SP24/AccountingCapstone/DFA/src/main/python/scripts/generate_graphs.py",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",

@@ -77,14 +77,6 @@ public class HomePageController extends ParentController {
                     );
             expenseGraph.updateGraphImage(expenseGraphImage);
 
-            Graph profitdoubleline = new Graph("select inv_total, inv_tax_rate, inv_balance from [dbo].[dannyInvoiceRecords];",
-                    "5",
-                    "inv_total",
-                    "inv_tax_rate",
-                    "inv_balance",
-                    "Double Line Test");
-
-            profitdoubleline.updateGraphImage(profitGraphImage);
             refreshActivity();
 
     }

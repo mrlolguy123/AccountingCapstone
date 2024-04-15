@@ -2,6 +2,7 @@ package com.team7.dfa.controller;
 
 
 import com.team7.dfa.TemplateTestApplication;
+import com.team7.dfa.model.Graph;
 import com.team7.dfa.model.InvoiceLog;
 import com.team7.dfa.model.InvoiceModel;
 import javafx.animation.FadeTransition;
@@ -18,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -90,10 +92,15 @@ public class InvoicingController extends ParentController {
     public TableColumn<InvoiceLog, String> log_desc_col;
     @FXML
     private AnchorPane contentPane;
+    @FXML
+    private ImageView invoiceImage;
+    @FXML
+    private AnchorPane invoicingLineChart;
 
 
     @FXML
     public void initialize() {
+        generateGraph();
         invoicingDashPane.setVisible(true);
         invoicingTablePane.setVisible(false);
         refreshLogTable();
@@ -105,7 +112,19 @@ public class InvoicingController extends ParentController {
 
     protected void generateGraph()
     {
+        String sqlQuery = "SELECT Month, SUM(total_payable) OVER (ORDER BY month) AS cumulative_payable, SUM(total_receivable) OVER (ORDER BY month) AS cumulative_receivable FROM (SELECT CAST(FORMAT(CONVERT(date, inv_date, 120), 'yyyy-MM') AS varchar(7)) AS month, SUM(CASE WHEN inv_id LIKE 'P[S,D,R]%' THEN inv_total ELSE 0 END) AS total_payable, SUM(CASE WHEN inv_id LIKE '[S,D,R]%' THEN inv_total ELSE 0 END) AS total_receivable FROM dannyInvoiceRecords WHERE inv_id LIKE 'P[S,D,R]%' OR inv_id LIKE '[S,D,R]%' GROUP BY CAST(FORMAT(CONVERT(date, inv_date, 120), 'yyyy-MM') AS varchar(7))) AS monthly_totals ORDER BY month;";
+        Graph profitdoubleline = new Graph(sqlQuery,
+                "5",
+                "Month",
+                "cumulative_payable",
+                "cumulative_receivable",
+                "Payables and Receivables");
 
+        invoiceImage.setPreserveRatio(true);
+        invoiceImage.setManaged(false);
+        invoiceImage.fitHeightProperty().bind(invoicingLineChart.heightProperty());
+        invoiceImage.fitWidthProperty().bind(invoicingLineChart.widthProperty());
+        profitdoubleline.updateGraphImage(invoiceImage);
     }
 
     /**

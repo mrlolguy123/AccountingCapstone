@@ -45,7 +45,7 @@
          <children>
             <BorderPane fx:id="invoicingDashPane" layoutX="125.0" layoutY="110.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
-                  <Label text="Invoicing Dashboard" BorderPane.alignment="CENTER">
+                  <Label id="invoiceTitleStyle" text="Invoicing Dashboard" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets top="20.0" />
                      </BorderPane.margin>
@@ -67,7 +67,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
                         <children>
                             <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
                               <columnConstraints>
@@ -92,7 +92,7 @@
                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                           </rowConstraints>
                                            <children>
-                                              <Label text="Receivables:" GridPane.halignment="LEFT">
+                                              <Label id="invoiceText" text="Receivables:" GridPane.halignment="LEFT">
                                                  <font>
                                                     <Font size="16.0" />
                                                  </font>
@@ -100,7 +100,7 @@
                                                     <Insets left="5.0" />
                                                  </GridPane.margin>
                                               </Label>
-                                              <Label text="Payables:" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+                                              <Label id="invoiceText" text="Payables:" GridPane.columnIndex="1" GridPane.halignment="LEFT">
                                                  <font>
                                                     <Font size="16.0" />
                                                  </font>
@@ -108,7 +108,7 @@
                                                     <Insets left="5.0" />
                                                  </GridPane.margin>
                                               </Label>
-                                              <Button fx:id="recInvButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recInvButtonClick" text="Standard" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                              <Button id="invButtonStyle" fx:id="recInvButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recInvButtonClick" text="Standard" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                                  <font>
                                                     <Font size="16.0" />
                                                  </font>
@@ -120,7 +120,7 @@
                                                       <String fx:value="button" />
                                                    </styleClass>
                                               </Button>
-                                              <Button fx:id="recRetButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recRetButtonClick" text="Retainer" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                              <Button id="invButtonStyle" fx:id="recRetButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recRetButtonClick" text="Retainer" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                                                  <font>
                                                     <Font size="16.0" />
                                                  </font>
@@ -128,7 +128,7 @@
                                                     <Insets left="5.0" right="5.0" />
                                                  </GridPane.margin>
                                               </Button>
-                                              <Button fx:id="recRecButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recRecButtonClick" text="Recurring" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                              <Button id="invButtonStyle" fx:id="recRecButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recRecButtonClick" text="Recurring" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                                                  <font>
                                                     <Font size="16.0" />
                                                  </font>
@@ -136,7 +136,7 @@
                                                     <Insets left="5.0" right="5.0" />
                                                  </GridPane.margin>
                                               </Button>
-                                              <Button fx:id="payInvButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payInvButtonClick" text="Standard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                              <Button id="invButtonStyle" fx:id="payInvButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payInvButtonClick" text="Standard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                                  <font>
                                                     <Font size="16.0" />
                                                  </font>
@@ -144,7 +144,7 @@
                                                     <Insets left="5.0" right="5.0" />
                                                  </GridPane.margin>
                                               </Button>
-                                              <Button fx:id="payRetButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payRetButtonClick" text="Retainer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                              <Button id="invButtonStyle" fx:id="payRetButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payRetButtonClick" text="Retainer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                                                  <font>
                                                     <Font size="16.0" />
                                                  </font>
@@ -152,7 +152,7 @@
                                                     <Insets left="5.0" right="5.0" />
                                                  </GridPane.margin>
                                               </Button>
-                                              <Button fx:id="payRecButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payRecButtonClick" text="Recurring" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                              <Button id="invButtonStyle" fx:id="payRecButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#payRecButtonClick" text="Recurring" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                                                  <font>
                                                     <Font size="16.0" />
                                                  </font>
@@ -183,11 +183,11 @@
                             </GridPane>
                         </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                            <children>
-                              <AnchorPane fx:id="invoicingLineChart" layoutX="-4.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="10.0">
+                              <AnchorPane fx:id="invoicingLineChart" layoutX="-4.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="10.0">
                                  <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="122.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <ImageView fx:id="invoiceImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="336.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="242.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -198,7 +198,7 @@
             </BorderPane>
             <BorderPane fx:id="invoicingTablePane" layoutX="304.0" layoutY="206.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
-                  <Label fx:id="invoicesTableTitle" text="Invoices" BorderPane.alignment="CENTER">
+                  <Label id="invoiceTitleStyle" fx:id="invoicesTableTitle" text="Invoices" BorderPane.alignment="CENTER">
                      <font>
                         <Font size="34.0" />
                      </font>
@@ -231,30 +231,45 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#invButtonClick" text="Invoice" GridPane.halignment="CENTER">
+                                    <Button id="invButtonStyle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#invButtonClick" text="Invoice" GridPane.halignment="CENTER">
                                        <GridPane.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </GridPane.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
                                     </Button>
-                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#retButtonClick" text="Retainer Invoice" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                    <Button id="invButtonStyle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#retButtonClick" text="Retainer Invoice" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                                        <GridPane.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </GridPane.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
                                     </Button>
-                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recButtonClick" text="Recurring Invoice" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                    <Button id="invButtonStyle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recButtonClick" text="Recurring Invoice" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                                        <GridPane.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </GridPane.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
                                     </Button>
-                                    <Button fx:id="invoiceAddButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#invoiceAddClicked" text="Add Invoice" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+                                    <Button id="invButtonStyle" fx:id="invoiceAddButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#invoiceAddClicked" text="Add Invoice" GridPane.columnIndex="4" GridPane.halignment="CENTER">
                                        <GridPane.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </GridPane.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
                                     </Button>
-                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#refresh_clicked" text="Refresh" GridPane.columnIndex="3">
+                                    <Button id="invButtonStyle" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#refresh_clicked" text="Refresh" GridPane.columnIndex="3">
                                        <GridPane.margin>
                                           <Insets left="5.0" right="5.0" />
                                        </GridPane.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
                                     </Button>
                                  </children>
                               </GridPane>
@@ -286,5 +301,6 @@
    </center>
     <stylesheets>
         <URL value="@stylesheets/template.css" />
+        <URL value="@stylesheets/invoicing.css" />
     </stylesheets>
 </BorderPane>
