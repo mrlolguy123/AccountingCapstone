@@ -105,7 +105,7 @@ public class HomePageController extends ParentController {
             resultSet.close();
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throwError("Error refreshing activity. Please try again later.\nSee below error message to troubleshoot:\n" + e.getMessage());
         }
     }
 }

@@ -11,11 +11,14 @@
   <component name="ChangeListManager">
     <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphErrorLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/graphErrorLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/HomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/HomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/scripts/generate_graphs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/homepage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/InvoiceViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/InvoiceViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/ParentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/ParentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/Invoice State Pie Chart.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/generated_graphs/Invoice State Pie Chart.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/Total Expenses.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/generated_graphs/Total Expenses.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/addEditInvoice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/addEditInvoice.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,8 +88,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -148,6 +155,7 @@
       <workItem from="1712257426633" duration="8758000" />
       <workItem from="1712330197194" duration="11919000" />
       <workItem from="1712797297077" duration="4147000" />
+      <workItem from="1713149539327" duration="2731000" />
     </task>
     <servers />
   </component>

@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 /**
  * This class is the controller for the add edit invoice view.
@@ -115,10 +116,6 @@ public class InvoiceViewController extends ParentController {
             saveNewInvoice(event);
         else
             updateInvoice(event);
-        Stage stage = (Stage) date_field.getScene().getWindow();
-        stage.close();
-        grabbed = null;
-        log.info("Invoice saved");
     }
 
     /**
@@ -130,51 +127,83 @@ public class InvoiceViewController extends ParentController {
     private void saveNewInvoice(ActionEvent event) throws SQLException {
         String id = findNextInvID();
         String customer = customer_field.getText();
-        String date = date_field.getValue().toString();
+        String date = date_field.getValue() != null ? date_field.getValue().toString() : "";
         String state = state_field.getValue();
         String recur = recur_field.getText();
-        int recur_result = 0;
         String order = order_field.getText();
         String cust_notes = notes_field.getText();
-        int term = Integer.parseInt(term_field.getText());
-        Double subtotal = Double.parseDouble(subtotal_field.getText());
-        Double discount = Double.parseDouble(discount_field.getText());
-        Double total_tax = Double.parseDouble(total_tax_field.getText());
-        Double total = Double.parseDouble(total_field.getText());
-        Double balance = Double.parseDouble(balance_field.getText());
         String shipping = shipping_field.getText();
         String billing = billing_field.getText();
         String group = group_field.getText();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date_formatted = LocalDate.parse(date, formatter);
-        LocalDate due_date_formatted = date_formatted.plusDays(term);
-        String due_date = due_date_formatted.format(formatter);
 
-        String queryString = "insert into dannyInvoiceRecords values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement ps = con.prepareStatement(queryString);
-        ps.setString(1, date);
-        ps.setString(2, due_date);
-        ps.setString(3, id);
-        ps.setString(4, order);
-        ps.setString(5, customer);
-        ps.setString(6, shipping);
-        ps.setString(7, billing);
-        ps.setString(8, group);
-        ps.setString(9, state);
-        ps.setDouble(10, subtotal);
-        ps.setDouble(11, discount);
-        ps.setDouble(12, total_tax);
-        ps.setDouble(13, total);
-        ps.setDouble(14, balance);
-        ps.setInt(15, term);
-        // if recur is empty or has any non-numeric characters, set to 0
-        if (!(recur.isEmpty() || !recur.matches("[0-9]+"))) {
-            recur_result = Integer.parseInt(recur);
+        if (customer.isEmpty() || date.isEmpty() || state == null || shipping.isEmpty() || billing.isEmpty() || term_field.getText().isEmpty() || subtotal_field.getText().isEmpty() || discount_field.getText().isEmpty() || total_tax_field.getText().isEmpty() || total_field.getText().isEmpty() || balance_field.getText().isEmpty())
+        {
+            throwError("All BOLDED fields must be filled out.");
         }
-        ps.setInt(16, recur_result);
-        ps.setString(17, cust_notes);
 
-        ps.executeUpdate();
+        // Validate numeric fields
+        try {
+            int term = Integer.parseInt(term_field.getText());
+            Double subtotal = Double.parseDouble(subtotal_field.getText());
+            Double discount = Double.parseDouble(discount_field.getText());
+            Double total_tax = Double.parseDouble(total_tax_field.getText());
+            Double total = Double.parseDouble(total_field.getText());
+            Double balance = Double.parseDouble(balance_field.getText());
+
+            LocalDate due_date_formatted = date_formatted.plusDays(term);
+            String due_date = due_date_formatted.format(formatter);
+
+            String queryString = "insert into dannyInvoiceRecords values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(queryString);
+            ps.setString(1, date);
+            ps.setString(2, due_date);
+            ps.setString(3, id);
+            ps.setString(4, order);
+            ps.setString(5, customer);
+            ps.setString(6, shipping);
+            ps.setString(7, billing);
+            ps.setString(8, group);
+            ps.setString(9, state);
+            ps.setDouble(10, subtotal);
+            ps.setDouble(11, discount);
+            ps.setDouble(12, total_tax);
+            ps.setDouble(13, total);
+            ps.setDouble(14, balance);
+            ps.setInt(15, term);
+
+            int recur_result = 0;
+            if(id.contains("R") && !recur.isEmpty()) {
+                if (recur.matches("[0-9]+")) {
+                    recur_result = Integer.parseInt(recur);
+                }
+                else {
+                    throwError("Recurring invoices must have a valid recurring number.");
+                    return;
+                }
+            }
+            if(id.contains("R") && recur.isEmpty()) {
+                throwError("Recurring invoices must have a valid recurring number.");
+                return;
+            }
+
+            ps.setInt(16, recur_result);
+            ps.setString(17, cust_notes);
+
+            ps.executeUpdate();
+
+            Stage stage = (Stage) date_field.getScene().getWindow();
+            stage.close();
+            grabbed = null;
+            log.info("Invoice saved");
+        } catch (NumberFormatException e) {
+            throwError("Numeric fields must contain valid numbers.");
+        } catch (DateTimeParseException e) {
+            throwError("Invalid date format.");
+        } catch (SQLException e) {
+            throwError("There was an issue with your connection. Please try again later.");
+        }
     }
 
     /**
@@ -186,51 +215,75 @@ public class InvoiceViewController extends ParentController {
     private void updateInvoice(ActionEvent event) throws SQLException {
         String id = grabbed.getInv_id();
         String customer = customer_field.getText();
-        String date = date_field.getValue().toString();
+        String date = date_field.getValue() != null ? date_field.getValue().toString() : "";
         String state = state_field.getValue();
         String recur = recur_field.getText();
-        int recur_result = 0;
         String order = order_field.getText();
         String cust_notes = notes_field.getText();
-        int term = Integer.parseInt(term_field.getText());
-        Double subtotal = Double.parseDouble(subtotal_field.getText());
-        Double discount = Double.parseDouble(discount_field.getText());
-        Double total_tax = Double.parseDouble(total_tax_field.getText());
-        Double total = Double.parseDouble(total_field.getText());
-        Double balance = Double.parseDouble(balance_field.getText());
         String shipping = shipping_field.getText();
         String billing = billing_field.getText();
         String group = group_field.getText();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date_formatted = LocalDate.parse(date, formatter);
-        LocalDate due_date_formatted = date_formatted.plusDays(term);
-        String due_date = due_date_formatted.format(formatter);
 
-        String queryString = "update dannyInvoiceRecords set inv_date = ?, inv_due_date = ?, inv_cust_name = ?, inv_order_id = ?, inv_shipping = ?, inv_billing = ?, inv_group = ?, inv_state = ?, inv_subtotal = ?, inv_discount = ?, inv_tax_rate = ?, inv_total = ?, inv_balance = ?, inv_terms = ?, inv_repeat = ?, inv_cust_notes = ? where inv_id = ?";
-        PreparedStatement ps = con.prepareStatement(queryString);
-        ps.setString(1, date);
-        ps.setString(2, due_date);
-        ps.setString(3, customer);
-        ps.setString(4, order);
-        ps.setString(5, shipping);
-        ps.setString(6, billing);
-        ps.setString(7, group);
-        ps.setString(8, state);
-        ps.setDouble(9, subtotal);
-        ps.setDouble(10, discount);
-        ps.setDouble(11, total_tax);
-        ps.setDouble(12, total);
-        ps.setDouble(13, balance);
-        ps.setInt(14, term);
-        // if recur is empty or has any non-numeric characters, set to 0
-        if (!(recur.isEmpty() || !recur.matches("[0-9]+"))) {
-            recur_result = Integer.parseInt(recur);
+        if (customer.isEmpty() || date.isEmpty() || state == null || shipping.isEmpty() || billing.isEmpty() || term_field.getText().isEmpty() || subtotal_field.getText().isEmpty() || discount_field.getText().isEmpty() || total_tax_field.getText().isEmpty() || total_field.getText().isEmpty() || balance_field.getText().isEmpty()) {
+            throwError("All BOLDED fields must be filled out.");
+            return;
         }
-        ps.setInt(15, recur_result);
-        ps.setString(16, cust_notes);
-        ps.setString(17, id);
 
-        ps.executeUpdate();
+        // Validate numeric fields
+        try {
+            int term = Integer.parseInt(term_field.getText());
+            Double subtotal = Double.parseDouble(subtotal_field.getText());
+            Double discount = Double.parseDouble(discount_field.getText());
+            Double total_tax = Double.parseDouble(total_tax_field.getText());
+            Double total = Double.parseDouble(total_field.getText());
+            Double balance = Double.parseDouble(balance_field.getText());
+
+            LocalDate due_date_formatted = date_formatted.plusDays(term);
+            String due_date = due_date_formatted.format(formatter);
+
+            String queryString = "UPDATE dannyInvoiceRecords SET inv_date = ?, inv_due_date = ?, inv_cust_name = ?, inv_order_id = ?, inv_shipping = ?, inv_billing = ?, inv_group = ?, inv_state = ?, inv_subtotal = ?, inv_discount = ?, inv_tax_rate = ?, inv_total = ?, inv_balance = ?, inv_terms = ?, inv_repeat = ?, inv_cust_notes = ? WHERE inv_id = ?";
+            PreparedStatement ps = con.prepareStatement(queryString);
+            ps.setString(1, date);
+            ps.setString(2, due_date);
+            ps.setString(3, customer);
+            ps.setString(4, order);
+            ps.setString(5, shipping);
+            ps.setString(6, billing);
+            ps.setString(7, group);
+            ps.setString(8, state);
+            ps.setDouble(9, subtotal);
+            ps.setDouble(10, discount);
+            ps.setDouble(11, total_tax);
+            ps.setDouble(12, total);
+            ps.setDouble(13, balance);
+            ps.setInt(14, term);
+
+            int recur_result = 0;
+            if (id.contains("R")) {
+                if (recur.isEmpty() || !recur.matches("[0-9]+")) {
+                    throwError("Recurring invoices must have a valid recurring number.");
+                    return;
+                }
+                recur_result = Integer.parseInt(recur);
+            }
+            ps.setInt(15, recur_result);
+            ps.setString(16, cust_notes);
+            ps.setString(17, id);
+
+            ps.executeUpdate();
+
+            Stage stage = (Stage) date_field.getScene().getWindow();
+            stage.close();
+            log.info("Invoice updated");
+        } catch (NumberFormatException e) {
+            throwError("Numeric fields must contain valid numbers.");
+        } catch (DateTimeParseException e) {
+            throwError("Invalid date format.");
+        } catch (SQLException e) {
+            throwError("There was an issue with your connection. Please try again later.");
+        }
     }
 
     /**
@@ -263,18 +316,23 @@ public class InvoiceViewController extends ParentController {
             default -> "";
         };
 
-        String queryString = "select top 1 inv_id from dannyInvoiceRecords where inv_id like ? + '%' order by cast(substring(inv_id, ?, len(inv_id) - ?) as int) desc";
-        PreparedStatement ps = con.prepareStatement(queryString);
-        ps.setString(1, type);
-        ps.setInt(2, adjust + 2);
-        ps.setInt(3, adjust + 1);
+        try {
+            String queryString = "select top 1 inv_id from dannyInvoiceRecords where inv_id like ? + '%' order by cast(substring(inv_id, ?, len(inv_id) - ?) as int) desc";
+            PreparedStatement ps = con.prepareStatement(queryString);
+            ps.setString(1, type);
+            ps.setInt(2, adjust + 2);
+            ps.setInt(3, adjust + 1);
 
-        ResultSet rs = ps.executeQuery();
-        rs.next();
+            ResultSet rs = ps.executeQuery();
+            rs.next();
 
-        int id = Integer.parseInt(rs.getString("inv_id").substring(adjust + 1)) + 1;
-        String lz = String.format("%04d", id);
-        return type + lz;
+            int id = Integer.parseInt(rs.getString("inv_id").substring(adjust + 1)) + 1;
+            String lz = String.format("%04d", id);
+            return type + lz;
+        } catch (SQLException e) {
+            throwError("There was an issue with your connection. Please try again later.");
+            return "";
+        }
     }
 
     /**
@@ -285,17 +343,20 @@ public class InvoiceViewController extends ParentController {
      */
     @FXML
     protected void delete_clicked(ActionEvent event) throws SQLException, IOException {
-        if(grabbed != null)
-        {
-            String id = grabbed.getInv_id();
-            String queryString = "delete from dannyInvoiceRecords where inv_id = ?";
-            PreparedStatement ps = con.prepareStatement(queryString);
-            ps.setString(1, id);
-            ps.executeUpdate();
+        try {
+            if (grabbed != null) {
+                String id = grabbed.getInv_id();
+                String queryString = "delete from dannyInvoiceRecords where inv_id = ?";
+                PreparedStatement ps = con.prepareStatement(queryString);
+                ps.setString(1, id);
+                ps.executeUpdate();
+            }
+            Stage stage = (Stage) date_field.getScene().getWindow();
+            stage.close();
+            grabbed = null;
+            log.info("Invoice deleted");
+        } catch (SQLException e) {
+            throwError("There was an issue with your connection. Please try again later.");
         }
-        Stage stage = (Stage) date_field.getScene().getWindow();
-        stage.close();
-        grabbed = null;
-        log.info("Invoice deleted");
     }
 }
