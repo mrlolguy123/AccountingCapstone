@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 import java.sql.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Logger;
 
@@ -144,21 +146,44 @@ public class cardTransactionsController extends ParentController {
     @FXML
     protected void addTransaction(){
         refreshCardTable();
+        boolean amountValid = false;
+        boolean dateValid = false;
+        String amount = amountText.getText();
+        String date = dateText.getText();
 
-        try {
-            PreparedStatement insertStatement = con.prepareStatement("INSERT INTO dbo.andrewTransactions VALUES (?,?,?,?);");
-            insertStatement.setDate(1, java.sql.Date.valueOf(dateText.getText()));
-            insertStatement.setInt(2, Integer.parseInt(amountText.getText()));
-            insertStatement.setString(3, null);
-            insertStatement.setString(4, card);
-            insertStatement.executeUpdate();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+
+        if((amount.matches("[1-9]+[0-9]*"))){
+            amountValid=true;
         }
-        catch(SQLException e){
-            log.info("Insert into dbo.andrewTransactions in addTransaction failed.");
+        try{
+            Date parsedDate = dateFormat.parse(date);
+            dateValid=true;
+        } catch (ParseException e) {
+            dateValid=false;
         }
 
-        log.info("Insert into dbo.andrewTransaction in addTransaction succeeded.");
+        if(amountValid && dateValid) {
+            try {
+                PreparedStatement insertStatement = con.prepareStatement("INSERT INTO dbo.andrewTransactions VALUES (?,?,?,?);");
+                insertStatement.setDate(1, java.sql.Date.valueOf(dateText.getText()));
+                insertStatement.setInt(2, Integer.parseInt(amountText.getText()));
+                insertStatement.setString(3, null);
+                insertStatement.setString(4, card);
+                insertStatement.executeUpdate();
+                log.info("Insert into dbo.andrewTransaction in addTransaction succeeded.");
 
+            } catch (SQLException e) {
+                log.info("Insert into dbo.andrewTransactions in addTransaction failed.");
+            }
+        }else if(amountValid && !dateValid){
+            throwError("Your Date is not Valid.");
+        } else if(!amountValid && dateValid){
+            throwError("Your Amount is not Valid.");
+        } else if(!amountValid && !dateValid){
+            throwError("Your Amount and Date are not Valid.");
+        }
         refreshCardTable();
     }
 
@@ -170,32 +195,32 @@ public class cardTransactionsController extends ParentController {
     @FXML
     public void initialize(){
         refreshCardTable();
-        cardContext = new ContextMenu();
-        MenuItem cardItem = new MenuItem("Delete");
-        cardContext.getItems().add(cardItem);
-        cardItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                PreparedStatement ps;
-                card = selectedCard.getCardNum();
-
-                try{
-                    ps = con.prepareStatement("Delete FROM dbo.andrewTransactions WHERE cardNum = ?");
-                    ps.setString(1, selectedCard.getCardNum());
-                    ps.execute();
-                }
-                catch(SQLException e){
-                    cardContext.hide();
-                    log.info("Entry deletion in dbo.andrewTransactions in initialize/cardItem failed.");
-                }
-
-                log.info("Entry deletion in dbo.andrewTransactions in initialize/cardItem succeeded.");
-                cardContext.hide();
-                refreshCardTable();
-                log.info("All deletions performed successfully in initialize/cardItem.");
-
-            }
-        });
+//        cardContext = new ContextMenu();
+//        MenuItem cardItem = new MenuItem("Delete");
+//        cardContext.getItems().add(cardItem);
+//        cardItem.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent t) {
+//                PreparedStatement ps;
+//                card = selectedCard.getCardNum();
+//
+//                try{
+//                    ps = con.prepareStatement("Delete FROM dbo.andrewTransactions WHERE cardNum = ?");
+//                    ps.setString(1, selectedCard.getCardNum());
+//                    ps.execute();
+//                }
+//                catch(SQLException e){
+//                    cardContext.hide();
+//                    log.info("Entry deletion in dbo.andrewTransactions in initialize/cardItem failed.");
+//                }
+//
+//                log.info("Entry deletion in dbo.andrewTransactions in initialize/cardItem succeeded.");
+//                cardContext.hide();
+//                refreshCardTable();
+//                log.info("All deletions performed successfully in initialize/cardItem.");
+//
+//            }
+//        });
     }
 
     /**
@@ -205,18 +230,46 @@ public class cardTransactionsController extends ParentController {
     @FXML
     public void editTransaction(MouseEvent mouseEvent){
         if(selectedTransaction!=null){
-            try {
-                PreparedStatement ps = con.prepareStatement("UPDATE dbo.andrewTransactions SET amount = ?, date = ? WHERE transID = ?");
-                ps.setInt(1, Integer.parseInt(amountText.getText()));
-                ps.setDate(2, java.sql.Date.valueOf(dateText.getText()));
-                ps.setInt(3, selectedTransaction.getTransID());
-                ps.execute();
+            boolean amountValid = false;
+            boolean dateValid = false;
+            String amount = amountText.getText();
+            String date = dateText.getText();
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            dateFormat.setLenient(false);
+
+            if((amount.matches("[0-9]*"))){
+                amountValid=true;
+                if(amount.isEmpty()){
+                    amount = String.valueOf(selectedTransaction.getAmount());
+                }
             }
-            catch(SQLException e){
-                log.info("Update in dbo.andrewTransactions in editTransaction failed.");
+            try{
+                Date parsedDate = dateFormat.parse(date);
+                dateValid=true;
+            } catch (ParseException e) {
+                dateValid=false;
             }
 
-            log.info("Update in dbo.andrewTransactions in editTransaction succeeded.");
+            if(amountValid && dateValid) {
+                try {
+                    PreparedStatement ps = con.prepareStatement("UPDATE dbo.andrewTransactions SET amount = ?, date = ? WHERE transID = ?");
+                    ps.setInt(1, Integer.parseInt(amountText.getText()));
+                    ps.setDate(2, java.sql.Date.valueOf(dateText.getText()));
+                    ps.setInt(3, selectedTransaction.getTransID());
+                    ps.execute();
+                    log.info("Update in dbo.andrewTransactions in editTransaction succeeded.");
+                } catch (SQLException e) {
+                    log.info("Update in dbo.andrewTransactions in editTransaction failed.");
+                }
+            }else if(amountValid && !dateValid){
+                throwError("Your Date is not Valid.");
+            } else if(!amountValid && dateValid){
+                throwError("Your Amount is not Valid.");
+            } else if(!amountValid && !dateValid){
+                throwError("Your Amount and Date are not Valid.");
+            }
+
 
             refreshCardTable();
         }

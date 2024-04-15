@@ -29,7 +29,7 @@
       <Text layoutX="565.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="169.13671875" />
       <TextField fx:id="amountText" layoutX="565.0" layoutY="117.0" />
       <Text layoutX="565.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="149.0" />
-      <TextField fx:id="dateText" layoutX="565.0" layoutY="165.0" />
+      <TextField fx:id="dateText" layoutX="565.0" layoutY="165.0" promptText="YYYY-MM-DD" />
       <Button fx:id="EditButton" layoutX="662.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#editTransaction" prefHeight="25.0" prefWidth="52.0" text="Edit" />
    </children>
 </AnchorPane>

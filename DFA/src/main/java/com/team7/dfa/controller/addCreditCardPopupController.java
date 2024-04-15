@@ -41,22 +41,53 @@ public class addCreditCardPopupController extends ParentController{
      */
     @FXML
     protected void confirmClicked(ActionEvent event){
+        boolean cardNumberValid = false;
+        boolean cardExpiryValid = false;
+        boolean cardSecValid = false;
+        String cardNum = cardNumText.getText();
+        String cardExpiry = cardExpiryText.getText();
+        String cardSec = cardSecText.getText();
 
-        try {
-            PreparedStatement insertStatement = con.prepareStatement("INSERT INTO dbo.andrewCardRecord VALUES (?,?,?,?);");
-            insertStatement.setString(1, cardNameText.getText());
-            insertStatement.setString(2, cardNumText.getText());
-            insertStatement.setString(3, cardExpiryText.getText());
-            insertStatement.setString(4, cardSecText.getText());
-            insertStatement.executeUpdate();
+        if((cardNum.length()>15)&&(cardNum.length()<20)&&(cardNum.matches("[0-9]+"))){
+            cardNumberValid=true;
         }
-        catch(SQLException e){
-            log.info("Insert statement into dbo.andrewCardRecord in confirmClicked failed");
+        if((cardExpiry.length()==5)&&(cardExpiry.matches("^(0[1-9]|1[0-2])\\/?([0-9]{2})$"))){
+            cardExpiryValid=true;
         }
+        if((cardSec.length()==3)&&(cardSec.matches("[0-9]{3}"))){
+            cardSecValid=true;
+        }
+        if(cardNumberValid && cardExpiryValid && cardSecValid) {
 
-        Stage stage = (Stage) confirmButton.getScene().getWindow();
-        stage.close();
-        log.info("Insert statement into dbo.andrewCardRecord in confirmClicked successful.");
+            try {
+                PreparedStatement insertStatement = con.prepareStatement("INSERT INTO dbo.andrewCardRecord VALUES (?,?,?,?);");
+                insertStatement.setString(1, cardNameText.getText());
+                insertStatement.setString(2, cardNum);
+                insertStatement.setString(3, cardExpiry);
+                insertStatement.setString(4, cardSec);
+                insertStatement.executeUpdate();
+                log.info("Insert statement into dbo.andrewCardRecord in confirmClicked successful.");
+            } catch (SQLException e) {
+                log.info("Insert statement into dbo.andrewCardRecord in confirmClicked failed");
+            }
+
+            Stage stage = (Stage) confirmButton.getScene().getWindow();
+            stage.close();
+        } else if(cardNumberValid && cardExpiryValid && !cardSecValid){
+            throwError("Your Security Code is not Valid.");
+        } else if(cardNumberValid && !cardExpiryValid && cardSecValid){
+            throwError("Your Expiry Date is not Valid.");
+        } else if(!cardNumberValid && cardExpiryValid && cardSecValid){
+            throwError("Your Card Number is not Valid.");
+        } else if(cardNumberValid && !cardExpiryValid && !cardSecValid){
+            throwError("Your Card Expiry Date and your Card Security Code are not Valid.");
+        } else if(!cardNumberValid && cardExpiryValid && !cardSecValid){
+            throwError("Your Card Number and your Card Security Code are not Valid.");
+        } else if(!cardNumberValid && !cardExpiryValid && cardSecValid){
+            throwError("Your Card Number and your Card Expiry Date are not Valid.");
+        } else if(!cardNumberValid && !cardExpiryValid && !cardSecValid){
+            throwError("Your Card Number, Card Expiry Date, and Card Security Code are not Valid.");
+        }
     }
 
     /**

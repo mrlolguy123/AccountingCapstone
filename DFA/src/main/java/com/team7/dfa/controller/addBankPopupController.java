@@ -39,21 +39,47 @@ public class addBankPopupController extends ParentController{
      */
     @FXML
     protected void confirmClicked(ActionEvent event){
+        boolean accountValid = false;
+        boolean routingValid = false;
+        String accountNum = accountNumText.getText();
+        String routingNum = routingNumText.getText();
 
-        try {
-            PreparedStatement insertStatement = con.prepareStatement("INSERT INTO dbo.andrewBankAccounts VALUES (?,?,?);");
-            insertStatement.setString(1, bankNameText.getText());
-            insertStatement.setString(2, accountNumText.getText());
-            insertStatement.setString(3, routingNumText.getText());
-            insertStatement.executeUpdate();
+        if((!accountNum.isEmpty()) && (accountNum.length()<13) && (accountNum.matches("[0-9]+"))){
+            accountValid = true;
         }
-        catch(SQLException e){
-            log.info("Insert statement into dbo.andrewBankAccounts in confirmClicked failed");
+        if((!routingNum.isEmpty()) && (routingNum.length()<10) && (routingNum.matches("[0-9]+"))) {
+            routingValid = true;
         }
+        if(accountValid && routingValid) {
+            int accountLead = 12-accountNum.length();
+            int routingLead = 12-routingNum.length();
+            String accountLeadString = "0".repeat(accountLead);
+            String routingLeadString = "0".repeat(routingLead);
 
-        Stage stage = (Stage) confirmButton.getScene().getWindow();
-        stage.close();
-        log.info("Insert statement into dbo.andrewBankAccounts in confirmClicked successful.");
+            accountNum = accountLeadString+accountNum;
+            routingNum = routingLeadString+routingNum;
+
+            try {
+                PreparedStatement insertStatement = con.prepareStatement("INSERT INTO dbo.andrewBankAccounts VALUES (?,?,?);");
+                insertStatement.setString(1, bankNameText.getText());
+                insertStatement.setString(2, accountNum);
+                insertStatement.setString(3, routingNum);
+                insertStatement.executeUpdate();
+                log.info("Insert statement into dbo.andrewBankAccounts in confirmClicked successful.");
+            } catch (SQLException e) {
+                log.info("Insert statement into dbo.andrewBankAccounts in confirmClicked failed");
+            }
+
+            Stage stage = (Stage) confirmButton.getScene().getWindow();
+            stage.close();
+
+        } else if(accountValid && !routingValid){
+            throwError("Your Routing Number is not a valid Number.");
+        } else if(!accountValid && routingValid){
+            throwError("Your Account Number is not a valid Number.");
+        } else{
+            throwError("Both your Account Number and Routing Number are not valid Numbers.");
+        }
     }
 
     /**
