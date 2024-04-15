@@ -40,7 +40,13 @@ public class Payment {
     public final StringProperty APPID;
     public final StringProperty APPName;
     public final StringProperty APPPaymentDueDate;
-
+///////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////
+    /**
+     * Define properties for date payment data
+     */
+    public final StringProperty LastPayedDate;
+    public final StringProperty NextPayedDate;
 
 
 
@@ -83,9 +89,24 @@ public class Payment {
         APPID = new SimpleStringProperty(this, "APPID");
         APPName = new SimpleStringProperty(this, "APPName");
         APPPaymentDueDate = new SimpleStringProperty(this, "APPPaymentDueDate");
+        //////////////////////////////////////////////////////////////////////////////
+        /**
+         * Initialize properties for additional payment data for table5
+         */
+        //for date settings data
+        LastPayedDate = new SimpleStringProperty(this, "LastPayedDate");
+        NextPayedDate = new SimpleStringProperty(this, "NextPayedDate");
 
 
     }
+
+    public StringProperty LastPayedDateProperty() { return LastPayedDate; }
+    public String getLastPayedDate() { return LastPayedDate.get(); }
+    public void setLastPayedDate(String newDate) { LastPayedDate.set(newDate); }
+
+    public StringProperty NextPayedDateProperty() { return NextPayedDate; }
+    public String getNextPayedDate() { return NextPayedDate.get(); }
+    public void setNextPayedDate(String newDate) { NextPayedDate.set(newDate); }
 
 
 

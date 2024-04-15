@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.Tab?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.control.TextField?>
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1034.0" stylesheets="@stylesheets/template.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.team7.dfa.controller.PaymentController">
     <left>
         <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="126.0" BorderPane.alignment="CENTER">
@@ -41,7 +39,7 @@
         </AnchorPane>
     </top>
     <center>
-        <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"   >
+        <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
             <children>
                 <TabPane layoutX="-2.0" prefHeight="655.0" prefWidth="912.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
@@ -79,9 +77,11 @@
                                                 <Button fx:id="btnUpdate" layoutX="275.0" layoutY="82.0" mnemonicParsing="false" onAction="#Update" text="Update Employee Details" />
                                                 <Button fx:id="bthDelete" layoutX="276.0" layoutY="129.0" mnemonicParsing="false" onAction="#Delete" text="Terminate Employee Pay" />
                                                 <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add, Update &amp; Terminate Employee Payroll: " />
-                                                <Text layoutX="529.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last date Payed:" />
-                                                <Text layoutX="529.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Next Payment date: " />
+                                                <Text layoutX="539.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last date Payed:" />
+                                                <Text layoutX="529.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Next Payment date: " />
                                                 <TextField fx:id="txtID" layoutX="857.0" layoutY="167.0" prefHeight="0.0" prefWidth="0.0" />
+                                                <Text fx:id="txtLastPayedDate" layoutX="636.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="162.13671875" />
+                                                <Text fx:id="txtNextPayedDate" layoutX="636.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="165.13671875" />
                                             </children>
                                         </Pane>
                                     </children>
