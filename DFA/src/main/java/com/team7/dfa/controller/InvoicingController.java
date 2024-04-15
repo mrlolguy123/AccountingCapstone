@@ -110,6 +110,9 @@ public class InvoicingController extends ParentController {
         fadeIn.play();
     }
 
+    /**
+     * This method is called within initialize to generate the invoicing graph.
+     */
     protected void generateGraph()
     {
         String sqlQuery = "SELECT Month, SUM(total_payable) OVER (ORDER BY month) AS cumulative_payable, SUM(total_receivable) OVER (ORDER BY month) AS cumulative_receivable FROM (SELECT CAST(FORMAT(CONVERT(date, inv_date, 120), 'yyyy-MM') AS varchar(7)) AS month, SUM(CASE WHEN inv_id LIKE 'P[S,D,R]%' THEN inv_total ELSE 0 END) AS total_payable, SUM(CASE WHEN inv_id LIKE '[S,D,R]%' THEN inv_total ELSE 0 END) AS total_receivable FROM dannyInvoiceRecords WHERE inv_id LIKE 'P[S,D,R]%' OR inv_id LIKE '[S,D,R]%' GROUP BY CAST(FORMAT(CONVERT(date, inv_date, 120), 'yyyy-MM') AS varchar(7))) AS monthly_totals ORDER BY month;";
