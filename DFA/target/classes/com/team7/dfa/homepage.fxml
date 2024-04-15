@@ -57,7 +57,7 @@
                                     <DropShadow />
                                  </effect>
                                  <content>
-                                                <ImageView fx:id="profitGraph" pickOnBounds="true" />
+                                                <ImageView fx:id="profitGraphImage" pickOnBounds="true" />
                                  </content>
                                         </ScrollPane>
                                     </children>

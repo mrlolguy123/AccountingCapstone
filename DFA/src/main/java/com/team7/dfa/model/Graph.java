@@ -16,13 +16,15 @@ import java.util.List;
  * "1" - Scatter Plot
  * "2" - Bar Graph
  * "3" - Line Graph
- * "4" = Pie Chart
+ * "3.5" - Double Line Graph
+ * "4" - Pie Chart
  */
 public class Graph {
     private final String sqlCommand; // SQL Command for data retrieval
     private final String graphChoice; // Type of graph to generate
     private final String x_name; // X-axis label in sqlCommand table
     private final String y_name; // Y-axis label in sqlCommand table
+    private final String y2_name; // Y2-axis for label in sqlCommand table
     private final String graphName; // Name of the graph generated
 
     // Paths for Python scripts and generated graphs
@@ -37,14 +39,36 @@ public class Graph {
      * @param graphChoice Type of graph to generate
      * @param x_name X-axis label in sqlCommand table
      * @param y_name Y-axis label in sqlCommand table
+     * @param y2_name Y2-axis label in sqlCommand table
+     * @param graphName Name of the generated graph
+     */
+    public Graph(String sqlCommand, String graphChoice, String x_name, String y_name, String y2_name, String graphName) {
+        this.sqlCommand = sqlCommand;
+        this.graphChoice = graphChoice;
+        this.graphName = graphName;
+        this.x_name = x_name;
+        this.y_name = y_name;
+        this.y2_name = y2_name;
+
+        generateGraph();
+    }
+
+    /**
+     * Constructs a Graph object with specified parameters and generates the graph.
+     * @param sqlCommand SQL command for data retrieval
+     * @param graphChoice Type of graph to generate
+     * @param x_name X-axis label in sqlCommand table
+     * @param y_name Y-axis label in sqlCommand table
      * @param graphName Name of the generated graph
      */
     public Graph(String sqlCommand, String graphChoice, String x_name, String y_name, String graphName) {
         this.sqlCommand = sqlCommand;
         this.graphChoice = graphChoice;
+        this.graphName = graphName;
         this.x_name = x_name;
         this.y_name = y_name;
-        this.graphName = graphName;
+        this.y2_name = "*";
+
         generateGraph();
     }
 
@@ -57,9 +81,11 @@ public class Graph {
     public Graph(String sqlCommand, String col_name, String graphName){
         this.sqlCommand = sqlCommand;
         this.graphChoice = "4"; //4
-        this.x_name = col_name;
-        this.y_name = "";
         this.graphName = graphName;
+        this.x_name = col_name;
+        this.y_name = "*";
+        this.y2_name = "*";
+
         generateGraph();
     }
 
@@ -73,9 +99,11 @@ public class Graph {
             commands.add(pythonScriptPath);
             commands.add(this.sqlCommand);
             commands.add(this.graphChoice);
+            commands.add(this.graphName);
             commands.add(this.x_name);
             commands.add(this.y_name);
-            commands.add(this.graphName);
+            commands.add(this.y2_name);
+
             ProcessBuilder processBuilder = new ProcessBuilder(commands);
             Process process = processBuilder.start();
             process.waitFor();

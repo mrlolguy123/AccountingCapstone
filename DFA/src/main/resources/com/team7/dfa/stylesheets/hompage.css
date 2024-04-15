@@ -1,11 +1,9 @@
-/* General Styles */
 .root {
     -fx-font-family: 'Segoe UI', sans-serif;
     -fx-font-size: 14px;
-    -fx-background-color: #9b9b9b; /* Light grey background */
+    -fx-background-color: #9b9b9b;
 }
 
-/* Container Styles */
 .anchor-pane, .grid-pane {
     -fx-background-color: #000000;
     -fx-border-color: rgba(197, 197, 197, 0);
@@ -14,14 +12,12 @@
     -fx-padding: 10px;
 }
 
-/* GridPane Styles */
 #mainPane {
     -fx-padding: 10px;
     -fx-vgap: 10px;
     -fx-hgap: 10px;
 }
 
-/* Label Styles */
 #titleLabel, #profitHeading, #activityHeading, #expenseHeading, #invoiceHeading {
     -fx-font-size: 18px;
     -fx-font-weight: bold;
@@ -33,7 +29,6 @@
     -fx-text-fill: #333333;
 }
 
-/* Button Styles */
 #generateGraphsButton {
     -fx-background-color: #34485d;
     -fx-text-fill: #ffffff;
@@ -46,14 +41,13 @@
 }
 
 #generateGraphsButton:hover {
-    -fx-background-color: #486c94; /* Darker green */
+    -fx-background-color: #486c94;
 }
 
 #invoiceScroll {
     -fx-border-radius: 10px;
 }
 
-/* ScrollPane Styles */
 .scroll-pane {
     -fx-background-color: #ffffff;
     -fx-border-color: #dcdcdc;
@@ -61,7 +55,6 @@
     -fx-border-radius: 5px;
 }
 
-/* ImageView Styles */
 .image-view {
     -fx-background-color: #ffffff;
     -fx-border-color: #dcdcdc;
@@ -69,7 +62,6 @@
     -fx-border-radius: 5px;
 }
 
-/* ListView Styles */
 #listView {
     -fx-background-color: #ffffff;
     -fx-border-color: #dcdcdc;
