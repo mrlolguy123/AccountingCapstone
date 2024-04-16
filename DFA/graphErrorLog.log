@@ -1129,3 +1129,61 @@ Traceback (most recent call last):
   File "C:\Users\24dan\Documents\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 176, in make_double_line
     raise RuntimeError("An error occurred while making double line graph: %s" % e)
 RuntimeError: An error occurred while making double line graph: Could not interpret value `Month` for `x`. An entry with this name does not appear in `data`.
+2024-04-16 09:46:07,524 - ERROR - An error occurred: An error occurred while making double line graph: Could not interpret value `Month` for `x`. An entry with this name does not appear in `data`.
+Traceback (most recent call last):
+  File "C:\Users\Aman Sahu\Desktop\Capstone 2024\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 168, in make_double_line
+    sns.lineplot(x=x_name, y=y_name, data=df, label=y_name)
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\relational.py", line 485, in lineplot
+    p = _LinePlotter(
+        ^^^^^^^^^^^^^
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\relational.py", line 216, in __init__
+    super().__init__(data=data, variables=variables)
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\_base.py", line 634, in __init__
+    self.assign_variables(data, variables)
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\_base.py", line 679, in assign_variables
+    plot_data = PlotData(data, variables)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\_core\data.py", line 58, in __init__
+    frame, names, ids = self._assign_variables(data, variables)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\_core\data.py", line 232, in _assign_variables
+    raise ValueError(err)
+ValueError: Could not interpret value `Month` for `x`. An entry with this name does not appear in `data`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Aman Sahu\Desktop\Capstone 2024\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 233, in <module>
+    make_double_line(getDataFrame(str(sql_statement)), str(graph_name), 7, 14, graph_x_name, graph_y_name, graph_y2_name)
+  File "C:\Users\Aman Sahu\Desktop\Capstone 2024\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 176, in make_double_line
+    raise RuntimeError("An error occurred while making double line graph: %s" % e)
+RuntimeError: An error occurred while making double line graph: Could not interpret value `Month` for `x`. An entry with this name does not appear in `data`.
+2024-04-16 09:46:39,905 - ERROR - An error occurred: An error occurred while making double line graph: Could not interpret value `Month` for `x`. An entry with this name does not appear in `data`.
+Traceback (most recent call last):
+  File "C:\Users\Aman Sahu\Desktop\Capstone 2024\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 168, in make_double_line
+    sns.lineplot(x=x_name, y=y_name, data=df, label=y_name)
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\relational.py", line 485, in lineplot
+    p = _LinePlotter(
+        ^^^^^^^^^^^^^
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\relational.py", line 216, in __init__
+    super().__init__(data=data, variables=variables)
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\_base.py", line 634, in __init__
+    self.assign_variables(data, variables)
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\_base.py", line 679, in assign_variables
+    plot_data = PlotData(data, variables)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\_core\data.py", line 58, in __init__
+    frame, names, ids = self._assign_variables(data, variables)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aman Sahu\AppData\Local\Programs\Python\Python312\Lib\site-packages\seaborn\_core\data.py", line 232, in _assign_variables
+    raise ValueError(err)
+ValueError: Could not interpret value `Month` for `x`. An entry with this name does not appear in `data`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Aman Sahu\Desktop\Capstone 2024\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 233, in <module>
+    make_double_line(getDataFrame(str(sql_statement)), str(graph_name), 7, 14, graph_x_name, graph_y_name, graph_y2_name)
+  File "C:\Users\Aman Sahu\Desktop\Capstone 2024\AccountingCapstone\DFA\src\main\python\scripts\generate_graphs.py", line 176, in make_double_line
+    raise RuntimeError("An error occurred while making double line graph: %s" % e)
+RuntimeError: An error occurred while making double line graph: Could not interpret value `Month` for `x`. An entry with this name does not appear in `data`.

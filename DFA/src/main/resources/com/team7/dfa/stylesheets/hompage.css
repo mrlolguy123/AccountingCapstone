@@ -12,10 +12,16 @@
     -fx-padding: 10px;
 }
 
+#backgroundImagePane{
+    -fx-background-image: url("../stylesheets/backgrounds/home_background.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+}
+
 #mainPane {
     -fx-padding: 10px;
-    -fx-vgap: 10px;
-    -fx-hgap: 10px;
+    -fx-vgap: 2px;
+    -fx-hgap: 2px;
 }
 
 #titleLabel, #profitHeading, #activityHeading, #expenseHeading, #invoiceHeading {
