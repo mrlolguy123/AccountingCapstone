@@ -74,6 +74,7 @@ public class TreasuryDashboardController extends ParentController {
     @FXML
     protected void addCreditCardClicked(ActionEvent event){
         Stage creditCardWindow = new Stage();
+        loadIcon(creditCardWindow);
         creditCardWindow.setTitle("Add New Credit Card");
         FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addCreditCardPopup.fxml"));
         try{
@@ -95,6 +96,7 @@ public class TreasuryDashboardController extends ParentController {
     @FXML
     protected void addBankClicked(ActionEvent event){
         Stage bankWindow = new Stage();
+        loadIcon(bankWindow);
         bankWindow.setTitle("Add New Bank Account");
         FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("addBankPopup.fxml"));
         try{
@@ -142,6 +144,7 @@ public class TreasuryDashboardController extends ParentController {
             {
                 selectedAccount = bankTable.getSelectionModel().getSelectedItem();
                 Stage creditCardWindow = new Stage();
+                loadIcon(creditCardWindow);
                 creditCardWindow.setTitle("Bank Account Transaction List");
                 FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("bankAccountTransactions.fxml"));
                 try{
@@ -173,6 +176,7 @@ public class TreasuryDashboardController extends ParentController {
             if (event.getClickCount() == 2) {
                 selectedCard = cardTable.getSelectionModel().getSelectedItem();
                 Stage creditCardWindow = new Stage();
+                loadIcon(creditCardWindow);
                 creditCardWindow.setTitle("Credit Card Transaction List");
                 FXMLLoader loader = new FXMLLoader(TemplateTestApplication.class.getResource("cardTransactions.fxml"));
                 try{

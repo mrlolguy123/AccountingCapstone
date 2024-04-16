@@ -345,6 +345,7 @@ public class InvoicingController extends ParentController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setTitle("Invoice");
+        loadIcon(stage);
         stage.show();
     }
 
@@ -369,6 +370,7 @@ public class InvoicingController extends ParentController {
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.setTitle("Invoice");
+                loadIcon(stage);
                 stage.show();
             }
         }
