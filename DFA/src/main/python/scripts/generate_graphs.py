@@ -225,7 +225,6 @@ if __name__ == '__main__':
         elif graph_choice == 3:
             make_line(getDataFrame(str(sql_statement)), str(graph_name), 7, 14, graph_x_name, graph_y_name)
 
-
         elif graph_choice == 4 and graph_y_name == "*" and graph_y2_name == "*":
             make_pie_chart(getDataFrame(str(sql_statement)), str(graph_name), 6, 12, graph_x_name)
 

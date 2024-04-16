@@ -16,8 +16,8 @@ import java.util.List;
  * "1" - Scatter Plot
  * "2" - Bar Graph
  * "3" - Line Graph
- * "3.5" - Double Line Graph
  * "4" - Pie Chart
+ * "5" - Double Line Graph
  */
 public class Graph {
     private final String sqlCommand; // SQL Command for data retrieval
