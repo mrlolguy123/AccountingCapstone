@@ -10,13 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphErrorLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/graphErrorLog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/Invoice State Pie Chart.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/generated_graphs/Invoice State Pie Chart.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/Total Expenses.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/generated_graphs/Total Expenses.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/homepage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/stylesheets/hompage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/team7/dfa/stylesheets/hompage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/team7/dfa/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/team7/dfa/homepage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,7 +224,7 @@
       <workItem from="1713154113628" duration="864000" />
       <workItem from="1713189896453" duration="790000" />
       <workItem from="1713193065289" duration="573000" />
-      <workItem from="1713274299395" duration="1432000" />
+      <workItem from="1713274299395" duration="3081000" />
     </task>
     <servers />
   </component>
