@@ -9,10 +9,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.util.logging.Logger;
 
@@ -26,6 +28,9 @@ public class ParentController {
     Connection con = db.connect();
 
     static Logger log = null;
+
+    @FXML
+    private AnchorPane contentPane;
 
     static {
         System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
@@ -65,6 +70,8 @@ public class ParentController {
         alert.setTitle("Accounting");
         alert.setHeaderText("Under Construction...");
         alert.setContentText("This feature is not currently available. Please check back later.");
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        loadIcon(stage);
         alert.showAndWait();
     }
 
@@ -124,14 +131,39 @@ public class ParentController {
 
         previousStage.close();
 
+        URL iconURL = TemplateTestApplication.class.getResource("icon.png");
+        assert iconURL != null;
+        Image icon = new Image(iconURL.toString());
+
+        newStage.getIcons().add(icon);
         newStage.show();
+
     }
 
+    /**
+     * This method is called when an error occurs.
+     * It displays an error message to the user.
+     * @param message The error message to display
+     */
     protected void throwError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("Error");
         alert.setContentText(message);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        loadIcon(stage);
         alert.showAndWait();
+    }
+
+    /**
+     * This method is called to set the app icon of the stage.
+     * @param stage The stage to set the icon for
+     */
+    protected void loadIcon(Stage stage)
+    {
+        URL iconURL = TemplateTestApplication.class.getResource("icon.png");
+        assert iconURL != null;
+        Image icon = new Image(iconURL.toString());
+        stage.getIcons().add(icon);
     }
 }
