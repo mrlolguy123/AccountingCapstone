@@ -97,14 +97,18 @@ public class HomePageController extends ParentController {
     }
 
     private void refreshActivity() {
-        log.info("Refreshing Activity!");
+        log.info("Refreshing Activity");
         refreshListView();
     }
 
     private void refreshListView () {
         try {
-            String sqlQuery = "SELECT CONCAT(log_inv_id, ' ', log_desc, ' on ', FORMAT(log_updated, 'yyyy-MM-dd')) AS TableInfo " +
-                    "FROM invoiceLog;";
+            String sqlQuery = "SELECT CONCAT(t.name, ' : ', SUM(p.rows), ' items') AS TableInfo " +
+                    "FROM sys.tables t " +
+                    "INNER JOIN sys.partitions p ON t.object_id = p.object_id " +
+                    "WHERE t.is_ms_shipped = 0 AND p.index_id IN (0, 1) " +
+                    "GROUP BY t.name " +
+                    "ORDER BY SUM(p.rows) DESC";
 
             PreparedStatement statement = conn.prepareStatement(sqlQuery);
             ResultSet resultSet = statement.executeQuery();

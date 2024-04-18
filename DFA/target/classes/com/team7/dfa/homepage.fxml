@@ -86,7 +86,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" />
                            </padding>
                                   </AnchorPane>
-                                  <Label fx:id="activityHeading" alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="1.0" prefHeight="27.0" prefWidth="261.0" text="Recent Invoice Activity" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="1.0" />
+                                  <Label fx:id="activityHeading" alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="1.0" prefHeight="27.0" prefWidth="261.0" text="Recent Activity" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="1.0" />
                             </children>
                         </AnchorPane>
                         <AnchorPane fx:id="expenseAnchor" GridPane.rowIndex="1">
