@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -284,6 +285,8 @@ public class PaymentController extends ParentController implements Initializable
             }
 
             FillTable3(employeeID, Name, Job, Salary, NetPay);
+            FillTableGraphData(employeeID, Name, Job, Salary, NetPay);
+
         }
         catch (SQLException ex)
         {
@@ -292,7 +295,30 @@ public class PaymentController extends ParentController implements Initializable
 
     }
 
+    public void FillTableGraphData(int employeeID, String Name,String Job,String Salary,String NetPay){
+        //System.out.println(Name);
+        String ID =Integer.toString(employeeID);
+        BigDecimal DecimalSalary = new BigDecimal(Salary);
+        BigDecimal DecimalNetPay = new BigDecimal(NetPay);
 
+        try
+        {
+
+            pst = con.prepareStatement("INSERT INTO rohanPayrollGraphData (ID,Name,Job,Salary,NetPay)values(?,?,?,?,?)");
+            pst.setInt(1, employeeID);
+            pst.setString(2, Name);
+            pst.setString(3, Job);
+            pst.setBigDecimal(4, DecimalSalary);
+            pst.setBigDecimal(5, DecimalNetPay);
+            pst.executeUpdate();
+
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     /**
      * This method is called when an new employee is added into rohanPayroll table. It also adds the employee into rohanPayStatus to keep track of payment status for employee.
@@ -654,6 +680,21 @@ public class PaymentController extends ParentController implements Initializable
             System.out.println("didnt delete from rohanPayStatus");
         }
 
+        try
+        {
+            //System.out.println("!!!!!!!!!!"+txtID.getText());
+            //String tempID = txtID.getText();
+            pst = con.prepareStatement("delete from rohanPayrollGraphData where ID = ?" );
+            pst.setInt(1, id);
+            pst.executeUpdate();
+
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("didnt delete from rohanPayStatus");
+        }
+
 
     }
 
@@ -737,6 +778,28 @@ public class PaymentController extends ParentController implements Initializable
         {
             Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("didnt Update from rohanPayStatus");
+        }
+
+        try
+        {
+            BigDecimal DecimalSalary = new BigDecimal(Salary);
+            BigDecimal DecimalNetPay = new BigDecimal(NetPay);
+
+
+            pst = con.prepareStatement("update rohanPayrollGraphData set Name = ? ,Job = ?, Salary = ? , NetPay = ?  where ID = ? ");
+            pst.setString(1, Name);
+            pst.setString(2, Job);
+            pst.setBigDecimal(3, DecimalSalary);
+            pst.setBigDecimal(4, DecimalNetPay);
+            pst.setInt(5, id);
+            pst.executeUpdate();
+
+
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("didnt Update from rohanPayGraphData");
         }
 
     }
