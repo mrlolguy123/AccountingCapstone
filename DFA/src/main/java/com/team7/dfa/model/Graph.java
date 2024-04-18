@@ -98,8 +98,8 @@ public class Graph {
         try{
             List<String> commands = new ArrayList<>();
             commands.add("python");
-//            commands.add(pythonScriptPath);
-            commands.add(pythonOutScriptPath);
+            commands.add(pythonScriptPath);
+//            commands.add(pythonOutScriptPath);
             commands.add(this.sqlCommand);
             commands.add(this.graphChoice);
             commands.add(this.graphName);
@@ -121,7 +121,7 @@ public class Graph {
      * @param graph_image ImageView component to display the graph image
      */
     public void updateGraphImage(ImageView graph_image) {
-//        graph_image.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + this.graphName + ".png"));
-        graph_image.setImage(new Image("file:///"+ graphOutWD + File.separator + this.graphName + ".png"));
+        graph_image.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + this.graphName + ".png"));
+//        graph_image.setImage(new Image("file:///"+ graphOutWD + File.separator + this.graphName + ".png"));
     }
 }
