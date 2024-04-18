@@ -14,6 +14,9 @@ import javafx.scene.text.Text;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,8 +31,8 @@ public class PaymentController extends ParentController implements Initializable
      * It contains the methods that are used to update all payment table views and contains add,update,delete and pay employee from company payroll.
      */
 
-    @FXML
-    private Button BtnDownload;
+    //@FXML
+    //private Button BtnDownload;
     @FXML
     private TableView<Payment> table5;
 
@@ -135,8 +138,8 @@ public class PaymentController extends ParentController implements Initializable
     @FXML
     private TableView<Payment> SalaryTable;
 
-    @FXML
-    private TextField txtPayName;
+    //@FXML
+    //private TextField txtPayName;
 
     @FXML
     private Button btnPPPay;
@@ -197,8 +200,8 @@ public class PaymentController extends ParentController implements Initializable
     @FXML
     private TextField txtHoursWorked;
 
-    @FXML
-    private TextField txtID;
+    //@FXML
+    //private TextField txtID;
 
     @FXML
     private TextField txtJob;
@@ -232,9 +235,11 @@ public class PaymentController extends ParentController implements Initializable
         Deductions  = "0";
         NetPay = "9000";
         float SalFloat = Float.parseFloat(Salary);;
-        float calcTax = (SalFloat / 100) * 8;
-        Deductions = String.valueOf(calcTax);
-        NetPay = String.valueOf(SalFloat - calcTax);
+        float calcTaxSocial = (float) ((SalFloat / 100) * 6.2);
+        float calcTax2Medi = (float) ((SalFloat / 100) * 1.45);
+
+        Deductions = String.valueOf(calcTaxSocial + calcTax2Medi );
+        NetPay = String.valueOf(SalFloat - calcTaxSocial - calcTax2Medi);
         int employeeID=0;
 
         try
@@ -250,9 +255,9 @@ public class PaymentController extends ParentController implements Initializable
             pst.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Employee Registation");
-            alert.setHeaderText("Employee Payroll");
-            alert.setContentText("Record Addedddd!");
+            alert.setTitle("Employee Added");
+            alert.setHeaderText("Employee Added to Payroll");
+            alert.setContentText("Record Added!");
             alert.showAndWait();
             table();
             table3();
@@ -641,16 +646,16 @@ public class PaymentController extends ParentController implements Initializable
         try
         {
             //System.out.println("!!!!!!!!!!"+txtID.getText());
-            String tempID = txtID.getText();
+            //String tempID = txtID.getText();
             pst = con.prepareStatement("delete from rohanPayroll where id = ?" );
             pst.setInt(1, id);
             pst.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("employee payroll delete");
+            alert.setTitle("Employee Payroll Delete");
 
-            alert.setHeaderText("employee registration");
-            alert.setContentText("Deleted!");
+            alert.setHeaderText("Employees List Updated");
+            alert.setContentText("Deleted Employee!");
             alert.showAndWait();
             table();
         }
@@ -744,7 +749,7 @@ public class PaymentController extends ParentController implements Initializable
             alert.setTitle("Employee Update");
 
             alert.setHeaderText("Employee Updated");
-            alert.setContentText("Updated!");
+            alert.setContentText("Updated Employee!");
             alert.showAndWait();
             table();
             table3();
@@ -829,7 +834,7 @@ public class PaymentController extends ParentController implements Initializable
         Float NewOwe = Float.parseFloat(Owe) - Float.parseFloat(AmountTransfer);
         String NNewOwe = Float.toString(NewOwe);
         LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         String formattedDate = currentDate.format(formatter);
         LastPayDate = formattedDate;
 
@@ -851,8 +856,8 @@ public class PaymentController extends ParentController implements Initializable
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Payment Payroll");
 
-            alert.setHeaderText("Employee Payed");
-            alert.setContentText("Money Transfered!");
+            alert.setHeaderText("Employee Paid");
+            alert.setContentText("Money Transferred!");
             alert.showAndWait();
             table3();
 
@@ -887,13 +892,15 @@ public class PaymentController extends ParentController implements Initializable
 
     }
 
-
+/*
     @FXML
     void DownloadTable5(ActionEvent event) {
 
         System.out.println("Downloading data");
 
     }
+
+ */
 
 
     public void DateUpdate()
@@ -928,6 +935,101 @@ public class PaymentController extends ParentController implements Initializable
 
 
     }
+
+
+    public void CheckDate()
+    {
+
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        String CurrDate = currentDate.format(formatter);
+
+        LocalDate dueDate = currentDate.plusWeeks(2);
+        String dueDateString = dueDate.format(formatter);
+
+
+        String LastPayedDate = txtLastPayedDate.getText();
+        String NextPayedDate = txtNextPayedDate.getText();
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+
+        LastPayedDate = addLeadingZero(LastPayedDate);
+        NextPayedDate = addLeadingZero(NextPayedDate);
+        CurrDate = addLeadingZero(CurrDate);
+
+        System.out.println("Last: " + LastPayedDate);
+        System.out.println("Next: " + NextPayedDate);
+        System.out.println("Curr: " + CurrDate);
+        try
+        {
+
+
+            java.util.Date date1 =  dateFormat.parse(LastPayedDate);
+            java.util.Date date2 =  dateFormat.parse(NextPayedDate);
+            java.util.Date currDate1 = dateFormat.parse(CurrDate);
+
+
+            // Compare dates
+            if (currDate1.compareTo(date2) > 0)
+            {
+                System.out.println(currDate1 + " is after " + date2);
+
+                try
+                {
+
+                    pst = con.prepareStatement("UPDATE rohanPayrollDateSettings SET PrevDueDate = ?, NextDueDate = ? ");
+                    pst.setString(1, LastPayedDate);
+                    pst.setString(2, dueDateString);
+                    pst.executeUpdate();
+
+                    txtLastPayedDate.setText(LastPayedDate);
+                    txtNextPayedDate.setText(dueDateString);
+
+
+
+
+                    pst = con.prepareStatement("update rohanPayStatus set DueDate = ?, Status = ? where Status = ? or Status = ?");
+                    pst.setString(1, dueDateString);
+                    pst.setString(2, "Not Payed");
+                    pst.setString(3, "Payed");
+                    pst.setString(4, "Not Payed");
+                    pst.executeUpdate();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("New Payment Period Started");
+                    alert.setHeaderText("New Payment Period has started");
+                    alert.setContentText("A new 2 week window for new payroll has started. We have automatically payed all unpaid employees");
+                    alert.showAndWait();
+
+
+                    pst = con.prepareStatement("UPDATE rohanPayStatus SET Owed = NetPay WHERE Status = 'Not payed'");
+                    pst.executeUpdate();
+                    table3();
+                    table4();
+                    table2();
+
+                }
+                catch (SQLException ex)
+                {
+                    Logger.getLogger(ParentController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    private static String addLeadingZero(String dateString) {
+        String[] parts = dateString.split("/");
+        if (parts[0].length() == 1) {
+            parts[0] = "0" + parts[0];
+        }
+        return String.join("/", parts);
+    }
+
 
     //@FXML
     //void logoutClicked(ActionEvent event) {
@@ -967,6 +1069,7 @@ public class PaymentController extends ParentController implements Initializable
         table2();
         table4();
         table5();
+        CheckDate();
 
 
     }
