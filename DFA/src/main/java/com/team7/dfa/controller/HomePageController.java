@@ -40,7 +40,7 @@ public class HomePageController extends ParentController {
     private ImageView expenseGraphImage;
 
     @FXML
-    private ImageView profitGraphImage;
+    private ImageView transactionGraphImage;
 
     @FXML
     private ListView<String> listView;
@@ -70,7 +70,14 @@ public class HomePageController extends ParentController {
                     "Invoice State Pie Chart");
             invoiceGraph.updateGraphImage(invoiceFlowGraphImage);
 
-            Graph expenseGraph = new Graph("SELECT 'Employees Net Pay' AS \"category\", SUM(CAST(rp.NetPay AS DECIMAL(10, 2))) AS \"total\" FROM rohanPayroll rp JOIN dannyInvoiceRecords di ON di.inv_ID LIKE '%P%' WHERE di.inv_total > 0 UNION ALL SELECT 'Payable Invoices' AS \"category\", SUM(di.inv_total) AS \"total\" FROM dannyInvoiceRecords di WHERE di.inv_ID LIKE '%P%' AND di.inv_total > 0;",
+            Graph expenseGraph = new Graph("SELECT 'Employees Net Pay' AS \"category\", SUM(rp.Salary) AS \"total\" " +
+                    "FROM rohanPayrollGraphData rp " +
+                    "JOIN dannyInvoiceRecords di ON di.inv_ID LIKE '%P%' " +
+                    "WHERE di.inv_total > 0 " +
+                    "UNION ALL " +
+                    "SELECT 'Payable Invoices' AS \"category\", SUM(di.inv_total) AS \"total\" " +
+                    "FROM dannyInvoiceRecords di " +
+                    "WHERE di.inv_ID LIKE '%P%' AND di.inv_total > 0;",
                     "2",
                     "category",
                     "total",
@@ -78,12 +85,19 @@ public class HomePageController extends ParentController {
                     );
             expenseGraph.updateGraphImage(expenseGraphImage);
 
+            Graph transactionGraph = new Graph("SELECT FORMAT(CONVERT(date, date), 'MMMM d') AS \"date\", SUM(amount) AS \"amount\" FROM andrewTransactions GROUP BY date;",
+                    "3",
+                    "date",
+                    "amount",
+                    "Total Transactions");
+            transactionGraph.updateGraphImage(transactionGraphImage);
+
             refreshActivity();
 
     }
 
     private void refreshActivity() {
-        log.info("Refreshing Activity!");
+        log.info("Refreshing Activity");
         refreshListView();
     }
 
@@ -99,7 +113,6 @@ public class HomePageController extends ParentController {
             PreparedStatement statement = conn.prepareStatement(sqlQuery);
             ResultSet resultSet = statement.executeQuery();
 
-            // Populate ListView with query results
             ObservableList<String> tableInfoList = FXCollections.observableArrayList();
             while (resultSet.next()) {
                 tableInfoList.add(resultSet.getString("TableInfo"));
