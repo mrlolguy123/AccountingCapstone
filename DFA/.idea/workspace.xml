@@ -12,7 +12,11 @@
     <list default="true" id="43160bd3-a13c-458d-93ea-58786279e4d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/team7/dfa/model/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/Invoice State Pie Chart.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/generated_graphs/Invoice State Pie Chart.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/Total Expenses.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/generated_graphs/Total Expenses.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/generated_graphs/Total Transactions.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/generated_graphs/Total Transactions.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +70,6 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -95,6 +98,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.22413793",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -340,6 +346,7 @@
       <workItem from="1713303138511" duration="378000" />
       <workItem from="1713311228231" duration="228000" />
       <workItem from="1713413269901" duration="2453000" />
+      <workItem from="1713439892547" duration="3953000" />
     </task>
     <servers />
   </component>

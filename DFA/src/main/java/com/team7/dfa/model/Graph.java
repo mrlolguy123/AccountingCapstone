@@ -31,6 +31,8 @@ public class Graph {
     public String currentDir = Paths.get("").toAbsolutePath().toString();
     public String pythonScriptPath = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "scripts" + File.separator + "generate_graphs.py";
     public String graphWorkingDirectory = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "python" + File.separator + "generated_graphs";
+    public String pythonOutScriptPath = currentDir + File.separator + "scripts" + "generate_graphs.py";
+    public String graphOutWD = currentDir + File.separator + "generated_graphs";
 
 
     /**
@@ -96,7 +98,8 @@ public class Graph {
         try{
             List<String> commands = new ArrayList<>();
             commands.add("python");
-            commands.add(pythonScriptPath);
+//            commands.add(pythonScriptPath);
+            commands.add(pythonOutScriptPath);
             commands.add(this.sqlCommand);
             commands.add(this.graphChoice);
             commands.add(this.graphName);
@@ -118,6 +121,7 @@ public class Graph {
      * @param graph_image ImageView component to display the graph image
      */
     public void updateGraphImage(ImageView graph_image) {
-        graph_image.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + this.graphName + ".png"));
+//        graph_image.setImage(new Image("file:///"+ graphWorkingDirectory + File.separator + this.graphName + ".png"));
+        graph_image.setImage(new Image("file:///"+ graphOutWD + File.separator + this.graphName + ".png"));
     }
 }
