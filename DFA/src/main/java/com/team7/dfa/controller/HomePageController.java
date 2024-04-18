@@ -70,7 +70,14 @@ public class HomePageController extends ParentController {
                     "Invoice State Pie Chart");
             invoiceGraph.updateGraphImage(invoiceFlowGraphImage);
 
-            Graph expenseGraph = new Graph("SELECT 'Employees Net Pay' AS \"category\", SUM(CAST(rp.NetPay AS DECIMAL(10, 2))) AS \"total\" FROM rohanPayroll rp JOIN dannyInvoiceRecords di ON di.inv_ID LIKE '%P%' WHERE di.inv_total > 0 UNION ALL SELECT 'Payable Invoices' AS \"category\", SUM(di.inv_total) AS \"total\" FROM dannyInvoiceRecords di WHERE di.inv_ID LIKE '%P%' AND di.inv_total > 0;",
+            Graph expenseGraph = new Graph("SELECT 'Employees Net Pay' AS \"category\", SUM(rp.Salary) AS \"total\" " +
+                    "FROM rohanPayrollGraphData rp " +
+                    "JOIN dannyInvoiceRecords di ON di.inv_ID LIKE '%P%' " +
+                    "WHERE di.inv_total > 0 " +
+                    "UNION ALL " +
+                    "SELECT 'Payable Invoices' AS \"category\", SUM(di.inv_total) AS \"total\" " +
+                    "FROM dannyInvoiceRecords di " +
+                    "WHERE di.inv_ID LIKE '%P%' AND di.inv_total > 0;",
                     "2",
                     "category",
                     "total",
