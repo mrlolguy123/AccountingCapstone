@@ -132,12 +132,13 @@ def make_line(df, name, height, width, x_name, y_name):
     """
     try:
         plt.figure(figsize=(width, height))
-        sns.set_style("white")
+        sns.set_palette("flare")
+        sns.set_style("dark")
         sns.lineplot(x=x_name, y=y_name, data=df)
         plt.xlabel(x_name)
         plt.ylabel(y_name)
         plt.title(name)
-        plt.savefig(graphPathDirectory() + name + ".png", dpi=100)
+        plt.savefig(graphPathDirectory() + name + ".png", dpi=70)
     except Exception as e:
         raise RuntimeError("An error occurred while making line graph: %s" % e)
 
@@ -164,7 +165,7 @@ def make_double_line(df, name, height, width, x_name, y_name, y2_name):
     try:
         plt.figure(figsize=(width, height))
         sns.set_palette("flare")
-        sns.set_style("white")
+        sns.set_style("dark")
         sns.lineplot(x=x_name, y=y_name, data=df, label=y_name)
         sns.lineplot(x=x_name, y=y2_name, data=df, label=y2_name)
         plt.xlabel(x_name)
@@ -212,6 +213,7 @@ def make_pie_chart(df, name, height, width, x_name):
         plt.savefig(graphPathDirectory() + name + ".png", dpi=80)
     except Exception as e:
         raise RuntimeError("An error occurred while making pie chart: %s" % e)
+
 
 
 if __name__ == '__main__':

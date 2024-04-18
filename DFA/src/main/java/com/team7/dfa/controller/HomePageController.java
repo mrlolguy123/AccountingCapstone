@@ -40,7 +40,7 @@ public class HomePageController extends ParentController {
     private ImageView expenseGraphImage;
 
     @FXML
-    private ImageView profitGraphImage;
+    private ImageView transactionGraphImage;
 
     @FXML
     private ListView<String> listView;
@@ -78,6 +78,13 @@ public class HomePageController extends ParentController {
                     );
             expenseGraph.updateGraphImage(expenseGraphImage);
 
+            Graph transactionGraph = new Graph("SELECT FORMAT(CONVERT(date, date), 'MMMM d') AS \"date\", SUM(amount) AS \"amount\" FROM andrewTransactions GROUP BY date;",
+                    "3",
+                    "date",
+                    "amount",
+                    "Total Transactions");
+            transactionGraph.updateGraphImage(transactionGraphImage);
+
             refreshActivity();
 
     }
@@ -89,17 +96,12 @@ public class HomePageController extends ParentController {
 
     private void refreshListView () {
         try {
-            String sqlQuery = "SELECT CONCAT(t.name, ' : ', SUM(p.rows), ' items') AS TableInfo " +
-                    "FROM sys.tables t " +
-                    "INNER JOIN sys.partitions p ON t.object_id = p.object_id " +
-                    "WHERE t.is_ms_shipped = 0 AND p.index_id IN (0, 1) " +
-                    "GROUP BY t.name " +
-                    "ORDER BY SUM(p.rows) DESC";
+            String sqlQuery = "SELECT CONCAT(log_inv_id, ' ', log_desc, ' on ', FORMAT(log_updated, 'yyyy-MM-dd')) AS TableInfo " +
+                    "FROM invoiceLog;";
 
             PreparedStatement statement = conn.prepareStatement(sqlQuery);
             ResultSet resultSet = statement.executeQuery();
 
-            // Populate ListView with query results
             ObservableList<String> tableInfoList = FXCollections.observableArrayList();
             while (resultSet.next()) {
                 tableInfoList.add(resultSet.getString("TableInfo"));
